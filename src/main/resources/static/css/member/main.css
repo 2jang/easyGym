@@ -61,7 +61,7 @@ input::-moz-focus-inner {
 	padding: 0;
 }
 
-input, select, textarea {
+select, textarea {
 	-moz-appearance: none;
 	-webkit-appearance: none;
 	-ms-appearance: none;
@@ -107,7 +107,7 @@ input, select, textarea {
 		-webkit-transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out, background-color 0.2s ease-in-out;
 		-ms-transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out, background-color 0.2s ease-in-out;
 		transition: color 0.2s ease-in-out, border-color 0.2s ease-in-out, background-color 0.2s ease-in-out;
-		color: #3fb1a3;
+		color: #000000;
 		text-decoration: none;
 		border-bottom: dotted 1px;
 	}
@@ -1780,6 +1780,10 @@ input, select, textarea {
 		padding-top: 3em;
 	}
 
+#update-info .passwordcheck {
+   width: 50%;
+}
+
 /* Form */
 
 	input[type="text"],
@@ -2068,7 +2072,7 @@ input, select, textarea {
 	}
 
 		ul.buttons:last-child {
-			margin-bottom: 0;
+			margin-bottom: 0px;
 		}
 
 		ul.buttons li {
@@ -2142,7 +2146,6 @@ input, select, textarea {
 		font-size: 0.8em;
 		font-weight: 900;
 		letter-spacing: 2px;
-		min-width: 18em;
 		padding: 0 0.75em;
 		line-height: 3.75em;
 		text-align: center;
@@ -2774,7 +2777,7 @@ input, select, textarea {
 			}
 
 			footer.major {
-				padding-top: 1.5em;
+				padding-top: 0.5em;
 			}
 
 		/* Wrapper */

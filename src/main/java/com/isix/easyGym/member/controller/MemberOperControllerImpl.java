@@ -43,12 +43,13 @@ public class MemberOperControllerImpl implements MemberOperController {
 			HttpServletResponse response) throws Exception {
 		ModelAndView mav = new ModelAndView();
 		memberOperService.addOperator(memberOperDTO);
-		mav.setViewName("redirect:/afterEntJoin.do");
+		mav.setViewName("redirect:/member/afterEntJoin.do");
 		return mav;
 	}
 	
 	// 사업자 회원가입 완료 페이지
 	@Override
+	@RequestMapping(value="/member/afterEntJoin.do")
 	public ModelAndView afterEntJoin(MemberOperDTO memberOperDTO, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		ModelAndView mav = new ModelAndView();

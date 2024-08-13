@@ -5,13 +5,16 @@
 <%
    request.setCharacterEncoding("utf-8");
 %>
+<%@ include file="/WEB-INF/views/layout/header.jsp"%>
 <link rel="stylesheet" href="/css/freeboard/style.css">
 <script src="/js/freeboard/script.js"></script>
-
-<%@ include file="/WEB-INF/views/layout/header.jsp"%>
-<main>
-    <h2 id="h2">자유게시판</h2>
-    
+    <section id="banner">
+            <h2>Community Board</h2>
+        <p>자유게시판 페이지입니다. 생각, 이야기, 질문 등을 자유롭게 나눌수 있는 공간입니다.
+        	<br>다양한 주제로 활발한 소통을 기대합니다. 게시물 작성 시 예의를 지켜주세요. 
+        </p>
+</section>
+    <main>
     <div class="table-header">
         <a class="write-button" href="javascript:fn_fboardForm(${sessionScope.isLogOn ? 'true' : 'false'}, '/freeboard/fboardForm.do', '/member/loginForm.do');">글쓰기</a>
     </div>

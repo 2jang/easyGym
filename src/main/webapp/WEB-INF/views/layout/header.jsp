@@ -11,9 +11,11 @@
 	content="width=device-width, initial-scale=1, user-scalable=no" />
 <link rel="stylesheet" href="/css/member/main.css" />
 <link rel="stylesheet" href="/css/member/noscript.css" />
+
 <link
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
 	rel="stylesheet">
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <style>
 	#logo a {
     font-size: 1.7rem; /* 원하는 글자 크기로 설정 (예: 2rem) */
@@ -33,9 +35,11 @@
     font-weight: 700;
     font-style: normal;
 }
-
 #logo{
 	font-family: 'neurimboGothicRegular';
+}
+.welcome-message{
+	margin-top: 5px;
 }
   </style>
 </head>
@@ -66,9 +70,9 @@
                   <li class="current"><a href ="/mypage/mypageMain.do">My Page</a></li>
                   <li class="current"><a href ="/member/logout.do">Sign out</a></li>
                   <li class="nav-item">
-                     <h1 class="welcome-message">
+                     <div class="welcome-message">
                         환영합니다, <span>${sessionScope.member.memberName}님!</span>
-                     </h1>
+                     </div>
                </c:when>
                
                <c:when test="${sessionScope.isLogOn eq true and sessionScope.operator ne null}">
@@ -88,7 +92,7 @@
 					<li class="current"><a href="${contextPath }/freeboard/fboardList.do">Community</a></li>
 					<li class="current"><a href="${contextPath }/notice/noticeList.do">Notice</a></li>
                   <li class="submenu">
-					<a href="${contextPath}/detail/search.do?query=">Find My Gym</a>
+					<a href="${contextPath}/detail/search.do?query="><span>▼</span>Find My Gym</a>
 						<ul>
 							<li><a href="${contextPath}/detail/search.do?query=&detailClassification=health">Fitness</a></li>
 							<li><a href="${contextPath}/detail/search.do?query=&detailClassification=pilates">Pilates</a></li>
@@ -96,7 +100,7 @@
 						</ul>
 					</li>
 					
-					<li><a href="/member/loginForm.do" class="button primary">Sign Up</a></li>
+					<li><a href="/member/loginForm.do" class="button primary">Sign in</a></li>
                </c:otherwise>
             </c:choose>
             
@@ -104,7 +108,5 @@
 			</nav>
 			</header>
 			</div>
-			
-	
 	</div>
 	</body>

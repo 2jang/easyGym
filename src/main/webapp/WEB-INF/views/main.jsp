@@ -40,15 +40,26 @@ footer.major {
     font-weight: normal;
     font-style: normal;
 }
+@font-face {
+    font-family: 'SUITE-Regular';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-2@1.0/SUITE-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'NanumSquareRound';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 
 /* 기본 폰트 적용 */
-p {
-    font-family: 'S-CoreDream-3Light', sans-serif; /* 폰트가 적용되지 않을 경우를 대비하여 대체 폰트 설정 */
+p, h2, h3, span {
+    font-family: 'SUITE-Regular', sans-serif; /* 폰트가 적용되지 않을 경우를 대비하여 대체 폰트 설정 */
 }
-h2{
-	font-family: 'KorailRoundGothicBold';
-}
-
+a{
+	color:#000;
+	}
 </style>
 <!-- Banner -->
 <section id="banner">
@@ -71,10 +82,9 @@ h2{
 <article id="main">
     <header class="special container">
         <span></span>
-        <h4 class="intro-text">Discover the Best Gyms, Pilates Studios, and Boxing Facilities Near You<br>
-		Easily find the top fitness locations around you. <br>
-		We help you find the perfect place that matches your fitness needs and lifestyle.
-        </h4>
+        <h3 class="intro-text">가장 좋은 헬스장, 필라테스 스튜디오, 그리고 복싱 시설을 찾아보세요.
+		주변의 최고의 피트니스 장소를 쉽게 찾아보세요.<br> 당신의 피트니스 요구와 라이프스타일에 맞는 완벽한 장소를 찾을 수 있도록 도와드립니다.
+        </h3>
     </header>
 
 <!-- CTA -->
@@ -86,7 +96,7 @@ h2{
     <footer>
         <ul class="buttons">
             <li><a href="/member/operLoginForm.do" class="button primary">Sign In</a></li>
-            <li><a href="/member/oprJoin.do" class="button">Sign Up</a></li>
+            <li><a href="/member/oprJoinForm.do" class="button">Sign Up</a></li>
         </ul>
     </footer>
 </section>
@@ -102,7 +112,7 @@ h2{
 		            <div class="card shadow-sm">
 		                    <img src="${contextPath}/images/detail/${healthList[0].detailClassification}/${healthList[0].detailBusinessEng}/${healthList[0].detailBusinessEng}1.PNG" class="card-img-top" alt="${healthList[0].detailBusinessName}">
 		                <div class="card-body">
-		                        <p class="card-text">${healthList[0].detailBusinessName}</p>
+		                        <h3 class="card-text">${healthList[0].detailBusinessName}</h3>
 		                    	<p class="card-text">${healthList[0].detailRoadAddress}</p>
 		                </div>
 		            </div>
@@ -128,7 +138,7 @@ h2{
                     <div class="card shadow-sm">
                         <img src="${contextPath}/images/detail/${healthList[1].detailClassification}/${healthList[1].detailBusinessEng}/${healthList[1].detailBusinessEng}2.PNG" class="card-img-top" alt="${healthList[1].detailBusinessName}">
                         <div class="card-body">
-                            <p class="card-text">${healthList[1].detailBusinessName}</p>
+                            <h3 class="card-text">${healthList[1].detailBusinessName}</h3>
                             <p class="card-text">${healthList[1].detailRoadAddress}</p>
                         </div>
                     </div>
@@ -154,7 +164,7 @@ h2{
                     <div class="card shadow-sm">
                         <img src="${contextPath}/images/detail/${healthList[2].detailClassification}/${healthList[2].detailBusinessEng}/${healthList[2].detailBusinessEng}3.PNG" class="card-img-top" alt="${healthList[2].detailBusinessName}">
                         <div class="card-body">
-                            <p class="card-text">${healthList[2].detailBusinessName}</p>
+                            <h3 class="card-text">${healthList[2].detailBusinessName}</h3>
                             <p class="card-text">${healthList[2].detailRoadAddress}</p>
                         </div>
                     </div>
@@ -178,6 +188,7 @@ h2{
         <li><a href="${contextPath}/detail/search.do?query=&detailClassification=health" class="button primary">헬스 더보기</a></li>
    </ul>
    </footer>
+   &nbsp;
     <h2>필라테스 인기순위</h2>
     <div class="row row-cols-1 row-cols-md-3 g-4">
         <!-- 첫 번째 필라테스 -->
@@ -186,7 +197,7 @@ h2{
             <div class="card shadow-sm">
                 <img src="${contextPath}/images/detail/${pilatesList[0].detailClassification}/${pilatesList[0].detailBusinessEng}/${pilatesList[0].detailBusinessEng}1.PNG" class="card-img-top" alt="${pilatesList[0].detailBusinessName}">
                 <div class="card-body">
-                    <p class="card-text">${pilatesList[0].detailBusinessName}</p>
+                    <h3 class="card-text">${pilatesList[0].detailBusinessName}</h3>
                     <p class="card-text">${pilatesList[0].detailRoadAddress}</p>
                 </div>
             </div>
@@ -198,7 +209,7 @@ h2{
             <div class="card shadow-sm">
                 <img src="${contextPath}/images/detail/${pilatesList[1].detailClassification}/${pilatesList[1].detailBusinessEng}/${pilatesList[1].detailBusinessEng}2.PNG" class="card-img-top" alt="${pilatesList[1].detailBusinessName}">
                 <div class="card-body">
-                    <p class="card-text">${pilatesList[1].detailBusinessName}</p>
+                    <h3 class="card-text">${pilatesList[1].detailBusinessName}</h3>
                     <p class="card-text">${pilatesList[1].detailRoadAddress}</p>
                 </div>
             </div>
@@ -210,7 +221,7 @@ h2{
             <div class="card shadow-sm">
                 <img src="${contextPath}/images/detail/${pilatesList[2].detailClassification}/${pilatesList[2].detailBusinessEng}/${pilatesList[2].detailBusinessEng}3.PNG" class="card-img-top" alt="${pilatesList[2].detailBusinessName}">
                 <div class="card-body">
-                    <p class="card-text">${pilatesList[2].detailBusinessName}</p>
+                    <h3 class="card-text">${pilatesList[2].detailBusinessName}</h3>
                     <p class="card-text">${pilatesList[2].detailRoadAddress}</p>
                 </div>
             </div>
@@ -231,7 +242,7 @@ h2{
             <div class="card shadow-sm">
                 <img src="${contextPath}/images/detail/${boxingList[0].detailClassification}/${boxingList[0].detailBusinessEng}/${boxingList[0].detailBusinessEng}1.PNG" class="card-img-top" alt="${boxingList[0].detailBusinessName}">
                 <div class="card-body">
-                    <p class="card-text">${boxingList[0].detailBusinessName}</p>
+                    <h3 class="card-text">${boxingList[0].detailBusinessName}</h3>
                     <p class="card-text">${boxingList[0].detailRoadAddress}</p>
                 </div>
             </div>
@@ -243,7 +254,7 @@ h2{
             <div class="card shadow-sm">
                 <img src="${contextPath}/images/detail/${boxingList[1].detailClassification}/${boxingList[1].detailBusinessEng}/${boxingList[1].detailBusinessEng}2.PNG" class="card-img-top" alt="${boxingList[1].detailBusinessName}">
                 <div class="card-body">
-                    <p class="card-text">${boxingList[1].detailBusinessName}</p>
+                    <h3 class="card-text">${boxingList[1].detailBusinessName}</h3>
                     <p class="card-text">${boxingList[1].detailRoadAddress}</p>
                 </div>
             </div>
@@ -255,7 +266,7 @@ h2{
             <div class="card shadow-sm">
                 <img src="${contextPath}/images/detail/${boxingList[2].detailClassification}/${boxingList[2].detailBusinessEng}/${boxingList[2].detailBusinessEng}3.PNG" class="card-img-top" alt="${boxingList[2].detailBusinessName}">
                 <div class="card-body">
-                    <p class="card-text">${boxingList[2].detailBusinessName}</p>
+                    <h3 class="card-text">${boxingList[2].detailBusinessName}</h3>
                     <p class="card-text">${boxingList[2].detailRoadAddress}</p>
                 </div>
             </div>
@@ -268,9 +279,9 @@ h2{
    </ul>
    </footer>
 </div>
-&nbsp;
-<!-- Shop -->
 
+<!-- Shop -->
+&nbsp;
     <section class="wrapper style1 container special">
       <h2>추천 쇼핑 및 참고 사이트</h2>
         <div class="row">
@@ -308,5 +319,25 @@ h2{
         </div>
     </section>
 
-    
+    <!-- 챗봇 아이콘 -->
+      <img src="/images/chatbot/chatbot.png" class="chatbot-icon" onmouseover="showTooltip()" onmouseout="hideTooltip()" onclick="toggleChatbot()">
+      
+      <!-- 툴팁 이미지 -->
+       <img src="/images/chatbot/hello.png" class="tooltip-image" id="tooltip_image">
+      
+      <!-- 챗봇 프레임 -->
+      <div class="chatbot">
+           <iframe id="chatbot_frame" width="350" height="430" allow="microphone;"
+           src="https://console.dialogflow.com/api-client/demo/embedded/835aec7e-894b-4357-b90d-e6fabbadfb94"></iframe>
+       </div>
+      <script>
+      function toggleChatbot() {
+            var frame = document.getElementById('chatbot_frame');
+            if (frame.style.display === 'none' || frame.style.display === '') {
+                frame.style.display = 'block';
+            } else {
+                frame.style.display = 'none';
+            }
+        }
+      </script>
 <%@ include file="/WEB-INF/views/layout/footer.jsp"%>

@@ -2,23 +2,16 @@
          pageEncoding="UTF-8"
          isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ include file="/WEB-INF/views/detail/header.jsp"%>
+<%@ include file="/WEB-INF/views/layout/header.jsp"%>
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <%
     Object member = session.getAttribute("member");
     request.setCharacterEncoding("utf-8");
 %>
-
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>메인페이지</title>
     <link rel="stylesheet" href="${contextPath}/css/detail/list.css">
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
     <script src="${contextPath}/js/detail/list.js"></script>
-    <script type="text/javascript"
-            src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9a9906a8b7e291e6dddbb2bd165b6d7f&libraries=services"></script>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9a9906a8b7e291e6dddbb2bd165b6d7f&libraries=services"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const favoriteButtons = document.querySelectorAll('.favorite-button');
@@ -136,17 +129,22 @@
             });
         });
     </script>
-</head>
-<body>
+    <section id="banner">
+    <header>
+        <h2>Business User Access</h2>
+    </header>
+    <p>사업자 회원님, 환영합니다! 아이디와 비밀번호를 입력하시고<br>
+    로그인 버튼을 클릭하시면, 귀하의 헬스장을 등록하고 관리할 수 있는<br>
+    다양한 서비스에 접근하실 수 있습니다.</p>
+</section>
 
+<article id="main">
 <div class="search-container">
     <form class="search-form">
         <input type="text" name="query" placeholder="업체명을 입력하세요..." class="search-input">
         <button type="submit" class="search-button">검색</button>
     </form>
-</div>
-
-<div class="options-container">
+    <div class="options-container">
     <div class="option-group">
         <label for="districtSelect">지역명:</label>
         <select id="districtSelect" class="option-select">
@@ -174,7 +172,6 @@
 			<option value="양천구">서울특별시 양천구</option>
 			<option value="은평구">서울특별시 은평구</option>
             <!-- 다른 구/군 옵션들 추가 -->
-			
         </select>
     </div>
     <div class="option-group">
@@ -184,6 +181,7 @@
             <option value="pilates">필라테스</option>
             <option value="boxing">복싱</option>
         </select>
+    </div>
     </div>
 </div>
 
@@ -233,7 +231,7 @@
     </div>
     <div class="right-margin"></div>
 </div>
-
+</article>
 <script>
     const urlParams = new URLSearchParams(window.location.search);
     var map; // 전역 변수로 map 선언
@@ -357,5 +355,4 @@
         infowindow.open(map, marker);
     }
 </script>
-</body>
-</html>
+

@@ -3,7 +3,7 @@
 			<!-- Footer -->
 				<footer id="footer">
 					<ul class="copyright">
-						<li>&copy; EASYGYM</li><li>Design: <a href="http://html5up.net">EASYGYM</a></li>
+						<li>&copy; EASYGYM</li><li>Design: <a href="/main.do">EASYGYM</a></li><li><a href="/admin/loginForm.do">ADMIN</a></li>
 					</ul>
 				</footer>
 	<!-- 부트스트랩 JS 로드 -->
