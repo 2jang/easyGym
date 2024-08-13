@@ -7,8 +7,13 @@
 
 <%@ include file="/WEB-INF/views/layout/header.jsp"%>
 <link href="/css/notice/style.css" rel="stylesheet" />
+    <section id="banner">
+            <h2>Notice Board</h2>
+        <p>공지사항 페이지입니다. 중요한 소식, 업데이트, 이벤트, 공지사항 등을 <br>이곳에서 확인하실 수 있습니다.
+        항상 최신 정보를 받아보실 수 있도록 자주 방문해주세요.
+        </p>
+</section>
 <main>
-    <h2>공지사항</h2>
     <table id="table" class="table table-hover">
         <thead class="headtr">
             <tr>

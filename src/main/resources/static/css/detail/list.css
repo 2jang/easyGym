@@ -22,12 +22,9 @@ body {
 }
 
 .search-container {
-    position: absolute;
     width: 100%;
     right: 0;
-    background-color: #fff;
     left: 50%;
-    transform: translate(-50%, 0%);
     padding: 15px 20px;
     z-index: 1000;
     top: 60px;
@@ -87,7 +84,6 @@ body {
     position: absolute;
     left: 0;
     right: 0;
-    top: 141px;
     width: 100%;
     background-color: #fff;
     padding: 10px 20px;

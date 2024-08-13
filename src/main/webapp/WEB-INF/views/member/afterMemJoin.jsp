@@ -32,7 +32,11 @@
 	text-align: center; /* 내용을 가운데 정렬 */
 }
 </style>
-
+<section id="banner">
+        <header>
+            <h2>Welcome!</h2>
+        </header>
+</section>
 <div class="container content-container">
 	<div class="card">
 		<img src="/images/member/welcome1.png"

@@ -24,6 +24,7 @@ public class MemberDTO {
 	private Date memberExpirationDate;
 	private String memberCoupon;
 	private String memberCouponDes;
+	private int memberPoints;
 	
 	public int getMemberNo() {
 		return memberNo;
@@ -132,6 +133,12 @@ public class MemberDTO {
 	}
 	public void setMemberCouponDes(String memberCouponDes) {
 		this.memberCouponDes = memberCouponDes;
+	}
+	public int getMemberPoints() {
+		return memberPoints;
+	}
+	public void setMemberPoints(int memberPoints) {
+		this.memberPoints = memberPoints;
 	}
 	
 }

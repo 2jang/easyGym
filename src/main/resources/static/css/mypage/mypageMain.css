@@ -2,21 +2,24 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    border-radius: 15px; /* 모서리 둥글게 */
+    align: center;    
 }
-.container {
+
+/* .container {
     width: 70%;
     margin: 30px auto;
     padding: 20px;
-}
+} */
 .header {
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 50px;
 }
-.header img {
+/* .header img {
     margin-right: 20px;
-}
+} */
 .nav {
     display: flex;
     justify-content: center;
@@ -60,10 +63,10 @@ body {
     background-color: #007bff;
     color: #fff;
 }
-.main-content {
+/* .main-content {
     width: 70%;
     padding: 10px;
-}
+} */
 .section {
     display: none;
     padding-left: 20px;
@@ -142,4 +145,18 @@ th {
 }
 .coupons-table th {
     background-color: #f0f0f0;
+}
+#update-form{
+	border-radius: 15px;
+	display:none;
+	width: 600px;
+	margin: 0 auto; 
+}
+
+#update-form input{
+	width: 500px;
+}
+
+#with-form{
+	display:inline;
 }
