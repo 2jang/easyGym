@@ -1,7 +1,12 @@
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-   pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/layout/header.jsp"%>
+<style>
+.d-block {
+    display: inline;
+    float: left;
+}
+</style>
 <section id="banner">
     <header>
         <h2>Business User Access</h2>
@@ -13,23 +18,23 @@
 <div class="container mt-5">
    <div class="row justify-content-center">
       <div class="col-md-6">
-         <div class="card p-4 border border-light">
+         <div class="card p-4 border border-light" style="border-radius: 15px;">
             <form class="text-center mb-3" action="/member/operLogin.do" onsubmit="return check(this)" method="post">
                <img class="mb-4" src="/images/member/user.png" alt="로그인" width="72" height="72">
                <div class="form-floating mb-3">
-                  <input type="text" class="form-control" id="operatorId"
-                     name="operatorId" placeholder="아이디 입력"> <label for="floatingInput"></label>
+                  <input type="text" class="form-control" id="operatorId" name="operatorId" placeholder="아이디 입력" style="border-radius: 15px;"> 
+                  <label for="floatingInput"></label>
                </div>
                <div class="form-floating mb-3">
-                  <input type="password" class="form-control" id="operatorPwd"
-                     name="operatorPwd" placeholder="비밀번호 입력"> <label for="floatingPassword"></label>
+                  <input type="password" class="form-control" id="operatorPwd" name="operatorPwd" placeholder="비밀번호 입력" style="border-radius: 15px;"> 
+                  <label for="floatingPassword"></label>
                </div>
                <div class="row justify-content-between mb-3">
                   <div class="col-md-6 text-start">
                      <small class="d-block"><a href="/member/operJoin.do">회원가입</a></small>
                   </div>
                </div>
-               <button class="btn btn-primary w-100 py-2" type="submit">로그인</button>
+               <button class="btn btn-primary w-100 py-2" type="submit" style="border-radius: 15px;">로그인</button>
             </form>
          </div>
       </div>

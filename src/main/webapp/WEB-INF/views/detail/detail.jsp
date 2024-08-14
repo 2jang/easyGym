@@ -19,6 +19,8 @@
 </script>
 <link rel="stylesheet" href="${contextPath}/css/detail/detail.css">
 <script src="${contextPath}/js/detail/detail.js"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9a9906a8b7e291e6dddbb2bd165b6d7f&libraries=services"></script>
+
 <script>
     $(document).ready(function() {
         var requestInProgress = false;

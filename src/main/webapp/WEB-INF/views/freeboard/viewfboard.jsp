@@ -8,8 +8,15 @@
 <%@ include file="/WEB-INF/views/layout/header.jsp"%>
 <link href="/css/freeboard/detail.css" rel="stylesheet" />
 <script src="/js/freeboard/script.js"></script>
-
-<main>
+<section id="banner">
+    <header>
+        <h2>Community Board</h2>
+    </header>
+    <p>자유게시판 페이지입니다. 생각, 이야기, 질문 등을 자유롭게 나눌수 있는 공간입니다.
+        	<br>다양한 주제로 활발한 소통을 기대합니다. 게시물 작성 시 예의를 지켜주세요. 
+        </p>
+</section>
+<article id="main">
     <form name="frmArticle" method="post" enctype="multipart/form-data">
         <table class="details-table">
             <thead>
@@ -86,7 +93,7 @@
             </c:otherwise>
         </c:choose>
     </div>
-    <button id="showCommentForm">댓글 입력하기</button>
+    <button class="buttom primary" id="showCommentForm">댓글 입력하기</button>
     <div class="comment-form" id="commentForm" style="display: none;">
         <form id="commentFormForm" enctype="multipart/form-data">
             <input type="hidden" id="memberNo" name="memberNo" value="${sessionScope.member.memberNo}">
@@ -95,7 +102,7 @@
             <button type="button" id="submitCommentBtn">댓글 등록</button>
         </form>
     </div>
-</main>
+</article>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>

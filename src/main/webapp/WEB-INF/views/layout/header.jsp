@@ -82,9 +82,9 @@
                   <li class="current"><a href="/detail/registration.do">업체 등록하기</a></li>
                   <li class="current"><a href="/member/logout.do">로그아웃</a></li>
                   <li class="current">
-                     <h1 class="welcome-message">
+                     <div class="welcome-message">
                         환영합니다, 사업자 <span>${sessionScope.operator.operatorName}님!</span>
-                     </h1>
+                     </div>
                </c:when>
      
                <c:otherwise>
