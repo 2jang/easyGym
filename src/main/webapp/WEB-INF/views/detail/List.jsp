@@ -130,60 +130,55 @@
         });
     </script>
     <section id="banner">
-    <header>
-        <h2>Business User Access</h2>
-    </header>
-    <p>사업자 회원님, 환영합니다! 아이디와 비밀번호를 입력하시고<br>
-    로그인 버튼을 클릭하시면, 귀하의 헬스장을 등록하고 관리할 수 있는<br>
-    다양한 서비스에 접근하실 수 있습니다.</p>
+		<div class="search-container">
+		    <form class="search-form">
+		        <input type="text" name="query" placeholder="업체명을 입력하세요..." class="search-input" style="background-color:#fff; border-radius:5px 0 0 5px; color:#7c8081;">
+		        <button type="submit" class="search-button">검색</button>
+		    </form>
+		    <div class="options-container">
+		    <div class="option-group">
+		        <label for="districtSelect">지역명:</label>
+		        <select id="districtSelect" class="option-select">
+					<option value="default">구/군 선택</option>
+					<option value="중구">서울특별시 중구</option>
+					<option value="강남구">서울특별시 강남구</option>
+					<option value="동작구">서울특별시 동작구</option>
+					<option value="마포구">서울특별시 마포구</option>
+					<option value="종로구">서울특별시 종로구</option>
+					<option value="성동구">서울특별시 성동구</option>
+					<option value="중랑구">서울특별시 중랑구</option>
+					<option value="성북구">서울특별시 성북구</option>
+					<option value="영등포구">서울특별시 영등포구</option>
+					<option value="서초구">서울특별시 서초구</option>
+					<option value="광진구">서울특별시 광진구</option>
+					<option value="강동구">서울특별시 강동구</option>
+					<option value="관악구">서울특별시 관악구</option>
+					<option value="송파구">서울특별시 송파구</option>
+					<option value="도봉구">서울특별시 도봉구</option>
+					<option value="강북구">서울특별시 강북구</option>
+					<option value="강서구">서울특별시 강서구</option>
+					<option value="구로구">서울특별시 구로구</option>
+					<option value="금천구">서울특별시 금천구</option>
+					<option value="노원구">서울특별시 노원구</option>
+					<option value="양천구">서울특별시 양천구</option>
+					<option value="은평구">서울특별시 은평구</option>
+		            <!-- 다른 구/군 옵션들 추가 -->
+		        </select>
+		    </div>
+		    <div class="option-group">
+		        <label for="facilityType">시설 종류:</label>
+		        <select id="facilityType" class="option-select">
+		            <option value="health">헬스</option>
+		            <option value="pilates">필라테스</option>
+		            <option value="boxing">복싱</option>
+		        </select>
+		    </div>
+		    </div>
+		</div>
 </section>
 
 <article id="main">
-<div class="search-container">
-    <form class="search-form">
-        <input type="text" name="query" placeholder="업체명을 입력하세요..." class="search-input">
-        <button type="submit" class="search-button">검색</button>
-    </form>
-    <div class="options-container">
-    <div class="option-group">
-        <label for="districtSelect">지역명:</label>
-        <select id="districtSelect" class="option-select">
-			<option value="default">구/군 선택</option>
-			<option value="중구">서울특별시 중구</option>
-			<option value="강남구">서울특별시 강남구</option>
-			<option value="동작구">서울특별시 동작구</option>
-			<option value="마포구">서울특별시 마포구</option>
-			<option value="종로구">서울특별시 종로구</option>
-			<option value="성동구">서울특별시 성동구</option>
-			<option value="중랑구">서울특별시 중랑구</option>
-			<option value="성북구">서울특별시 성북구</option>
-			<option value="영등포구">서울특별시 영등포구</option>
-			<option value="서초구">서울특별시 서초구</option>
-			<option value="광진구">서울특별시 광진구</option>
-			<option value="강동구">서울특별시 강동구</option>
-			<option value="관악구">서울특별시 관악구</option>
-			<option value="송파구">서울특별시 송파구</option>
-			<option value="도봉구">서울특별시 도봉구</option>
-			<option value="강북구">서울특별시 강북구</option>
-			<option value="강서구">서울특별시 강서구</option>
-			<option value="구로구">서울특별시 구로구</option>
-			<option value="금천구">서울특별시 금천구</option>
-			<option value="노원구">서울특별시 노원구</option>
-			<option value="양천구">서울특별시 양천구</option>
-			<option value="은평구">서울특별시 은평구</option>
-            <!-- 다른 구/군 옵션들 추가 -->
-        </select>
-    </div>
-    <div class="option-group">
-        <label for="facilityType">시설 종류:</label>
-        <select id="facilityType" class="option-select">
-            <option value="health">헬스</option>
-            <option value="pilates">필라테스</option>
-            <option value="boxing">복싱</option>
-        </select>
-    </div>
-    </div>
-</div>
+
 
 <div class="main-container">
     <div class="left-margin"></div>
