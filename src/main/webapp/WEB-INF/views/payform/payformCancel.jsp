@@ -50,8 +50,8 @@
             let finalPr = localeStringToInt(document.getElementById('finalPr').textContent);
 
             if (parseInt('${payform.payformStatus}') === -1) {
-                alert("이미 환불이 완료된 결제건입니다.\n메인페이지로 돌아갑니다.");
-                window.location.replace("${contextPath}/main.do");
+                alert("이미 환불이 완료된 결제건입니다.\n마이페이지로 돌아갑니다.");
+                window.location.replace("${contextPath}/mypage/mypageMain.do");
             } else {
                 if (refundDay <= 7) {
                     var result = confirm("전액 환불이 가능합니다. 환불금액은 " + finalPr.toLocaleString() + "원입니다.\n환불을 진행하시겠습니까?");
@@ -85,6 +85,7 @@
 <form id="refundForm" action="${contextPath}/payform/payformRefund.do" method="POST" style="display: none;">
     <input type="hidden" name="payformNo" value="${payform.payformNo}">
     <input type="hidden" name="refundPrice" id="refundPrice">
+    <input type="hidden" name="refundPoint" id="refundPoint" value="${payform.payformUsePoints}">
 </form>
 
 <div class="bg-image"></div>
@@ -114,6 +115,12 @@
                     <input type="text" id="bisName" name="bisName" value="${payform.detailBusinessName}" readonly
                            required>
                 </div>
+                <div class="form_group">
+                <label for="returnPoint">포인트 반환:</label>
+                <input type="text" id="returnPoint" name="returnPoint" style="width:85%;" value="${payform.payformUsePoints}" readonly
+                       required><span id="pointsTag"> Points</span>
+            </div>
+
                 <div class="form_group">
                     <p>구매일로부터<input type="text" id="cancelDay" name="cancelDay" width="10px" value="" readonly required>일
                         지나서 환불이 <span id="cancelAble"></span>합니다</p>

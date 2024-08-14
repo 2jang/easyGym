@@ -1,6 +1,5 @@
 package com.isix.easyGym.payform.service;
 
-import com.isix.easyGym.member.dto.MemberDTO;
 import com.isix.easyGym.payform.dto.PayformDTO;
 import org.springframework.dao.DataAccessException;
 
@@ -17,7 +16,9 @@ public interface PayformService {
     public int buyCheck(int memberNo) throws DataAccessException;
 
     public int findpay(Map<String,Object> selectMap) throws DataAccessException;
-    
+
+    public void refundPoint(Map payformMap) throws DataAccessException;
+
     public int cancelPayform(int payformNo) throws DataAccessException;
 
     }
