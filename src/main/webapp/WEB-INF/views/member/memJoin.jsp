@@ -38,6 +38,7 @@
   .address-group input[type="button"] {
     flex-shrink: 0; /* 버튼의 크기를 고정 */
     }
+
 </style>
 <section id="banner">
         <header>

@@ -25,8 +25,8 @@
 
     /* 로그인 버튼 스타일 */
     button.button.primary {
-        width: 100%; /* 버튼이 폼의 너비를 채우도록 */
-        padding: 22.5px; /* 버튼 안의 패딩을 1.5배로 */
+        width: 90%; /* 버튼이 폼의 너비를 채우도록 */
+        padding: 15px; /* 버튼 안의 패딩을 1.5배로 */
         background-color: #6cc4b2; /* 버튼 색상 */
         color: white; /* 버튼 텍스트 색상 */
         border: none; /* 기본 보더 제거 */
@@ -36,21 +36,15 @@
         line-height: 1.2; /* 텍스트 줄 높이 */
     }
     
-    /* 카카오 로그인 버튼 스타일 */
-    .kakao-login-button {
-        width: 100%; /* 버튼이 폼의 너비를 채우도록 */
+    .kakao-login-button img {
+        width: 98%; /* 버튼이 폼의 너비를 채우도록 */
         text-align: center; /* 텍스트 및 이미지 중앙 정렬 */
         display: flex; /* 내부 요소 가운데 정렬을 위해 flex 사용 */
         align-items: center;
         justify-content: center;
         box-sizing: border-box; /* 패딩 포함한 크기 조정 */
-        padding: 22.5px; /* 버튼 안의 패딩을 1.5배로 */
+        padding: 10px; /* 버튼 안의 패딩을 1.5배로 */
         font-size: 24px; /* 폰트 크기를 1.5배로 */
-    }
-
-    .kakao-login-button img {
-        max-height: 36px; /* 이미지의 최대 높이를 1.5배로 설정 */
-        margin-right: 15px; /* 이미지와 텍스트 간격을 1.5배로 */
     }
 
     /* 회원가입 링크 스타일 */
@@ -67,6 +61,10 @@
 
     .joinSubmit a:hover {
         text-decoration: underline; /* 마우스 오버시 밑줄 추가 */
+    }
+    /* 폼을 배너 쪽으로 올리기 위해 섹션 상단 여백 조정 */
+    .wrapper.style4.special.container.medium {
+        margin-top: -50px; /* 필요한 만큼 값을 조정 */
     }
 </style>
 
@@ -86,6 +84,7 @@
         <!-- Content -->
         <div class="content">
             <form class="text-center mb-3" action="/member/login.do" onsubmit="return check(this)" method="post">
+               <img class="mb-4" src="/images/member/user.png" alt="로그인" width="72" height="72">
                 <div class="row gtr-50">
                     <div class="col-12">
                         <input type="text" name="memberId" id="memberId" placeholder="아이디를 입력해주세요." autocomplete="off"/>
@@ -94,10 +93,10 @@
                         <input type="password" name="memberPwd" placeholder="비밀번호를 입력해주세요." id="memberPwd" autocomplete="current-password" />
                     </div>
                 </div>
-                <div class="joinSubmit">
+                <div class="joinSubmit" >
                     <a href="${contextPath}/member/memJoin.do">회원가입</a>
                 </div>
-                <button class="button primary" type="submit" style="background-color: #82D3C9;">로그인</button>
+                <button class="button primary" type="submit" style="background-color: #82D3C9; border-radius: 15px;">로그인</button>
                 <a href="javascript:fn_kakao()" class="kakao-login-button">
                     <img src="/images/member/kakao_login_large_wide.png" alt="카카오 로그인 버튼">
                 </a>
@@ -105,6 +104,13 @@
         </div>
     </section>
 </article>
+
+<!-- 로그인 실패 시 알러트 띄우기 -->
+<c:if test="${not empty loginError}">
+    <script type="text/javascript">
+        alert("${loginError}");
+    </script>
+</c:if>
 
 <script src="/js/member/kakao.js"></script>
 <%@ include file="/WEB-INF/views/layout/footer.jsp"%>
