@@ -121,8 +121,8 @@
                 </div>
                 <div class="modify" id="update-form" style="display:none;  width: 600px; align=center;">
                     <h2>회원정보 수정</h2>
-                    <form method="post" action="${contextPath}/mypage/memberUpdate.do" id="update-form">
-                        <input type="hidden" value="${member.memberNo}">
+                    <form method="post" action="${contextPath}/mypage/memberUpdate.do" id="form">
+                        <input type="hidden" id="memberNo" value="${member.memberNo}">
                         <div class="form-group">
                         	<label for ="memberName">이름</label>
                         	<input id=memberName type="text" value="${member.memberName}" disabled></div>
@@ -161,7 +161,6 @@
 					        <input type="hidden" id="memberNo" value="${memberNo}">
 					        <button class="button primary" type="button" id="withdraw-btn">회원탈퇴</button>
 					    </form>
-					
 						</div>
                 </div>
             </div>

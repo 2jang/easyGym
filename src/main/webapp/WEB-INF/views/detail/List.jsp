@@ -230,6 +230,9 @@
 <script>
     const urlParams = new URLSearchParams(window.location.search);
     var map; // 전역 변수로 map 선언
+    var maplevel; // 확대 전역 변수 설정
+    var markers = []; // 마커를 저장할 배열
+    var infowindows = []; // 인포윈도우를 저장할 배열
 
     window.onload = function () {
         const query = urlParams.get('query');
@@ -253,6 +256,7 @@
 
         // 초기 지도 생성
         initializeMap(initialCenter, initialLevel);
+        updateInfowindows();
     }
 
     document.getElementById('districtSelect').addEventListener('change', updateUrl);
@@ -323,6 +327,11 @@
             }
         });
 
+        kakao.maps.event.addListener(map, 'zoom_changed', function() {
+            maplevel = map.getLevel();
+            updateInfowindows();
+        });
+
         // 마커 추가
         <c:choose>
             <c:when test="${!empty allList}">
@@ -331,6 +340,9 @@
                 </c:forEach>
             </c:when>
         </c:choose>
+
+        // 초기 인포윈도우 상태 설정
+        updateInfowindows();
     }
 
     function addMarker(p1, p2, content) {
@@ -347,6 +359,19 @@
             content: content
         });
 
-        infowindow.open(map, marker);
+        markers.push(marker);
+        infowindows.push(infowindow);
+    }
+
+</script>
+    function updateInfowindows() {
+        for (var i = 0; i < infowindows.length; i++) {
+            if (maplevel < 7) {
+                infowindows[i].open(map, markers[i]);
+                console.log(maplevel)
+            } else {
+                infowindows[i].close();
+            }
+        }
     }
 </script>
