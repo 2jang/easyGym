@@ -363,7 +363,6 @@
         infowindows.push(infowindow);
     }
 
-</script>
     function updateInfowindows() {
         for (var i = 0; i < infowindows.length; i++) {
             if (maplevel < 7) {
