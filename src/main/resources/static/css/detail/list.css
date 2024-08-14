@@ -85,7 +85,6 @@ body {
     left: 0;
     right: 0;
     width: 100%;
-    background-color: #fff;
     padding: 10px 20px;
     z-index: 999;
     display: flex;
@@ -104,7 +103,7 @@ body {
     margin-right: 20px;
     white-space: nowrap;
     font-weight: bold;
-    color: #555555;
+    color: #fff;
 }
 
 .option-select {
@@ -120,7 +119,6 @@ body {
 .main-container {
     display: flex;
     top: 100px;
-    margin-top: 130px;
     min-height: calc(100vh - 130px);
 }
 
@@ -138,7 +136,7 @@ body {
 
 .map_wrap {
     position: fixed;
-    top: 80px;
+    top: 350px;
     width: 30%;
     height: 80%;
     right: 10%;
