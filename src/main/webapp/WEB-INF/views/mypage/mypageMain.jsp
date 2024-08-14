@@ -27,7 +27,8 @@
     .form-group input {
         flex: 1; /* 입력 필드가 가능한 공간을 차지하도록 설정합니다 */
         padding: 8px;
-        .button-container {
+        }
+     .button-container {
     display: flex;
     gap: 10px; /* 버튼 간의 간격을 조정할 수 있습니다 */
 }
@@ -124,29 +125,43 @@
                         <input type="hidden" value="${member.memberNo}">
                         <div class="form-group">
                         	<label for ="memberName">이름</label>
-                        	<input type="text" value="${member.memberName}" disabled></div>
+                        	<input id=memberName type="text" value="${member.memberName}" disabled></div>
+                        	
                         	<div class="form-group">
                         	<label for ="memberId">아이디</label>
-                        	<input type="text" value="${member.memberId}" disabled></div>
+                        	<input id=memberId type="text" value="${member.memberId}" disabled></div>
+                        	
                         	<div class="form-group">
                         	<label for ="memberPwd">비밀번호</label>
-                        	<input type="password" value="${member.memberPwd}" disabled></div>
+                        	<input id="memberPwd" type="password" value="${member.memberPwd}" disabled></div>
+                        	
                         	<div class="form-group">
                         	<label for ="memberPwdConfirm">비밀번호 확인</label>
-                        	<input type="password" value="${member.memberPwd}" disabled></div>
+                        	<input id="memberPwd" type="password" value="${member.memberPwd}" disabled autocomplete></div>
+                        	
                         	<div class="form-group">
                         	<label for ="memberEmail">이메일</label>
-                        	<input type="password" value="${member.memberEmail}" disabled></div>
+                        	<input id="memberEmail" type="email" value="${member.memberEmail}" disabled></div>
+                        	
+                        	<div class="form-group">
+                        	<label for ="memberPhone">전화번호</label>
+                        	<input id="memberPhone" type="text" value="${member.memberPhone}" disabled></div>
+                        	
+                        	<div class="form-group">
+                        	<label for ="memberGender">성별</label>
+                        	<input type="radio" name="sex" value="남" ${member.memberGender == '1' ? 'checked' : ''} disabled>남
+                            <input type="radio" name="sex" value="여" ${member.memberGender == '2' ? 'checked' : ''} disabled>여
+                            </div>
                        </form>
                        <div class="button-container">
 					    <button class="button primary" type="button" id="update-btn">수정하기</button>
 					    <button class="button primary" id="cancel-btn" style="color:#fff; text-decoration:none;"><a href="${contextPath}/mypage/mypageMain.do">취소하기</a></button>
-					    <div id="with-form" style="display:inline;">
+
 					    <form id="withdraw-form">
 					        <input type="hidden" id="memberNo" value="${memberNo}">
 					        <button class="button primary" type="button" id="withdraw-btn">회원탈퇴</button>
 					    </form>
-						</div>
+					
 						</div>
                 </div>
             </div>
