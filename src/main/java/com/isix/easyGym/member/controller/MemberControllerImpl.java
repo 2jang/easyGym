@@ -132,9 +132,9 @@ public class MemberControllerImpl implements MemberController {
 		session.setAttribute("action", action);
 	    // result 값이 0이라면 로그인 폼으로 이동
 		// 로그인 실패시 result 값을 이용해 자바스크립트 알러트를 띄우도록 처리
-		if (result != null && result == 0) {
-	        mv.addObject("loginError", "아이디, 비밀번호가 다릅니다. 다시 로그인해주세요.");
-	    }
+		//if (result != null && result == 0) {
+		//  mv.addObject("loginError", "아이디, 비밀번호가 다릅니다. 다시 로그인해주세요.");
+	   // }
 	    
 	    mv.setViewName("member/loginForm");
 	    return mv;
@@ -161,7 +161,9 @@ public class MemberControllerImpl implements MemberController {
 	        }
 	    } else {
 	        // 로그인 실패 시 result 값으로 0 전달
-	        mv.setViewName("redirect:/member/loginForm.do?result=0");
+	        //mv.setViewName("redirect:/member/loginForm.do?result=0");
+			mv.addObject("loginError", "아이디, 비밀번호가 다릅니다. 다시 로그인해주세요.");
+			mv.setViewName("member/loginForm");
 	    }
 	    return mv;
 	}
