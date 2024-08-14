@@ -5,6 +5,15 @@
 <script src="https://code.jquery.com/jquery-latest.min.js"></script>
 <link rel="stylesheet" href="/css/member/operJoin.css">
 </div>
+<section id="banner">
+    <header>
+        <h2>Business Join</h2>
+    </header>
+    <p>사업자 가입 페이지에 오신 것을 환영합니다. 사용자 아이디와 비밀번호를 입력하시고<br>
+    로그인 버튼을 클릭하시면, 개인화된 서비스와 설정에 접근하실 수 있습니다.</p>
+    <footer>
+    </footer>
+</section>
 <div class="form-container">
 	<form name="opJoin" id="form" class="form" method="post"
 		action="/member/operJoin.do" onsubmit="combineBizNum()">
@@ -57,21 +66,16 @@
 				</div>
 			</div>
 		</div>
-
-		<input type="hidden" name="operatorEmail" id="operatorEmail">
-
-		<button type="button" class="btn btn-success" onclick="combineEmail()">이메일
-			입력완료</button>
-
-		<!--
-        <div class="input-box">
-            <div class="column">
-                <input type="text" placeholder="인증번호 6자리를 입력해 주세요." id="mailCheckInput" disabled="disabled" maxlength="6" size="30" required />
-                <input type="button" class="specialBtn" id="mailCheck" value="확인">
+		<br>
+            <input type="hidden" name="operatorEmail" id="operatorEmail">
+            <div class="input-group-addon">
+              <button type="button" class="button primary" id="mailCheckBtn">인증번호전송</button>
             </div>
-            <span id="mailCheckError"></span>
-        </div>
-        -->
+            <br>
+            <div class="mail-check-box input-box" style="display:none;">
+              <input class="mail-check-input" placeholder="인증번호 6자리를 입력해주세요" disabled="disabled" maxlength="6">
+            </div>
+            <span id="mail-check-warn"></span>
 
 		<div class="input-box">
 			<label>전화번호</label> <input type="text" placeholder="전화번호를 입력해 주세요."
@@ -99,51 +103,9 @@
 			onclick="javascript:checkJoin()">가입하기</button>
 	</form>
 </div>
-<script src="/js/member/member.js"></script>
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 
-<script>
-    // ID 중복 확인
-    $("#operatorId").on("focusout", function() {
-        var operatorId = $("#operatorId").val();
+<script src="/js/member/operMember.js"></script>
 
-        if (operatorId === '' || operatorId.length === 0) {
-            $("#check").css("color", "red").text("공백은 ID로 사용할 수 없습니다.");
-            return false;
-        }
-
-        // Ajax로 전송
-        $.ajax({
-            url: '/operator/checkId.do',
-            data: {
-                opeatorId: operatorId
-            },
-            type: 'POST',
-            dataType: 'json',
-            success: function(result) {
-                if (result === true) {
-                    $("#check").css({
-                        "color": "blue",
-                        "font-size": "10px"
-                    }).text("사용 가능한 ID 입니다.");
-                } else {
-                    $("#check").css({
-                        "color": "red",
-                        "font-size": "10px"
-                    }).text("사용 불가능한 ID 입니다.");
-                    $("#operatorId").val('');
-                }
-            }
-        });
-    }); // End Ajax
-</script>
-
-<script>
-    function combineEmail() {
-        var email1 = document.getElementById('operatorEmail1').value;
-        var email2 = document.getElementById('operatorEmail2').value;
-        var fullEmail = email1 + email2;
-        document.getElementById('operatorEmail').value = fullEmail;
-    }
-</script>
 
 <%@ include file="/WEB-INF/views/layout/footer.jsp"%>

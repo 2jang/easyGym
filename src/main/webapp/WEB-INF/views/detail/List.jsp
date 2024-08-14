@@ -2,23 +2,16 @@
          pageEncoding="UTF-8"
          isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ include file="/WEB-INF/views/detail/header.jsp"%>
+<%@ include file="/WEB-INF/views/layout/header.jsp"%>
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <%
     Object member = session.getAttribute("member");
     request.setCharacterEncoding("utf-8");
 %>
-
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>메인페이지</title>
     <link rel="stylesheet" href="${contextPath}/css/detail/list.css">
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
     <script src="${contextPath}/js/detail/list.js"></script>
-    <script type="text/javascript"
-            src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9a9906a8b7e291e6dddbb2bd165b6d7f&libraries=services"></script>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9a9906a8b7e291e6dddbb2bd165b6d7f&libraries=services"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const favoriteButtons = document.querySelectorAll('.favorite-button');
@@ -136,56 +129,56 @@
             });
         });
     </script>
-</head>
-<body>
+    <section id="banner">
+		<div class="search-container">
+		    <form class="search-form">
+		        <input type="text" name="query" placeholder="업체명을 입력하세요..." class="search-input" style="background-color:#fff; border-radius:5px 0 0 5px; color:#7c8081;">
+		        <button type="submit" class="search-button">검색</button>
+		    </form>
+		    <div class="options-container">
+		    <div class="option-group">
+		        <label for="districtSelect">지역명:</label>
+		        <select id="districtSelect" class="option-select">
+					<option value="default">구/군 선택</option>
+					<option value="중구">서울특별시 중구</option>
+					<option value="강남구">서울특별시 강남구</option>
+					<option value="동작구">서울특별시 동작구</option>
+					<option value="마포구">서울특별시 마포구</option>
+					<option value="종로구">서울특별시 종로구</option>
+					<option value="성동구">서울특별시 성동구</option>
+					<option value="중랑구">서울특별시 중랑구</option>
+					<option value="성북구">서울특별시 성북구</option>
+					<option value="영등포구">서울특별시 영등포구</option>
+					<option value="서초구">서울특별시 서초구</option>
+					<option value="광진구">서울특별시 광진구</option>
+					<option value="강동구">서울특별시 강동구</option>
+					<option value="관악구">서울특별시 관악구</option>
+					<option value="송파구">서울특별시 송파구</option>
+					<option value="도봉구">서울특별시 도봉구</option>
+					<option value="강북구">서울특별시 강북구</option>
+					<option value="강서구">서울특별시 강서구</option>
+					<option value="구로구">서울특별시 구로구</option>
+					<option value="금천구">서울특별시 금천구</option>
+					<option value="노원구">서울특별시 노원구</option>
+					<option value="양천구">서울특별시 양천구</option>
+					<option value="은평구">서울특별시 은평구</option>
+		            <!-- 다른 구/군 옵션들 추가 -->
+		        </select>
+		    </div>
+		    <div class="option-group">
+		        <label for="facilityType">시설 종류:</label>
+		        <select id="facilityType" class="option-select">
+		            <option value="health">헬스</option>
+		            <option value="pilates">필라테스</option>
+		            <option value="boxing">복싱</option>
+		        </select>
+		    </div>
+		    </div>
+		</div>
+</section>
 
-<div class="search-container">
-    <form class="search-form">
-        <input type="text" name="query" placeholder="업체명을 입력하세요..." class="search-input">
-        <button type="submit" class="search-button">검색</button>
-    </form>
-</div>
+<article id="main">
 
-<div class="options-container">
-    <div class="option-group">
-        <label for="districtSelect">지역명:</label>
-        <select id="districtSelect" class="option-select">
-			<option value="default">구/군 선택</option>
-			<option value="중구">서울특별시 중구</option>
-			<option value="강남구">서울특별시 강남구</option>
-			<option value="동작구">서울특별시 동작구</option>
-			<option value="마포구">서울특별시 마포구</option>
-			<option value="종로구">서울특별시 종로구</option>
-			<option value="성동구">서울특별시 성동구</option>
-			<option value="중랑구">서울특별시 중랑구</option>
-			<option value="성북구">서울특별시 성북구</option>
-			<option value="영등포구">서울특별시 영등포구</option>
-			<option value="서초구">서울특별시 서초구</option>
-			<option value="광진구">서울특별시 광진구</option>
-			<option value="강동구">서울특별시 강동구</option>
-			<option value="관악구">서울특별시 관악구</option>
-			<option value="송파구">서울특별시 송파구</option>
-			<option value="도봉구">서울특별시 도봉구</option>
-			<option value="강북구">서울특별시 강북구</option>
-			<option value="강서구">서울특별시 강서구</option>
-			<option value="구로구">서울특별시 구로구</option>
-			<option value="금천구">서울특별시 금천구</option>
-			<option value="노원구">서울특별시 노원구</option>
-			<option value="양천구">서울특별시 양천구</option>
-			<option value="은평구">서울특별시 은평구</option>
-            <!-- 다른 구/군 옵션들 추가 -->
-			
-        </select>
-    </div>
-    <div class="option-group">
-        <label for="facilityType">시설 종류:</label>
-        <select id="facilityType" class="option-select">
-            <option value="health">헬스</option>
-            <option value="pilates">필라테스</option>
-            <option value="boxing">복싱</option>
-        </select>
-    </div>
-</div>
 
 <div class="main-container">
     <div class="left-margin"></div>
@@ -233,10 +226,13 @@
     </div>
     <div class="right-margin"></div>
 </div>
-
+</article>
 <script>
     const urlParams = new URLSearchParams(window.location.search);
     var map; // 전역 변수로 map 선언
+    var maplevel; // 확대 전역 변수 설정
+    var markers = []; // 마커를 저장할 배열
+    var infowindows = []; // 인포윈도우를 저장할 배열
 
     window.onload = function () {
         const query = urlParams.get('query');
@@ -260,6 +256,7 @@
 
         // 초기 지도 생성
         initializeMap(initialCenter, initialLevel);
+        updateInfowindows();
     }
 
     document.getElementById('districtSelect').addEventListener('change', updateUrl);
@@ -330,6 +327,11 @@
             }
         });
 
+        kakao.maps.event.addListener(map, 'zoom_changed', function() {
+            maplevel = map.getLevel();
+            updateInfowindows();
+        });
+
         // 마커 추가
         <c:choose>
             <c:when test="${!empty allList}">
@@ -338,6 +340,9 @@
                 </c:forEach>
             </c:when>
         </c:choose>
+
+        // 초기 인포윈도우 상태 설정
+        updateInfowindows();
     }
 
     function addMarker(p1, p2, content) {
@@ -354,8 +359,18 @@
             content: content
         });
 
-        infowindow.open(map, marker);
+        markers.push(marker);
+        infowindows.push(infowindow);
+    }
+
+    function updateInfowindows() {
+        for (var i = 0; i < infowindows.length; i++) {
+            if (maplevel < 7) {
+                infowindows[i].open(map, markers[i]);
+                console.log(maplevel)
+            } else {
+                infowindows[i].close();
+            }
+        }
     }
 </script>
-</body>
-</html>

@@ -131,12 +131,11 @@ public class MemberControllerImpl implements MemberController {
 	    HttpSession session = req.getSession();
 		session.setAttribute("action", action);
 	    // result 값이 0이라면 로그인 폼으로 이동
-	    if (result != null && result == 0) {
-	        mv.setViewName("redirect:/member/loginForm.do");
-	        return mv;
+		// 로그인 실패시 result 값을 이용해 자바스크립트 알러트를 띄우도록 처리
+		if (result != null && result == 0) {
+	        mv.addObject("loginError", "아이디, 비밀번호가 다릅니다. 다시 로그인해주세요.");
 	    }
 	    
-	    mv.addObject("result", result); // 로그인 실패시 띄우는 메세지 ...
 	    mv.setViewName("member/loginForm");
 	    return mv;
 	}
@@ -156,15 +155,15 @@ public class MemberControllerImpl implements MemberController {
 			session.setAttribute("sns", 0);
 			action = (String) session.getAttribute("action");
 			if (action != null) {
-				mv.setViewName("redirect:" + action);
-			} else {
-				mv.setViewName("redirect:/main.do");
-			}
-		} else {
-			rAttr.addAttribute("result", "아이디, 비밀번호가 다릅니다. 다시 로그인해주세요.");
-			mv.setViewName("redirect:/member/loginForm.do");
-		}
-		return mv;
+	            mv.setViewName("redirect:" + action);
+	        } else {
+	            mv.setViewName("redirect:/main.do");
+	        }
+	    } else {
+	        // 로그인 실패 시 result 값으로 0 전달
+	        mv.setViewName("redirect:/member/loginForm.do?result=0");
+	    }
+	    return mv;
 	}
 
 
@@ -188,27 +187,6 @@ public class MemberControllerImpl implements MemberController {
 		
 		return new ResponseEntity<>(result, HttpStatus.OK);
 	}
-//	@Override
-//	@RequestMapping(value = "/member/checkId.do", produces = "application/text;charset=utf8")
-//	public ModelAndView checkId(@RequestParam("memberId") String memberId, HttpServletRequest request, HttpServletResponse response) throws Exception {
-//		ModelAndView mav = new ModelAndView("jsonView");
-//		boolean result = true;
-//		System.out.println("id:"+ memberId);
-//
-//		if(memberId.trim().isEmpty()) {
-//			System.out.print("id:"+ memberId);
-//			result = false;
-//		}else {
-//			if(memberService.checkId(memberId) != null) {
-//				result = false;
-//			}else {
-//				result = true;
-//			}
-//		}
-//		mav.addObject("result", result);
-//		mav.setStatus(HttpStatus.OK);
-//		return mav;
-//	}
 
 	@Override
 	public ModelAndView loginForm(MemberDTO member, String action, String result, HttpServletRequest request,

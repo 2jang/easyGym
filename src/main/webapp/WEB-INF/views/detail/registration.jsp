@@ -5,12 +5,6 @@
     request.setCharacterEncoding("utf-8");
 %>
 <%@ include file="/WEB-INF/views/layout/header.jsp"%>
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>마이페이지</title>
     <link rel="stylesheet" href="${contextPath}/css/mypage/mypageMain.css">
     <script src="${contextPath}/js/mypage/mypageMain.js"></script>
 <style>
@@ -63,8 +57,13 @@
         font-size: 16px;
     }
 </style>
-</head>
-<body>
+<section id="banner">
+            <h2>Fitness Center Registration Page</h2>
+        <p>헬스장, 필라테스 스튜디오, 복싱 짐 등 다양한 피트니스 관련 업체를 등록해 주세요. <br>
+        각 업체의 정확한 정보를 입력하여 고객들이 쉽게 찾을 수 있도록 도와주세요.
+        </p>
+</section>
+<article id="main">
     <div class="container">
         <form id="detailForm" action="/detail/signUpForm.do" method="post" enctype="multipart/form-data">
 			<input type="hidden" name="operatorNo" value="111">
@@ -171,6 +170,4 @@
             </div>
         </form>
     </div>
-
-</body>
-</html>
+</article>
