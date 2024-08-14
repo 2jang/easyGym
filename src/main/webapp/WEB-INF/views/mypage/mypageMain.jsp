@@ -120,8 +120,8 @@
                 </div>
                 <div class="modify" id="update-form" style="display:none;  width: 600px; align=center;">
                     <h2>회원정보 수정</h2>
-                    <form method="post" action="${contextPath}/mypage/memberUpdate.do" id="update-form">
-                        <input type="hidden" value="${member.memberNo}">
+                    <form method="post" action="${contextPath}/mypage/memberUpdate.do" id="form">
+                        <input type="hidden" id="memberNo" value="${member.memberNo}">
                         <div class="form-group">
                         	<label for ="memberName">이름</label>
                         	<input type="text" value="${member.memberName}" disabled></div>
@@ -130,23 +130,21 @@
                         	<input type="text" value="${member.memberId}" disabled></div>
                         	<div class="form-group">
                         	<label for ="memberPwd">비밀번호</label>
-                        	<input type="password" value="${member.memberPwd}" disabled></div>
+                        	<input type="password" id="memberPwd" value="${member.memberPwd}"></div>
                         	<div class="form-group">
                         	<label for ="memberPwdConfirm">비밀번호 확인</label>
-                        	<input type="password" value="${member.memberPwd}" disabled></div>
+                        	<input type="password" id="memberPwdConfirm" value="${member.memberPwd}"></div>
+							<div class="form-group">
+                        	<label for ="memberPhone">휴대전화</label>
+                        	<input type="text" id="memberPhone" value="${member.memberPhone}" ></div>
                         	<div class="form-group">
                         	<label for ="memberEmail">이메일</label>
-                        	<input type="password" value="${member.memberEmail}" disabled></div>
+                        	<input type="text" id="memberEmail" value="${member.memberEmail}" ></div>
                        </form>
-                       <div class="button-container">
-					    <button class="button primary" type="button" id="update-btn">수정하기</button>
-					    <button class="button primary" id="cancel-btn" style="color:#fff; text-decoration:none;"><a href="${contextPath}/mypage/mypageMain.do">취소하기</a></button>
-					    <div id="with-form" style="display:inline;">
-					    <form id="withdraw-form">
-					        <input type="hidden" id="memberNo" value="${memberNo}">
-					        <button class="button primary" type="button" id="withdraw-btn">회원탈퇴</button>
-					    </form>
-						</div>
+                       <div class="button-container" style="margin-bottom: 30px;">
+						    <button class="button primary" type="button" id="update-btn">수정하기</button>
+						    <button class="button primary" id="cancel-btn" style="color:#fff; text-decoration:none;"><a href="${contextPath}/mypage/mypageMain.do">취소하기</a></button>
+						    <button class="button primary" type="button" id="withdraw-btn">회원탈퇴</button>
 						</div>
                 </div>
             </div>
