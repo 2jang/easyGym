@@ -26,6 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
             mapWrap.style.bottom = '0'; // 화면 하단까지 채우기
             mapWrap.style.width = '30%';
             mapWrap.style.right = '10%';
+            mapWrap.style.height = '100vh'; // 화면 전체 높이
         } else {
             mapWrap.style.position = 'absolute';
             mapWrap.style.top = `${initialTop}px`;

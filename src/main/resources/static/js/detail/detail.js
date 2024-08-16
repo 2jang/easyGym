@@ -1,4 +1,26 @@
 $(document).ready(function() {
+    if (!sessionStorage.getItem('pageLoaded')) {
+        // 페이지가 처음 로드되었을 때
+        sessionStorage.setItem('pageLoaded', 'true');
+        location.reload();
+    } else {
+        // 뒤로가기로 페이지에 돌아왔을 때
+        sessionStorage.removeItem('pageLoaded');
+    }
+
+    // 페이지를 떠날 때 (다른 페이지로 이동할 때) 세션 스토리지를 초기화합니다.
+    $(window).on('beforeunload', function() {
+        sessionStorage.removeItem('pageLoaded');
+    });
+
+    // 뒤로가기 이벤트를 감지하여 페이지를 새로고침합니다.
+    window.onpageshow = function(event) {
+        if (event.persisted) {
+            location.reload();
+        }
+    };
+
+
     var requestInProgress = false;
 
     function centerModal() {

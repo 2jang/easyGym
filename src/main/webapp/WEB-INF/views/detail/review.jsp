@@ -2,7 +2,7 @@
          pageEncoding="UTF-8"
          isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ include file="/WEB-INF/views/detail/header.jsp"%>
+<%@ include file="/WEB-INF/views/layout/header.jsp"%>
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
 <c:set var="tReview" value="${reviewMap.tReview}"/>
 <c:set var="section" value="${reviewMap.section}"/>
@@ -24,19 +24,18 @@
 <style>
 
 </style>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>${details.detailBusinessName}</title>
+
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script>
     var contextPath = "${pageContext.request.contextPath}";
 </script>
 <script src="${contextPath}/js/detail/review.js"></script>
 <link rel="stylesheet" href="${contextPath}/css/detail/review.css">
-</head>
-<body>
+<section id="banner">
+    <header>
+        <h2>Sign in</h2>
+    </header>
+</section>
 <div id="reviewContainer">
 	<input type="hidden" class="memberNo" value="${member.memberNo}">
     <c:choose>
@@ -56,7 +55,7 @@
             </c:forEach>
         </c:when>
     </c:choose>
-    <div>
+    <div id="pagingNum">
         <!-- 총 리뷰 수가 5개를 초과하는 경우 페이징 처리 -->
         <c:if test="${reviewMap.tReview > 5}">
             <!-- 총 리뷰 수가 50개를 초과하는 경우 -->
