@@ -88,6 +88,51 @@ select {
     text-decoration: line-through;
 }
 
+.form_group {
+    margin-bottom: 20px;
+}
+
+#nowsPoint {
+    font-size: 16px;
+    font-weight: bold;
+    color: #1ca16f;
+    margin-bottom: 10px;
+}
+
+#usePoint {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+#usePoint:focus {
+    outline: none;
+    border-color: #1ca16f;
+}
+
+#usePoint::placeholder {
+    color: #999999;
+}
+
+/* 숫자 입력 필드의 화살표 제거 (Chrome, Safari, Edge, Opera) */
+#usePoint::-webkit-outer-spin-button,
+#usePoint::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* 숫자 입력 필드의 화살표 제거 (Firefox) */
+#usePoint[type=number] {
+    -moz-appearance: textfield;
+}
+
+label#pointLabel {
+    display: inline-block;
+}
+
 #final {
     font-weight: bold;
     color: #5cc253;

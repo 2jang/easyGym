@@ -22,6 +22,10 @@ public interface PayformDAO {
 
     public void insertPayform(Map payformMap) throws DataAccessException;
 
+    public void refundPoint(Map payformMap) throws DataAccessException;
+
+    public void updateMemberPoints(Map payformMap) throws DataAccessException;
+
     public PayformDTO viewPayform(int payformNo) throws DataAccessException;
 
     public int cancelPayform(int payformNo) throws DataAccessException;

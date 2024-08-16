@@ -79,6 +79,11 @@ select {
     color: #777;
 }
 
+#pointsTag{
+    font-weight: bold;
+    color: #555555;
+}
+
 .paymentInfo input[type="text"] {
     background-color: #fff;
 }
