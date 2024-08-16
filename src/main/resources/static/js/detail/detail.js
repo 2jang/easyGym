@@ -1,4 +1,26 @@
 $(document).ready(function() {
+    if (!sessionStorage.getItem('pageLoaded')) {
+        // 페이지가 처음 로드되었을 때
+        sessionStorage.setItem('pageLoaded', 'true');
+        location.reload();
+    } else {
+        // 뒤로가기로 페이지에 돌아왔을 때
+        sessionStorage.removeItem('pageLoaded');
+    }
+
+    // 페이지를 떠날 때 (다른 페이지로 이동할 때) 세션 스토리지를 초기화합니다.
+    $(window).on('beforeunload', function() {
+        sessionStorage.removeItem('pageLoaded');
+    });
+
+    // 뒤로가기 이벤트를 감지하여 페이지를 새로고침합니다.
+    window.onpageshow = function(event) {
+        if (event.persisted) {
+            location.reload();
+        }
+    };
+
+
     var requestInProgress = false;
 
     function centerModal() {
@@ -14,55 +36,55 @@ $(document).ready(function() {
             modalContent.style.top = `${Math.max((windowHeight - modalHeight) / 2, 0) + scrollTop}px`;
         }
     }
-	$(".report-button").click(function(event) {
-	     var memberNo = $('.memberNo').val();
-		 var detailNo = $('.detailNo').val();
-	     event.stopPropagation();
+    $(".report-button").click(function(event) {
+        var memberNo = $('.memberNo').val();
+        var detailNo = $('.detailNo').val();
+        event.stopPropagation();
 
-		 if (!memberNo) {
-		      alert("로그인이 필요합니다. 로그인 페이지로 이동합니다.");
-		      let address = window.location.href;
-		      window.location.href = '/member/loginForm.do?action=' + encodeURIComponent(address);
-		      return;
-		  }
+        if (!memberNo) {
+            alert("로그인이 필요합니다. 로그인 페이지로 이동합니다.");
+            let address = window.location.href;
+            window.location.href = '/member/loginForm.do?action=' + encodeURIComponent(address);
+            return;
+        }
 
-	     // 서버 요청 처리 중일 때 추가 요청 방지
-	     if (requestInProgress) return;
-	     requestInProgress = true;
+        // 서버 요청 처리 중일 때 추가 요청 방지
+        if (requestInProgress) return;
+        requestInProgress = true;
 
-	     $.ajax({
-	         type: "POST",
-	         url: "/detail/selectReport.do",
-	         data: { memberNo: memberNo,
-					 detailNo: detailNo
-			  },
-	         success: function(response) {
-	             console.log('Server response:', response); // 응답 로그 추가
-	             requestInProgress = false; // 요청 완료 후 플래그 리셋
-					alert(response);
-	             if (response === "noBuy") {
-	                 alert("회원권을 구매하신 고객님만 불편 사항을 제출할 수 있습니다.");
-	             } else if (response === "alreadyReport") {
-	                 alert("이미 불편 사항을 제출한 이력이 있습니다.");
-	             } else if (response === "memberShip") {
-	                 var modal = document.getElementById('reportModal');
-	                 if (modal) {
-	                     modal.style.display = 'flex'; // 모달을 화면 중앙에 표시
-	                     centerModal(); // 중앙 위치 조정
-	                 } else {
-	                     console.error('모달 창을 찾을 수 없습니다.');
-	                 }
-	             }
-	         },
-	         error: function(xhr, status, error) {
-	             requestInProgress = false; // 오류 발생 시 플래그 리셋
-	             console.error('Error:', error);
-	             alert('서버 오류가 발생했습니다.');
-	         }
-	     });
-	 });
-	 
-	 
+        $.ajax({
+            type: "POST",
+            url: "/detail/selectReport.do",
+            data: { memberNo: memberNo,
+                detailNo: detailNo
+            },
+            success: function(response) {
+                console.log('Server response:', response); // 응답 로그 추가
+                requestInProgress = false; // 요청 완료 후 플래그 리셋
+                alert(response);
+                if (response === "noBuy") {
+                    alert("회원권을 구매하신 고객님만 불편 사항을 제출할 수 있습니다.");
+                } else if (response === "alreadyReport") {
+                    alert("이미 불편 사항을 제출한 이력이 있습니다.");
+                } else if (response === "memberShip") {
+                    var modal = document.getElementById('reportModal');
+                    if (modal) {
+                        modal.style.display = 'flex'; // 모달을 화면 중앙에 표시
+                        centerModal(); // 중앙 위치 조정
+                    } else {
+                        console.error('모달 창을 찾을 수 없습니다.');
+                    }
+                }
+            },
+            error: function(xhr, status, error) {
+                requestInProgress = false; // 오류 발생 시 플래그 리셋
+                console.error('Error:', error);
+                alert('서버 오류가 발생했습니다.');
+            }
+        });
+    });
+
+
 
     // 취소 버튼 클릭 시 모달 창 숨기기
     document.getElementById('cancelReport').addEventListener('click', function() {
@@ -86,8 +108,8 @@ $(document).ready(function() {
         var reportType = document.getElementById('reportType').value;
         var otherDetail = document.getElementById('otherDetail').value;
         var reportContent = (reportType === 'other') ? otherDetail : reportType; // 신고 내용
-		var detailNo = $('.detailNo').val();
-		var memberNo = $('.memberNo').val();
+        var detailNo = $('.detailNo').val();
+        var memberNo = $('.memberNo').val();
         if (!reportContent) {
             alert('신고 내용을 입력하세요.');
             return;
@@ -144,8 +166,8 @@ function deleteComment(reviewNo) {
     $.ajax({
         type: "POST",
         url: "/delete.do",
-        data: { 
-            reviewNo: reviewNo, 
+        data: {
+            reviewNo: reviewNo,
             memberNo: memberNo,
             detailNo: detailNo
         },
@@ -167,8 +189,8 @@ function deleteComment(reviewNo) {
             } else if (data === "noBuy") {
                 alert("해당 글은 해당 업체 회원권을 구매하고 자신이 작성한 글만 삭제 가능합니다.");
             } else if (data === "differentMember") {
-				alert("해당 글은 직접 작성한 후기만 삭제할 수 있습니다.");
-				}
+                alert("해당 글은 직접 작성한 후기만 삭제할 수 있습니다.");
+            }
         },
         error: function(xhr, status, error) {
             console.error("Error: " + error);
@@ -204,13 +226,13 @@ function updateReviewImagesForDeletion(detailNo) {
 
 // 글 등록하기
 function writeSubmit() {
-    var memberNo = $('.memberNo').val();	
-	
+    var memberNo = $('.memberNo').val();
+
     if (!memberNo) {
         alert("로그인이 필요합니다. 로그인 페이지로 이동합니다.");
         let address = window.location.href;
         window.location.href = '/member/loginForm.do?action=' + encodeURIComponent(address);
-		alert(action);
+        alert(action);
         return;
     }
 
@@ -256,21 +278,21 @@ function writeSubmit() {
         processData: false,
         contentType: false,
     })
-    .done(function(response) {
-        if (response === "success") {
-            alert("작성하신 후기가 등록되었습니다.");
+        .done(function(response) {
+            if (response === "success") {
+                alert("작성하신 후기가 등록되었습니다.");
 
-            // 리뷰 목록을 새로고침
-            refreshReviews(detailNo);
-        } else if (response === "noBuy") {
-            alert("후기 작성은 회원권을 구매하신 회원님만 가능합니다");
-        }
-    })
-    .fail(function(xhr, status, error) {
-        console.error("Error:", error);
-        console.error("Status:", status);
-        console.error("Response:", xhr.responseText);
-    });
+                // 리뷰 목록을 새로고침
+                refreshReviews(detailNo);
+            } else if (response === "noBuy") {
+                alert("후기 작성은 회원권을 구매하신 회원님만 가능합니다");
+            }
+        })
+        .fail(function(xhr, status, error) {
+            console.error("Error:", error);
+            console.error("Status:", status);
+            console.error("Response:", xhr.responseText);
+        });
 }
 
 function refreshReviews(detailNo) {
@@ -356,6 +378,14 @@ $(function() {
     $('.slider_panel').css('left', -700);  // 첫 화면에서 5번이 보이고 1번으로 나오는 화면을 없애기 위한 작업
     $('.slider_text').hide();  // 첫 화면에서 5번이 보이고 1번으로 나오는 화면을 없애기 위한 작업
     $('.slider_text').eq(0).show();  // 첫 화면에서 5번이 보이고 1번으로 나오는 화면을 없애기 위한 작업
+    $('.slider_panel').on('mousedown','img',function (event){
+        event.preventDefault();
+    });
+    $('.control_button').click(function() {
+        index = $(this).index();
+        moveSlider(index + 1);  // 아래 버튼도 +1을 해줌
+    });
+
 
     $('.control_button').click(function() {
         index = $(this).index();
