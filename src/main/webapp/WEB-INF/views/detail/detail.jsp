@@ -23,6 +23,7 @@
 
     <script>
         $(document).ready(function() {
+
             var requestInProgress = false;
 
             function updateFavoriteButton(button, status) {
@@ -31,7 +32,20 @@
                     : '${contextPath}/images/detail/detailpage/dibs.png';
                 $(button).find('.dibs').attr('src', newSrc);
             }
+            function showAlert(message) {
+                var alertContainer = $("#alertContainer");
 
+                if (alertContainer.children().length >= 2) {
+                    alertContainer.children().first().remove(); // 가장 오래된 알림을 제거
+                }
+
+                var alertMessage = $("<div>").addClass("alertMessage").text(message);
+                alertContainer.append(alertMessage);
+
+                setTimeout(function() {
+                    alertMessage.remove();
+                }, 3000); // 3초 후에 알림 제거
+            }
             function checkFavoriteStatus() {
                 $(".favorite-button").each(function() {
                     var button = this;
@@ -45,15 +59,10 @@
                         success: function(data) {
                             if (data === "insert" || data === "delete") {
                                 updateFavoriteButton(button, data);
-                            } else if (data === "nologin") {
-                                // Handle no login case
-                            } else {
-                                alert("알 수 없는 오류가 발생했습니다.");
                             }
                         },
                         error: function(xhr, status, error) {
                             console.error("Error: " + error);
-                            alert("오류가 발생했습니다. 관리자에게 문의하세요.");
                         }
                     });
                 });
@@ -69,7 +78,7 @@
                 var memberNo = $(button).find('.memberNo').val();
 
                 if (!memberNo) {
-                    alert("로그인이 필요합니다. 로그인 페이지로 이동합니다.");
+                    showAlert("로그인이 필요합니다. 로그인 페이지로 이동합니다.");
                     let address = window.location.href;
                     window.location.href = '/member/loginForm.do?action=' + encodeURIComponent(address);
                     return;
@@ -85,22 +94,15 @@
                         memberNo: memberNo },
                     success: function(data) {
                         if (data === "insert" || data === "delete") {
-                            alert(data === "insert"
+                            showAlert(data === "insert"
                                 ? "찜 목록에 추가되었습니다."
                                 : "찜 목록에서 삭제되었습니다.");
                             updateFavoriteButton(button, data);
-                        } else if (data === "nologin") {
-                            alert("회원 정보가 없습니다.");
-                            var currentPageUrl = encodeURIComponent(window.location.href);
-                            window.location.href = '${contextPath}/member/loginForm.do?redirect=' + currentPageUrl;
-                        } else {
-                            alert("알 수 없는 오류가 발생했습니다.");
                         }
                         requestInProgress = false;
                     },
                     error: function(xhr, status, error) {
                         console.error("Error: " + error);
-                        alert("오류가 발생했습니다. 관리자에게 문의하세요.");
                         requestInProgress = false;
                     }
                 });
@@ -111,6 +113,7 @@
     </script>
 </head>
 <body>
+<div id="alertContainer"></div>
 <c:choose>
     <c:when test="${!empty details}">
         <div id="detailRange">

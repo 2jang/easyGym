@@ -33,7 +33,7 @@
 <link rel="stylesheet" href="${contextPath}/css/detail/review.css">
     <section id="banner">
         <header>
-            <h2>Sign in</h2>
+            <h2>Review Page</h2>
         </header>
     </section>
     <div id="reviewContainer">
