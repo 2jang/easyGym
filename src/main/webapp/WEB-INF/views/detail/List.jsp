@@ -171,6 +171,7 @@
 		    <div class="option-group">
 		        <label for="facilityType">시설 종류:</label>
 		        <select id="facilityType" class="option-select">
+                    <option value="">시설 선택</option>
 		            <option value="health">헬스</option>
 		            <option value="pilates">필라테스</option>
 		            <option value="boxing">복싱</option>
@@ -240,7 +241,7 @@
         let initialCenter = {lat: 37.56682194967411, lng: 126.97864942970189};
         let initialLevel = 8;
 
-        if (query) {
+        if (query.includes("서울특별시")) {
             const district = query.split(' ')[1];
             document.getElementById('districtSelect').value = district;
             if (districtCoordinates[district]) {
@@ -248,10 +249,15 @@
                 initialLevel = 7;
             }
         }
+        else
+            document.getElementById('districtSelect').value = "default";
 
         if (detailClassification) {
             document.getElementById('facilityType').value = detailClassification;
         }
+        else
+            document.getElementById('facilityType').value = "";
+
 
         // 초기 지도 생성
         initializeMap(initialCenter, initialLevel);
