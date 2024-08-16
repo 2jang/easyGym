@@ -66,7 +66,7 @@
                   <li class="nav-item"><a class="btn btn-info btn-sm"
                      href="/detail/registration.do">업체 등록하기</a></li>
                   <li class="nav-item"><a class="btn btn-info btn-sm"
-                     href="/member/logout.do">로그아웃</a></li>
+                     href="/member/operLogout.do">로그아웃</a></li>
                   <li class="nav-item">
                      <h1 class="welcome-message">
                         환영합니다, <span>${sessionScope.operator.operatorName}님!</span>
