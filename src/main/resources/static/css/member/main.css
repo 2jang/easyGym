@@ -1783,6 +1783,37 @@ select, textarea {
    width: 50%;
 }
 
+/*챗봇*/
+.chatbot-icon {
+    position: fixed;
+    bottom: 100px;
+    right: 20px;
+    width: 70px;
+    height: 70px;
+    cursor: pointer;
+    z-index: 1000; /* 다른 요소들보다 앞에 표시되도록 설정 */
+}
+
+#chatbot_frame {
+    position: fixed;
+    bottom: 180px; /* 아이콘 위에 프레임이 나타나도록 설정 */
+    right: 20px;
+    width: 350px; /* 프레임 너비 설정 */
+    height: 430px; /* 프레임 높이 설정 */
+    display: none; /* 초기 상태에서는 숨김 */
+    z-index: 999; /* 아이콘보다 뒤에 표시되도록 설정 */
+}
+
+.tooltip-image {
+            position: fixed;
+            bottom: 120px; /* 아이콘 바로 위에 위치하도록 설정 */
+            right: 100px; /* 아이콘 옆에 위치하도록 설정 */
+            width: 140px;
+          height: 70px;
+            display: none; /* 초기 상태에서는 숨김 */
+            z-index: 1001; /* 아이콘보다 앞에 표시되도록 설정 */
+}
+
 /* Form */
 
 	input[type="text"],

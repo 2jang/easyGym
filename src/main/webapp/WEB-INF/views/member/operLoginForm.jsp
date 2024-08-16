@@ -35,10 +35,16 @@
                   </div>
                </div>
                <button class="btn btn-primary w-100 py-2" type="submit" style="border-radius: 15px;">로그인</button>
+               
             </form>
          </div>
       </div>
    </div>
 </div>
+<script type="text/javascript">
+    <c:if test="${not empty loginFailed}">
+        alert("아이디 또는 비밀번호가 틀렸습니다.");
+    </c:if>
+</script>
 
 <%@ include file="/WEB-INF/views/layout/footer.jsp"%>

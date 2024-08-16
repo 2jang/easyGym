@@ -46,8 +46,6 @@
         </header>
         <p>회원가입 페이지입니다. 아래 양식을 작성하셔서 회원가입을 완료해 주세요.<br>가입 후 다양한 서비스와 혜택을 이용하실 수 있습니다.
         </p>
-        <footer>
-        </footer>
 </section>
 <article id="main">
 <!--   <header class="special container">

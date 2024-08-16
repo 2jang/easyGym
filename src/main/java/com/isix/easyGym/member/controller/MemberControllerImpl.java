@@ -124,49 +124,68 @@ public class MemberControllerImpl implements MemberController {
 	@GetMapping("/member/loginForm.do")
 	public ModelAndView loginForm(@ModelAttribute("member") MemberDTO member,
 	                               @RequestParam(value = "action", required = false) String action,
-	                               @RequestParam(value = "result", required = false) Integer result, // Integer로 변경
+	                               @RequestParam(value = "result", required = false) Integer result,
 	                               HttpServletRequest req,
 	                               HttpServletResponse res) throws Exception {
 	    ModelAndView mv = new ModelAndView();
 	    HttpSession session = req.getSession();
-		session.setAttribute("action", action);
-	    // result 값이 0이라면 로그인 폼으로 이동
-		// 로그인 실패시 result 값을 이용해 자바스크립트 알러트를 띄우도록 처리
-		//if (result != null && result == 0) {
-		//  mv.addObject("loginError", "아이디, 비밀번호가 다릅니다. 다시 로그인해주세요.");
-	   // }
-	    
+	    session.setAttribute("action", action);
+
+	    // result 값에 따라 처리
+	    if (result != null) {
+	        switch (result) {
+	            case 0:
+	                mv.addObject("loginError", "아이디 또는 비밀번호가 잘못되었습니다. 다시 시도해 주세요.");
+	                break;
+	            case 2:
+	                mv.addObject("loginError", "탈퇴한 회원입니다. 다시 가입해 주세요.");
+	                break;
+	        }
+	    }
+
 	    mv.setViewName("member/loginForm");
 	    return mv;
 	}
 
+
 	
 	@Override
 	@RequestMapping(value = "/member/login.do", method = RequestMethod.POST)
-	public ModelAndView login(@ModelAttribute("member") MemberDTO member, @RequestParam(value ="action", required=false) String action, RedirectAttributes rAttr,
-			HttpServletRequest request, HttpServletResponse response) throws Exception {
-		memberDTO = memberService.login(member);
-		ModelAndView mv = new ModelAndView();	
-		if (memberDTO != null) {
-			HttpSession session= request.getSession();
-			session.setMaxInactiveInterval(30 * 60);
-			session.setAttribute("member", memberDTO);
-			session.setAttribute("isLogOn", true);
-			session.setAttribute("sns", 0);
-			action = (String) session.getAttribute("action");
-			if (action != null) {
-	            mv.setViewName("redirect:" + action);
+	public ModelAndView login(@ModelAttribute("member") MemberDTO member,
+	                           @RequestParam(value ="action", required=false) String action,
+	                           RedirectAttributes rAttr,
+	                           HttpServletRequest request,
+	                           HttpServletResponse response) throws Exception {
+	    MemberDTO memberDTO = memberService.login(member);
+	    ModelAndView mv = new ModelAndView();
+
+	    if (memberDTO != null) {
+	        if (memberDTO.getMemberState() == 0) {
+	            // 탈퇴한 회원의 경우
+	            mv.setViewName("redirect:/member/loginForm.do?result=2"); // result=2로 탈퇴 상태 처리
 	        } else {
-	            mv.setViewName("redirect:/main.do");
+	            // 로그인 성공
+	            HttpSession session = request.getSession();
+	            session.setMaxInactiveInterval(30 * 60);
+	            session.setAttribute("member", memberDTO);
+	            session.setAttribute("isLogOn", true);
+	            session.setAttribute("sns", 0);
+	            action = (String) session.getAttribute("action");
+	            if (action != null) {
+	                mv.setViewName("redirect:" + action);
+	            } else {
+	                mv.setViewName("redirect:/main.do");
+	            }
 	        }
 	    } else {
-	        // 로그인 실패 시 result 값으로 0 전달
-	        //mv.setViewName("redirect:/member/loginForm.do?result=0");
-			mv.addObject("loginError", "아이디, 비밀번호가 다릅니다. 다시 로그인해주세요.");
-			mv.setViewName("member/loginForm");
+	        // 로그인 실패
+	        mv.addObject("loginError", "아이디 또는 비밀번호가 잘못되었습니다. 다시 시도해 주세요.");
+	        mv.setViewName("member/loginForm");
 	    }
+
 	    return mv;
 	}
+
 
 
 	// 아이디 중복체크
