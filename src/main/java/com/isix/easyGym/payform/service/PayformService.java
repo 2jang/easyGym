@@ -21,4 +21,5 @@ public interface PayformService {
 
     public int cancelPayform(int payformNo) throws DataAccessException;
 
+    public int getPurchaseCount(Map selectMap) throws DataAccessException;
     }

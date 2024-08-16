@@ -65,10 +65,10 @@
         .catch(function (error) {
             if (error.code === "USER_CANCEL") {
                 alert("결제를 취소했습니다. 구매 폼 페이지로 돌아갑니다.")
-                window.location.href = "${contextPath}/payform/payformForm.do?memberNo=" + memberNo + "&detailNo=" + detailNo;
+                window.location.href = "${contextPath}/detail/detail.do?&detailNo=" + detailNo;
             } else if (error.code === "INVALID_CARD_COMPANY") {
                 alert("카드 정보가 유효하지 않습니다! 구매 폼 페이지로 돌아갑니다.")
-                window.location.href = "${contextPath}/payform/payformForm.do?memberNo=" + memberNo + "&detailNo=" + detailNo;
+                window.location.href = "${contextPath}/detail/detail.do?&detailNo=" + detailNo;
 
             }
         });

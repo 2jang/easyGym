@@ -33,4 +33,6 @@ public interface PayformDAO {
     public int checkingBuy(int memberNo) throws DataAccessException;
 
     public int selectPayformNo(Map<String, Object> selectMap) throws DataAccessException;
+
+    public int selectPurchaseCount(Map selectMap) throws DataAccessException;
 }

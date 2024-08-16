@@ -53,6 +53,12 @@
       <result property="detailTest" column="detailTest"/>
    </resultMap>
 
+   <select id="selectPurchaseCount" parameterType="java.util.Map" resultType="int">
+      SELECT COUNT(*) AS purchaseCount
+      FROM payform_tbl
+      WHERE memberNo = #{memberNo} AND detailNo = #{detailNo};
+   </select>
+
    <select id="selectMemberByNo" resultType="MemberDTO">
       SELECT * FROM member_tbl WHERE memberNo = #{memberNo}
    </select>

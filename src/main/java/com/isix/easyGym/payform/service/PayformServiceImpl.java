@@ -54,6 +54,12 @@ public class PayformServiceImpl implements PayformService {
         return payformDAO.cancelPayform(payformNo);
     }
 
+    @Override
+    public int getPurchaseCount(Map selectMap) throws DataAccessException {
+        int purchaseCount = payformDAO.selectPurchaseCount(selectMap);
+        return purchaseCount;
+    }
+
     public void refundPoint(Map payformMap) throws DataAccessException {
         payformDAO.refundPoint(payformMap);
     }
