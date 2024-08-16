@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="contextPath" value="${pageContext.request.contextPath}"/>
+<c:set var="operator" value="${operator}" scope="session"/>
 <%
     request.setCharacterEncoding("utf-8");
 %>
@@ -66,7 +67,7 @@
 <article id="main">
     <div class="container">
         <form id="detailForm" action="/detail/signUpForm.do" method="post" enctype="multipart/form-data">
-			<input type="hidden" name="operatorNo" value="111">
+			<input type="hidden" name="operatorNo" value="${operator.operatorNo}">
             <div class="form-group">
                 <label for="detailBusinessName">업체명</label>
                 <input type="text" id="detailBusinessName" name="detailBusinessName">

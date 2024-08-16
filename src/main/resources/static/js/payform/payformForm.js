@@ -1,30 +1,49 @@
 window.onload = function() {
-    let subscriptionMonths = document.getElementById('subscriptionMonths');   //구독 개월수
+    let subscriptionMonths = document.getElementById('subscriptionMonths');
     let payformPayment = document.getElementById('payformPayment');
-    let originalPrice = document.getElementById('originalPrice');   //원래 가격
-    let oriPrice = document.getElementById('oriPrice');   //원래 가격
-    let finalPrice = document.getElementById('finalPrice');   //최종 결제금액
+    let originalPrice = document.getElementById('originalPrice');
+    let oriPrice = document.getElementById('oriPrice');
+    let finalPrice = document.getElementById('finalPrice');
     let onePrice = parseInt(document.getElementById('onePrice').value);
     let priceAmout = document.getElementById('price');
-    let discountRate = document.getElementById('discountRate');   //할인율
+    let discountRate = document.getElementById('discountRate');
     let paymentButton = document.getElementById('paymentButton');
+    let usePoint = document.getElementById('usePoint');
+    let nowPoint = document.getElementById('nowPoint');
+    let remainPointsInput = document.getElementById('remainPoints');
+    let totalPoints = parseInt(nowPoint.textContent);
+    let paymentForm = document.getElementById('payment_form');
 
-    subscriptionMonths.addEventListener('change', update);    //구독 개월이 바뀔때 함수 호출
+    subscriptionMonths.addEventListener('change', update);
     payformPayment.addEventListener('change', update);
+    usePoint.addEventListener('input', handlePointInput);
+    paymentForm.addEventListener('submit', handleSubmit);
 
-    function update() {  //구독 개월 업데이트
-        let months = parseInt(subscriptionMonths.value); //구독 개월수를 가져와서 int로 변환
+    function handlePointInput(event) {
+        let inputPoint = parseInt(event.target.value) || 0;
+        if (inputPoint > totalPoints) {
+            alert("사용할 포인트는 현재 포인트보다 많을 수 없습니다");
+            event.target.value = event.target.value.slice(0, -1);
+            inputPoint = parseInt(event.target.value) || 0;
+        }
+        let remainingPoints = totalPoints - inputPoint;
+        nowPoint.textContent = remainingPoints;
+        remainPointsInput.value = remainingPoints;
+        update();
+    }
+
+    function handleSubmit(event) {
+        // form 제출 시 remainingPoints 값을 업데이트
+        remainPointsInput.value = nowPoint.textContent;
+    }
+
+    function update() {
+        let months = parseInt(subscriptionMonths.value);
         let payment = parseInt(payformPayment.value);
         let price = 0;
-        let discount = 0;   //할인율
+        let discount = 0;
 
-        /*
-        original-price 속성을 부여함으로써 취소선을 생성함. 1개월일때는 할인율이 0프로이므로 취소선 없이 글자가 출력되지만 3,6개월일때는 취소선 속성이 부여되서 출력됨
-        .original-price {
-        text-decoration: line-through;
-        }
-        */
-        switch (months) {   //구독개월에 따라 원래가격 & 할인율 변경
+        switch (months) {
             case 1:
                 price = onePrice;
                 discount = 0;
@@ -42,7 +61,7 @@ window.onload = function() {
                 break;
         }
 
-        switch (payment) {   //구독개월에 따라 원래가격 & 할인율 변경
+        switch (payment) {
             case 0:
                 paymentButton.textContent = "신용카드로 결제하기"
                 break;
@@ -65,16 +84,25 @@ window.onload = function() {
                 paymentButton.textContent = "게임문화상품권으로 결제하기"
                 break;
         }
-        //최종 결제 금액, 할인가격 계산해서 변수값 설정
+
         let discountedPrice = price * (1 - discount / 100);
+        let usedPoint = parseInt(usePoint.value) || 0;
+        let finalPriceValue = discountedPrice - usedPoint;
 
-        oriPrice.textContent = price.toLocaleString();   //price 변수를 원래 가격 값으로 지정, toLocaleString으로 3자리마다 콤마 찍음
-        finalPrice.textContent = discountedPrice.toLocaleString();    //finalPrice 변수를 할인 가격 값으로 지정, toLocaleString으로 3자리마다 콤마 찍음
-        discountRate.textContent = discount + '%';  //할인율 %랑 같이 찍음
-        priceAmout.value = Math.round(discountedPrice);
+        if (finalPriceValue < 0) {
+            alert("사용할 포인트가 결제 금액보다 많습니다. 포인트를 다시 입력해주세요.");
+            usePoint.value = discountedPrice; // 최대 사용 가능 포인트로 설정
+            usedPoint = discountedPrice;
+            finalPriceValue = 0;
+            nowPoint.textContent = totalPoints - usedPoint;
+            remainPointsInput.value = totalPoints - usedPoint;
+        }
 
+        oriPrice.textContent = price.toLocaleString();
+        finalPrice.textContent = finalPriceValue.toLocaleString();
+        discountRate.textContent = discount + '%';
+        priceAmout.value = Math.round(finalPriceValue);
     }
 
-    //실행될때 구독개월수하고 결제수단은 계속해서 업데이트
     update();
 }

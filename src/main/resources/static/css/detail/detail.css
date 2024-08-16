@@ -727,4 +727,5 @@ article {
     position: relative;
     z-index: 1; /* 아티클의 z-index 조정 */
     margin-top: 50px; /* 배너와의 간격 조정 */
+
 }

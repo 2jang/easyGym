@@ -128,6 +128,9 @@
                 initializePage();
             });
         });
+        $(window).scroll(function (){
+            console.log($(window).scrollTop());
+        });
     </script>
     <section id="banner">
 		<div class="search-container">
@@ -177,9 +180,6 @@
 		</div>
 </section>
 
-<article id="main">
-
-
 <div class="main-container">
     <div class="left-margin"></div>
     <div class="content">
@@ -224,9 +224,8 @@
     <div class="map_wrap">
         <div id="map"></div>
     </div>
-    <div class="right-margin"></div>
 </div>
-</article>
+
 <script>
     const urlParams = new URLSearchParams(window.location.search);
     var map; // 전역 변수로 map 선언
@@ -265,7 +264,7 @@
     function updateUrl() {
         const selectedDistrict = document.getElementById('districtSelect').value;
         const facilityType = document.getElementById('facilityType').value;
-        
+
         if (selectedDistrict != "default") {
             const url = '${contextPath}/detail/search.do?query=서울특별시 ' + selectedDistrict + '&detailClassification=' + facilityType;
             window.location.href = url;

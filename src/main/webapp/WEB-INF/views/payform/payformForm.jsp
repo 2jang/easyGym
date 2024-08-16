@@ -12,6 +12,15 @@
     <title>이지짐 회원권 구매</title>
     <script src="${contextPath}/JS/payform/payformForm.js"></script>
     <script>
+        (function() {
+            if (!sessionStorage.getItem('pageReloaded')) {
+                sessionStorage.setItem('pageReloaded', 'true');
+                window.location.reload();
+            } else {
+                sessionStorage.removeItem('pageReloaded');
+            }
+        })();
+
         if(${loginCheck} == "-1") {
             alert("로그인 후 이용해주세요. 로그인창으로 이동합니다.");
             window.location.href = "${contextPath}/member/loginForm.do";
@@ -84,6 +93,20 @@
         </div>
 
         <div class="form_group">
+            <label id="pointLabel" for="nowPoint">사용 가능 포인트:</label>
+            <span id="nowsPoint"><span id="nowPoint">${payform[0].memberPoints}</span>P</span>
+            <script>
+                if(document.getElementById('nowPoint').textContent == "")
+                    document.getElementById('nowPoint').textContent = "0"
+            </script>
+            <input type="hidden" id="remainPoints" name="remainPoints" value="${payform[0].memberPoints}">
+        </div>
+        <div class="form_group">
+            <label for="usePoint">사용할 포인트:</label>
+            <input id="usePoint" name = "usePoint" placeholder="사용할 포인트를 입력해주세요." pattern="\d*">
+        </div>
+
+        <div class="form_group">
             <label for="payformPayment">결제방법:</label>
             <select id="payformPayment" name="payformPayment" required>
                 <option value="0">신용/체크카드</option>
@@ -93,7 +116,6 @@
                 <option value="4">문화상품권</option>
                 <option value="5">도서문화상품권</option>
                 <option value="6">게임문화상품권</option>
-
             </select>
         </div>
 
