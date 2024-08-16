@@ -89,17 +89,26 @@ a{
 
 <!-- CTA -->
 <section id="cta">
-    <header>
-        <h2>사업자이신가요?</h2>
-        <p>이지짐 사업자로 등록하고, 헬스장이나 운동시설을 보다 효과적으로 관리하고 홍보하세요.<br>지금 등록하셔서 귀하의 시설을 많은 고객들에게 알리고, 더 많은 기회를 잡아보세요!</p>
-    </header>
-    <footer>
-        <ul class="buttons">
-            <li><a href="/member/operLoginForm.do" class="button primary">Sign In</a></li>
-            <li><a href="/member/operJoinForm.do" class="button">Sign Up</a></li>
-        </ul>
-    </footer>
+    <c:choose>
+        <c:when test="${sessionScope.isLogOn eq false or (sessionScope.member eq null and sessionScope.operator eq null)}">
+            <!-- 로그인이 되어 있지 않거나 일반회원, 사업자 모두 아닌 경우에만 보이도록 설정 -->
+            <header>
+                <h2>사업자이신가요?</h2>
+                <p>이지짐 사업자로 등록하고, 헬스장이나 운동시설을 보다 효과적으로 관리하고 홍보하세요.<br>지금 등록하셔서 귀하의 시설을 많은 고객들에게 알리고, 더 많은 기회를 잡아보세요!</p>
+            </header>
+            <footer>
+                <ul class="buttons">
+                    <li><a href="/member/operLoginForm.do" class="button primary">Sign In</a></li>
+                    <li><a href="/member/operJoinForm.do" class="button">Sign Up</a></li>
+                </ul>
+            </footer>
+        </c:when>
+        <c:otherwise>
+            <!-- 로그인 상태이거나 일반회원 또는 사업자로 로그인된 경우에는 아무 내용도 추가하지 않거나 빈 공간을 유지합니다. -->
+        </c:otherwise>
+    </c:choose>
 </section>
+
 &nbsp;
 <div class="container">
     <h2>헬스장 인기순위</h2>
@@ -318,7 +327,7 @@ a{
             </div>
         </div>
         <!-- 챗봇 아이콘 -->
-      <img src="/images/chatbot/chatbot.png" class="chatbot-icon" onmouseover="showTooltip()" onmouseout="hideTooltip()" onclick="toggleChatbot()">
+      <img src="/images/chatbot/chatbotRed.png" class="chatbot-icon" onmouseover="showTooltip()" onmouseout="hideTooltip()" onclick="toggleChatbot()">
       
       <!-- 툴팁 이미지 -->
        <img src="/images/chatbot/hello.png" class="tooltip-image" id="tooltip_image">
@@ -329,6 +338,7 @@ a{
            src="https://console.dialogflow.com/api-client/demo/embedded/835aec7e-894b-4357-b90d-e6fabbadfb94"></iframe>
        </div>
     </section>
+    </article>
 <script>
       function toggleChatbot() {
             var frame = document.getElementById('chatbot_frame');
