@@ -255,7 +255,6 @@
 
         // 초기 지도 생성
         initializeMap(initialCenter, initialLevel);
-        updateInfowindows();
     }
 
     document.getElementById('districtSelect').addEventListener('change', updateUrl);
@@ -264,7 +263,7 @@
     function updateUrl() {
         const selectedDistrict = document.getElementById('districtSelect').value;
         const facilityType = document.getElementById('facilityType').value;
-
+        
         if (selectedDistrict != "default") {
             const url = '${contextPath}/detail/search.do?query=서울특별시 ' + selectedDistrict + '&detailClassification=' + facilityType;
             window.location.href = url;
@@ -345,17 +344,19 @@
     }
 
     function addMarker(p1, p2, content) {
-        var iwPosition = new kakao.maps.LatLng(p1, p2);
+        var position = new kakao.maps.LatLng(p1, p2);
 
         var marker = new kakao.maps.Marker({
-            position: iwPosition
+            position: position
         });
 
         marker.setMap(map);
 
         var infowindow = new kakao.maps.InfoWindow({
-            position: iwPosition,
-            content: content
+            content: '<div style="width:150px;text-align:center;padding:6px 0;">' + content + '</div>',
+            position: position,
+            removable: true,
+            yAnchor: 1.5
         });
 
         markers.push(marker);
@@ -363,13 +364,19 @@
     }
 
     function updateInfowindows() {
+        var mapCenter = map.getCenter();
+        var mapLevel = map.getLevel();
+
         for (var i = 0; i < infowindows.length; i++) {
             if (maplevel < 7) {
                 infowindows[i].open(map, markers[i]);
-                console.log(maplevel)
             } else {
                 infowindows[i].close();
             }
         }
+
+        // 지도의 중심점과 레벨을 유지
+        map.setCenter(mapCenter);
+        map.setLevel(mapLevel);
     }
 </script>
