@@ -40,7 +40,7 @@ h1, h2 {
 h1 .emphasized {
     display: block;
     font-size: 1.2em;
-    color: #1ca16f;
+    color: #83d3c9;
     text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
     margin-bottom: 10px;
     font-weight: bold;
@@ -77,7 +77,7 @@ select {
 
 #discountRate {
     font-weight: bold;
-    color: #5cc253;
+    color: #83d3c9;
 }
 
 #originalPrice {
@@ -95,7 +95,7 @@ select {
 #nowsPoint {
     font-size: 16px;
     font-weight: bold;
-    color: #1ca16f;
+    color: #83d3c9;
     margin-bottom: 10px;
 }
 
@@ -110,7 +110,7 @@ select {
 
 #usePoint:focus {
     outline: none;
-    border-color: #1ca16f;
+    border-color: #83d3c9;
 }
 
 #usePoint::placeholder {
@@ -135,7 +135,7 @@ label#pointLabel {
 
 #final {
     font-weight: bold;
-    color: #5cc253;
+    color: #a9ccc6;
     font-size: 24px;
     text-align: center;
 }
@@ -144,7 +144,7 @@ label#pointLabel {
     display: block;
     width: 100%;
     padding: 15px;
-    background-color: #1ca16f;
+    background-color: #83d3c9;
     color: #ffffff;
     border: none;
     border-radius: 4px;
@@ -154,5 +154,5 @@ label#pointLabel {
 }
 
 #paymentButton:hover {
-    background-color: #45a049;
+    background-color: #aaccc6;
 }
