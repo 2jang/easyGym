@@ -47,6 +47,15 @@ function refreshReviews(detailNo) {
 
             const reviewsToShow = reviews.slice(0, 2); // 첫 2개 리뷰만 표시
             reviewsToShow.forEach(function(review) {
+                var starsHtml = '';
+                for (var i = 1; i <= 5; i++) {
+                    if (i <= review.reviewRating) {
+                        starsHtml += '<span class="star filled">★</span>';
+                    } else {
+                        starsHtml += '<span class="star">☆</span>';
+                    }
+                }
+
                 var reviewHtml = `
                     <div class="ReviewRange" data-review-no="${review.reviewNo}">
                         <input class="reviewNo" type="hidden" value="${review.reviewNo}"/>
@@ -54,6 +63,9 @@ function refreshReviews(detailNo) {
                         <div class="personReviewRange">
                             <img class="reviewPicture" src="${contextPath}/images/detail/detailpage/reviewImage.PNG">
                             <p class="anonymous">(익명의 회원)</p>
+                            <div class="stars">
+                                ${starsHtml}
+                            </div>
                             <p class="reviewDate">${review.reviewDate}</p>
                             <textarea class="reviewComment" readonly>${review.reviewComment}</textarea>
                         </div>
@@ -62,7 +74,13 @@ function refreshReviews(detailNo) {
                 reviewContainer.append(reviewHtml);
             });
 
+            if (reviews.length > 2) {
+                var viewAllReviewsHtml = `<a href="${contextPath}/detail/reviewViewer.do?detailNo=${detailNo}" class="viewAllReviews">후기 ${reviews.length}개 전체보기</a>`;
+                reviewContainer.append(viewAllReviewsHtml);
+            }
 
+            // 리뷰 이미지 새로고침
+            updateReviewImages(detailNo);
         },
         error: function(xhr, status, error) {
             console.error("Error:", error);

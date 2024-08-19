@@ -1,3 +1,4 @@
+list.css
 @charset "UTF-8";
 
 body {
@@ -339,5 +340,53 @@ body {
     }
     #districtSelect, #facilityType {
         width: 100%;
+    }
+}
+
+#alertContainer {
+    z-index: 9999; /* 값을 더 높게 설정 */
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    width: 80%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.alertMessage {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    text-align: center;
+    border-radius: 5px;
+    font-size: 14px;
+    animation: fadeIn 0.3s ease-out, fadeOut 3s ease forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
     }
 }

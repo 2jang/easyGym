@@ -1,3 +1,4 @@
+detail.jsp
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"
          isELIgnored="false"%>
@@ -265,7 +266,6 @@
             <div id="reviewContainer">
                 <c:choose>
                     <c:when test="${!empty details}">
-                        <!-- ... 기존 코드 ... -->
                         <div id="reviewContainer">
                             <c:choose>
                                 <c:when test="${sessionScope.getReview == 1}">
@@ -277,6 +277,19 @@
                                                     <div class="personReviewRange">
                                                         <img class="reviewPicture" src="${contextPath}/images/detail/detailpage/reviewImage.PNG">
                                                         <p class="anonymous">(익명의 회원)</p>
+                                                        <!-- 별점 표시 코드 추가 -->
+                                                        <div class="stars">
+                                                            <c:forEach begin="1" end="5" var="i">
+                                                                <c:choose>
+                                                                    <c:when test="${i <= review.reviewRating}">
+                                                                        <span class="star filled">★</span>
+                                                                    </c:when>
+                                                                    <c:otherwise>
+                                                                        <span class="star">☆</span>
+                                                                    </c:otherwise>
+                                                                </c:choose>
+                                                            </c:forEach>
+                                                        </div>
                                                         <p class="reviewDate">${review.reviewDate}</p>
                                                         <textarea class="reviewComment" readonly>${review.reviewComment}</textarea>
                                                     </div>
@@ -294,6 +307,19 @@
                                                 <div class="personReviewRange">
                                                     <img class="reviewPicture" src="${contextPath}/images/detail/detailpage/reviewImage.PNG">
                                                     <p class="anonymous">(익명의 회원)</p>
+                                                    <!-- 별점 표시 코드 추가 -->
+                                                    <div class="stars">
+                                                        <c:forEach begin="1" end="5" var="i">
+                                                            <c:choose>
+                                                                <c:when test="${i <= review.reviewRating}">
+                                                                    <span class="star filled">★</span>
+                                                                </c:when>
+                                                                <c:otherwise>
+                                                                    <span class="star">☆</span>
+                                                                </c:otherwise>
+                                                            </c:choose>
+                                                        </c:forEach>
+                                                    </div>
                                                     <p class="reviewDate">${review.reviewDate}</p>
                                                     <textarea class="reviewComment" readonly>${review.reviewComment}</textarea>
                                                 </div>

@@ -8,176 +8,189 @@
     Object member = session.getAttribute("member");
     request.setCharacterEncoding("utf-8");
 %>
-    <link rel="stylesheet" href="${contextPath}/css/detail/list.css">
-    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-    <script src="${contextPath}/js/detail/list.js"></script>
-    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9a9906a8b7e291e6dddbb2bd165b6d7f&libraries=services"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const favoriteButtons = document.querySelectorAll('.favorite-button');
+<link rel="stylesheet" href="${contextPath}/css/detail/list.css">
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="${contextPath}/js/detail/list.js"></script>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9a9906a8b7e291e6dddbb2bd165b6d7f&libraries=services"></script>
+<script>
+    //alert 표현 기능
+    //alert 표현 기능
+    function showAlert(message) {
+        var alertContainer = $("#alertContainer");
 
-            favoriteButtons.forEach(button => {
-                button.addEventListener('click', function(event) {
-                    event.stopPropagation();  // 이벤트 버블링 중지
-                    // 여기에 찜하기 기능 구현
-                    console.log('찜하기 버튼 클릭됨');
-                });
-            });
+        if (alertContainer.children().length >= 2) {
+            alertContainer.children().first().remove(); // 가장 오래된 알림을 제거
+        }
 
-            const contentRanges = document.querySelectorAll('.contentRange');
+        var alertMessage = $("<div>").addClass("alertMessage").text(message);
+        alertContainer.append(alertMessage);
 
-            contentRanges.forEach(content => {
-                content.addEventListener('click', function(event) {
-                    if (!event.target.closest('.favorite-button')) {
-                        // 리스트 항목 클릭 시 실행될 코드
-                        console.log('리스트 항목 클릭됨');
-                        // 예: window.location.href = 상세 페이지 URL;
-                    }
-                });
+        setTimeout(function() {
+            alertMessage.remove();
+        }, 3000); // 3초 후에 알림 제거
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+        const favoriteButtons = document.querySelectorAll('.favorite-button');
+
+        favoriteButtons.forEach(button => {
+            button.addEventListener('click', function(event) {
+                event.stopPropagation();  // 이벤트 버블링 중지
+                // 여기에 찜하기 기능 구현
+                console.log('찜하기 버튼 클릭됨');
             });
         });
-        $(document).ready(function() {
-            
-            var requestInProgress = false;
 
-            // 페이지 로드 시 초기화 작업
-            initializePage();
+        const contentRanges = document.querySelectorAll('.contentRange');
 
-            function initializePage() {
-                $(".favorite-button").each(function() {
-                    var button = this;
-                    var detailNo = $(button).find('.detailNo').val();
-                    var memberNo = $(button).find('.memberNo').val();
-
-                    $.ajax({
-                        type: "GET",
-                        url: "${contextPath}/getFavoriteStatus",
-                        data: { detailNo: detailNo, memberNo: memberNo },
-                        success: function(data) {
-                            if (data === "insert" || data === "delete") {
-                                updateFavoriteButton(button, data);
-                            } else if (data === "nologin") {
-
-                            } else {
-                                alert("알 수 없는 오류가 발생했습니다.");
-                            }
-                        },
-                        error: function(xhr, status, error) {
-                            console.error("Error: " + error);
-                            alert("오류가 발생했습니다. 관리자에게 문의하세요.");
-                        }
-                    });
-                });
-            }
-
-            function updateFavoriteButton(button, status) {
-                var newSrc = (status === "insert")
-                    ? '/images/detail/detailpage/pickDibs.png'
-                    : '/images/detail/detailpage/dibs.png';
-                $(button).find('.dibs').attr('src', newSrc);
-            }
-
-            $(".favorite-button").click(function(event) {
-                var memberNo = $('.memberNo').val();
-                if (!memberNo) {
-                    alert("로그인이 필요합니다. 로그인 페이지로 이동합니다.");
-                    let address = window.location.href;
-                    window.location.href = '/member/loginForm.do?action=' + encodeURIComponent(address);
-                    return;
+        contentRanges.forEach(content => {
+            content.addEventListener('click', function(event) {
+                if (!event.target.closest('.favorite-button')) {
+                    // 리스트 항목 클릭 시 실행될 코드
+                    console.log('리스트 항목 클릭됨');
+                    // 예: window.location.href = 상세 페이지 URL;
                 }
-                if (requestInProgress) return;
+            });
+        });
+    });
+    $(document).ready(function() {
 
+        var requestInProgress = false;
+
+        // 페이지 로드 시 초기화 작업
+        initializePage();
+
+        function initializePage() {
+            $(".favorite-button").each(function() {
                 var button = this;
                 var detailNo = $(button).find('.detailNo').val();
-               
-                if (!memberNo) {
-                    // 로그인하지 않은 경우
-                    alert("로그인이 필요합니다. 로그인 페이지로 이동합니다.");
-                    window.location.href = '/member/loginForm.do';
-                    return; // 함수 종료
-                }
-
-                requestInProgress = true;
+                var memberNo = $(button).find('.memberNo').val();
 
                 $.ajax({
                     type: "GET",
-                    url: "${contextPath}/addFavorite",
+                    url: "${contextPath}/getFavoriteStatus",
                     data: { detailNo: detailNo, memberNo: memberNo },
                     success: function(data) {
                         if (data === "insert" || data === "delete") {
-                            alert(data === "insert"
-                                ? "찜 목록에 추가되었습니다."
-                                : "찜 목록에서 삭제되었습니다.");
                             updateFavoriteButton(button, data);
-                        }  else {
+                        }else {
                             alert("알 수 없는 오류가 발생했습니다.");
                         }
-                        requestInProgress = false;
                     },
                     error: function(xhr, status, error) {
                         console.error("Error: " + error);
                         alert("오류가 발생했습니다. 관리자에게 문의하세요.");
-                        requestInProgress = false;
                     }
                 });
+            });
+        }
 
-                event.stopPropagation(); // 부모 요소에 대한 클릭 이벤트를 방지
+        function updateFavoriteButton(button, status) {
+            var newSrc = (status === "insert")
+                ? '/images/detail/detailpage/pickDibs.png'
+                : '/images/detail/detailpage/dibs.png';
+            $(button).find('.dibs').attr('src', newSrc);
+        }
+
+        $(".favorite-button").click(function(event) {
+            var memberNo = $('.memberNo').val();
+            if (!memberNo) {
+                showAlert("로그인이 필요합니다. 로그인 페이지로 이동합니다.");
+                let address = window.location.href;
+                window.location.href = '/member/loginForm.do?action=' + encodeURIComponent(address);
+                return;
+            }
+            //if (requestInProgress) return;
+
+            var button = this;
+            var detailNo = $(button).find('.detailNo').val();
+
+
+            requestInProgress = true;
+
+            $.ajax({
+                type: "GET",
+                url: "${contextPath}/addFavorite",
+                data: { detailNo: detailNo, memberNo: memberNo },
+                success: function(data) {
+                    if (data === "insert" || data === "delete") {
+                        showAlert(data === "insert"
+                            ? "찜 목록에 추가되었습니다."
+                            : "찜 목록에서 삭제되었습니다.");
+                        updateFavoriteButton(button, data);
+                    }  else {
+                        alert("알 수 없는 오류가 발생했습니다.");
+                    }
+                    requestInProgress = false;
+                },
+                error: function(xhr, status, error) {
+                    console.error("Error: " + error);
+                    alert("오류가 발생했습니다. 관리자에게 문의하세요.");
+                    requestInProgress = false;
+                }
             });
 
-            $(window).on('pageshow', function(event) {
-                initializePage();
-            });
+            event.stopPropagation(); // 부모 요소에 대한 클릭 이벤트를 방지
         });
-        $(window).scroll(function (){
-            console.log($(window).scrollTop());
+
+        $(window).on('pageshow', function(event) {
+            initializePage();
         });
-    </script>
-    <section id="banner">
-		<div class="search-container">
-		    <form class="search-form">
-		        <input type="text" name="query" placeholder="업체명을 입력하세요..." class="search-input" style="background-color:#fff; border-radius:5px 0 0 5px; color:#7c8081;">
-		        <button type="submit" class="search-button">검색</button>
-		    </form>
-		    <div class="options-container">
-		    <div class="option-group">
-		        <label for="districtSelect">지역명:</label>
-		        <select id="districtSelect" class="option-select">
-					<option value="default">구/군 선택</option>
-					<option value="중구">서울특별시 중구</option>
-					<option value="강남구">서울특별시 강남구</option>
-					<option value="동작구">서울특별시 동작구</option>
-					<option value="마포구">서울특별시 마포구</option>
-					<option value="종로구">서울특별시 종로구</option>
-					<option value="성동구">서울특별시 성동구</option>
-					<option value="중랑구">서울특별시 중랑구</option>
-					<option value="성북구">서울특별시 성북구</option>
-					<option value="영등포구">서울특별시 영등포구</option>
-					<option value="서초구">서울특별시 서초구</option>
-					<option value="광진구">서울특별시 광진구</option>
-					<option value="강동구">서울특별시 강동구</option>
-					<option value="관악구">서울특별시 관악구</option>
-					<option value="송파구">서울특별시 송파구</option>
-					<option value="도봉구">서울특별시 도봉구</option>
-					<option value="강북구">서울특별시 강북구</option>
-					<option value="강서구">서울특별시 강서구</option>
-					<option value="구로구">서울특별시 구로구</option>
-					<option value="금천구">서울특별시 금천구</option>
-					<option value="노원구">서울특별시 노원구</option>
-					<option value="양천구">서울특별시 양천구</option>
-					<option value="은평구">서울특별시 은평구</option>
-		            <!-- 다른 구/군 옵션들 추가 -->
-		        </select>
-		    </div>
-		    <div class="option-group">
-		        <label for="facilityType">시설 종류:</label>
-		        <select id="facilityType" class="option-select">
-		            <option value="health">헬스</option>
-		            <option value="pilates">필라테스</option>
-		            <option value="boxing">복싱</option>
-		        </select>
-		    </div>
-		    </div>
-		</div>
+    });
+    $(window).scroll(function (){
+        console.log($(window).scrollTop());
+    });
+</script>
+<div id="alertContainer"></div>
+<section id="banner">
+    <div class="search-container">
+        <form id="searchForm" class="search-form">
+            <input type="text"  name="query" placeholder="업체명을 입력하세요..." class="search-input" style="background-color:#fff; border-radius:5px 0 0 5px; color:#7c8081;">
+            <button type="submit" class="search-button">검색</button>
+        </form>
+        <div class="options-container">
+            <div class="option-group">
+                <label for="districtSelect">지역명:</label>
+                <select id="districtSelect" class="option-select">
+                    <option value="default">구/군 선택</option>
+                    <option value="강남구">서울특별시 강남구</option>
+                    <option value="강동구">서울특별시 강동구</option>
+                    <option value="강북구">서울특별시 강북구</option>
+                    <option value="강서구">서울특별시 강서구</option>
+                    <option value="관악구">서울특별시 관악구</option>
+                    <option value="광진구">서울특별시 광진구</option>
+                    <option value="구로구">서울특별시 구로구</option>
+                    <option value="금천구">서울특별시 금천구</option>
+                    <option value="노원구">서울특별시 노원구</option>
+                    <option value="도봉구">서울특별시 도봉구</option>
+                    <option value="동대문구">서울특별시 동대문구</option>
+                    <option value="동작구">서울특별시 동작구</option>
+                    <option value="마포구">서울특별시 마포구</option>
+                    <option value="서대문구">서울특별시 서대문구</option>
+                    <option value="서초구">서울특별시 서초구</option>
+                    <option value="성동구">서울특별시 성동구</option>
+                    <option value="성북구">서울특별시 성북구</option>
+                    <option value="송파구">서울특별시 송파구</option>
+                    <option value="양천구">서울특별시 양천구</option>
+                    <option value="영등포구">서울특별시 영등포구</option>
+                    <option value="용산구">서울특별시 용산구</option>
+                    <option value="은평구">서울특별시 은평구</option>
+                    <option value="종로구">서울특별시 종로구</option>
+                    <option value="중구">서울특별시 중구</option>
+                    <option value="중랑구">서울특별시 중랑구</option>
+                    <!-- 다른 구/군 옵션들 추가 -->
+                </select>
+            </div>
+            <div class="option-group">
+                <label for="facilityType">시설 종류:</label>
+                <select id="facilityType" class="option-select">
+                    <option value="">시설 선택</option>
+                    <option value="health">헬스</option>
+                    <option value="pilates">필라테스</option>
+                    <option value="boxing">복싱</option>
+                </select>
+            </div>
+        </div>
+    </div>
 </section>
 
 <div class="main-container">
@@ -236,11 +249,16 @@
     window.onload = function () {
         const query = urlParams.get('query');
         const detailClassification = urlParams.get('detailClassification');
+        const searchLat = ${searchLat != null ? searchLat : 'null'};
+        const searchLng = ${searchLng != null ? searchLng : 'null'};
 
         let initialCenter = {lat: 37.56682194967411, lng: 126.97864942970189};
         let initialLevel = 8;
 
-        if (query) {
+        if (searchLat && searchLng) {
+            initialCenter = {lat: searchLat, lng: searchLng};
+            initialLevel = 5; // 검색 결과에 따라 적절한 줌 레벨 설정
+        } else if (query && query.includes("서울특별시")) {
             const district = query.split(' ')[1];
             document.getElementById('districtSelect').value = district;
             if (districtCoordinates[district]) {
@@ -248,10 +266,15 @@
                 initialLevel = 7;
             }
         }
+        else
+            document.getElementById('districtSelect').value = "default";
 
         if (detailClassification) {
             document.getElementById('facilityType').value = detailClassification;
         }
+        else
+            document.getElementById('facilityType').value = "";
+
 
         // 초기 지도 생성
         initializeMap(initialCenter, initialLevel);
@@ -263,7 +286,7 @@
     function updateUrl() {
         const selectedDistrict = document.getElementById('districtSelect').value;
         const facilityType = document.getElementById('facilityType').value;
-        
+
         if (selectedDistrict != "default") {
             const url = '${contextPath}/detail/search.do?query=서울특별시 ' + selectedDistrict + '&detailClassification=' + facilityType;
             window.location.href = url;
@@ -317,7 +340,7 @@
             if (selectedDistrict !== 'default' && districtCoordinates[selectedDistrict]) {
                 var newCenter = districtCoordinates[selectedDistrict];
                 map.setCenter(new kakao.maps.LatLng(newCenter.lat, newCenter.lng));
-                map.setLevel(4);
+                map.setLevel(6);
             } else {
                 // 기본 선택시 서울 전체 보기
                 map.setCenter(new kakao.maps.LatLng(37.56682194967411, 126.97864942970189));
@@ -332,11 +355,11 @@
 
         // 마커 추가
         <c:choose>
-            <c:when test="${!empty allList}">
-                <c:forEach var="allList" items="${allList}">
-                    addMarker(${allList.detailLatitude}, ${allList.detailLongitude}, "${allList.detailBusinessName}");
-                </c:forEach>
-            </c:when>
+        <c:when test="${!empty allList}">
+        <c:forEach var="allList" items="${allList}">
+        addMarker(${allList.detailLatitude}, ${allList.detailLongitude}, "${allList.detailBusinessName}");
+        </c:forEach>
+        </c:when>
         </c:choose>
 
         // 초기 인포윈도우 상태 설정

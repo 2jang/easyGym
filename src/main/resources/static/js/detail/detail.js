@@ -19,7 +19,19 @@ $(document).ready(function() {
             location.reload();
         }
     };
+    $('#myTextarea').on('input', function() {
+        var text = $(this).val();
+        var count = text.length;
 
+        $('#charCount').text(count + '/150');
+
+        if (count > 150) {
+            $('#charCount').css('color', 'red');
+            $(this).val(text.substring(0, 150));
+        } else {
+            $('#charCount').css('color', 'black');
+        }
+    });
     var requestInProgress = false;
 
     function centerModal() {
@@ -146,68 +158,61 @@ $(document).ready(function() {
             fixedContainer.fadeOut(); // 500px 이하일 때 숨김
         }
     });
-
-
-
-
-
-    // 이미지 슬라이드
-    $(function() {
-        $('.slider_panel').append($('.slider_image').first().clone());  // 마지막 5번째 사진 뒤에 1번째 사진을 복제해서 붙여둠
-        $('.slider_panel').prepend($('.slider_image').eq(-2).clone());  // 첫번째 사진 앞에 마지막 5번째 사진을 복제해서 붙여둠
-        let index = 1;  // 마지막 5번 사진을 붙였으니 1로 바꿔야함.
-        $('.slider_panel').css('left', -700);  // 첫 화면에서 5번이 보이고 1번으로 나오는 화면을 없애기 위한 작업
-        $('.slider_text').hide();  // 첫 화면에서 5번이 보이고 1번으로 나오는 화면을 없애기 위한 작업
-        $('.slider_text').eq(0).show();  // 첫 화면에서 5번이 보이고 1번으로 나오는 화면을 없애기 위한 작업
-        $('.slider_panel').on('mousedown','img',function (event){
-            event.preventDefault();
-        });
-        $('.control_button').click(function() {
-            index = $(this).index();
-            moveSlider(index + 1);  // 아래 버튼도 +1을 해줌
-        });
-
-
-        $('.control_button').click(function() {
-            index = $(this).index();
-            moveSlider(index + 1);  // 아래 버튼도 +1을 해줌
-        });
-
-        $('.left_control').click(function() {
-            if (index > 1) {
-                index--;
-                moveSlider(index);
-            } else {
-                $('.slider_panel').css('left', -7700);
-                index = 10;
-                moveSlider(index);
-            }
-        });
-
-        $('.right_control').click(function() {
-            if (index < 10) {  // 기존 : < 4 / 이미지 앞뒤로 추가하고는 < 5로 바꿈
-                index++;
-                moveSlider(index);
-            } else {
-                $('.slider_panel').css('left', 0);
-                index = 1;
-                moveSlider(index);
-            }
-        });
-
-        // 이미지 슬라이드 구현 함수
-        function moveSlider(index) {
-            $('.slider_panel').animate({
-                left: -(index * 700)
-            }, 'slow');
-            $('.control_button').removeClass('active');
-            $('.control_button').eq(index - 1).addClass('active');
-            $('.slider_text').hide();  // 설명글을 fadeout 안하고 바로 사라지게
-            $('.slider_text').eq(index - 1).fadeIn('slow');  // 설명글을 보이게 함
-        }
+});
+// 이미지 슬라이드
+$(function() {
+    $('.slider_panel').append($('.slider_image').first().clone());  // 마지막 5번째 사진 뒤에 1번째 사진을 복제해서 붙여둠
+    $('.slider_panel').prepend($('.slider_image').eq(-2).clone());  // 첫번째 사진 앞에 마지막 5번째 사진을 복제해서 붙여둠
+    let index = 1;  // 마지막 5번 사진을 붙였으니 1로 바꿔야함.
+    $('.slider_panel').css('left', -700);  // 첫 화면에서 5번이 보이고 1번으로 나오는 화면을 없애기 위한 작업
+    $('.slider_text').hide();  // 첫 화면에서 5번이 보이고 1번으로 나오는 화면을 없애기 위한 작업
+    $('.slider_text').eq(0).show();  // 첫 화면에서 5번이 보이고 1번으로 나오는 화면을 없애기 위한 작업
+    $('.slider_panel').on('mousedown','img',function (event){
+        event.preventDefault();
+    });
+    $('.control_button').click(function() {
+        index = $(this).index();
+        moveSlider(index + 1);  // 아래 버튼도 +1을 해줌
     });
 
 
+    $('.control_button').click(function() {
+        index = $(this).index();
+        moveSlider(index + 1);  // 아래 버튼도 +1을 해줌
+    });
+
+    $('.left_control').click(function() {
+        if (index > 1) {
+            index--;
+            moveSlider(index);
+        } else {
+            $('.slider_panel').css('left', -7700);
+            index = 10;
+            moveSlider(index);
+        }
+    });
+
+    $('.right_control').click(function() {
+        if (index < 10) {  // 기존 : < 4 / 이미지 앞뒤로 추가하고는 < 5로 바꿈
+            index++;
+            moveSlider(index);
+        } else {
+            $('.slider_panel').css('left', 0);
+            index = 1;
+            moveSlider(index);
+        }
+    });
+
+    // 이미지 슬라이드 구현 함수
+    function moveSlider(index) {
+        $('.slider_panel').animate({
+            left: -(index * 700)
+        }, 'slow');
+        $('.control_button').removeClass('active');
+        $('.control_button').eq(index - 1).addClass('active');
+        $('.slider_text').hide();  // 설명글을 fadeout 안하고 바로 사라지게
+        $('.slider_text').eq(index - 1).fadeIn('slow');  // 설명글을 보이게 함
+    }
 });
 document.addEventListener('DOMContentLoaded', (event) => {
     const textareas = document.querySelectorAll('.auto-resize-textarea');
@@ -223,6 +228,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
         adjustHeight(textarea);
     });
 });
+
 //alert 표현 기능
 function showAlert(message) {
     var alertContainer = $("#alertContainer");
@@ -353,6 +359,18 @@ function refreshReviews(detailNo) {
                             <div class="personReviewRange">
                                 <img class="reviewPicture" src="${contextPath}/images/detail/detailpage/reviewImage.PNG">
                                 <p class="anonymous">(익명의 회원)</p>
+                                <div class="stars">
+                                    <c:forEach begin="1" end="5" var="i">
+                                        <c:choose>
+                                            <c:when test="${i <= review.reviewRating}">
+                                                <span class="star filled">★</span>
+                                            </c:when>
+                                            <c:otherwise>
+                                                <span class="star">☆</span>
+                                            </c:otherwise>
+                                        </c:choose>
+                                    </c:forEach>
+                                </div>
                                 <p class="reviewDate">${review.reviewDate}</p>
                                 <textarea class="reviewComment" readonly>${review.reviewComment}</textarea>
                             </div>
