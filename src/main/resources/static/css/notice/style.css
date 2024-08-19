@@ -51,9 +51,7 @@ nav ul li a.active {
 }
 
 /* 메인 컨텐츠 스타일 */
-main {
-    padding: 2rem;
-}
+
 
 /* 테이블 스타일 */
 .table {
@@ -116,10 +114,6 @@ h2 {
 
 .form-label {
     font-weight: bold;
-}
-
-.form-control, .btn, .input-group {
-    margin-top: 10px;
 }
 
 .dropdown-container {

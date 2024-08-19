@@ -45,10 +45,8 @@
 		<result property="detailBusinessEng" column="detailBusinessEng"/>
 		<result property="detailDailyTicket" column="detailDailyTicket"/>
 		<result property="detailMonthlyTicket" column="detailMonthlyTicket"/>
-		<result property="detailScope" column="detailScope"/>
 		<result property="detailComment" column="detailComment"/>
 		<result property="detailServiceProgram" column="detailServiceProgram"/>
-		<result property="detailStatus" column="detailStatus"/>
 		<result property="detailClassification" column="detailClassification"/>
 		<result property="detailFreeService" column="detailFreeService"/>
 		<result property="detailMonthlyPrice" column="detailMonthlyPrice"/>
@@ -134,14 +132,14 @@
  	<!-- 전체 사업자정보 리스트 -->
  	<select id="selectOper" resultMap="operResult">
  		<![CDATA[
- 			select o.operatorNo, o.operatorName, o.operatorId, o.operatorPhone, o.operatorEmail, o.operatorResNo, d.detailBusinessName from operators_tbl o join detail_tbl d on o.operatorNo = d.operatorNo order by o.operatorNo desc 		
+ 			select o.operatorNo, o.operatorName, o.operatorId, o.operatorPhone, o.operatorEmail, o.operatorResNo, d.detailBusinessName from memberoper_tbl o join detail_tbl d on o.operatorNo = d.operatorNo order by o.operatorNo desc 		
  		]]>
  	</select>
  	
  	<!-- 탈퇴 사업자정보 리스트 -->
  	<select id="selectWithOper" resultMap="operResult">
  		<![CDATA[
- 			select * from operators_tbl where operatorState=0 order by operatorNo desc 		
+ 			select * from memberoper_tbl where operatorState=0 order by operatorNo desc 		
  		]]>
  	</select>
  	
