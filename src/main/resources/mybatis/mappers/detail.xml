@@ -56,7 +56,13 @@
       <result property="detailNo" column="detailNo"/>
       <result property="operatorNo" column="operatorNo"/>
    </resultMap>
-   
+
+
+    <select id="selectReviewCount" parameterType="java.util.Map" resultType="int">
+        <![CDATA[
+            SELECT COUNT(*) AS reviewCount FROM detailreview_tbl WHERE memberNo = #{memberNo} AND detailNo = #{detailNo};
+        ]]>
+    </select>
    <select id="selectMember" parameterType="java.util.Map" resultType="int">
       <![CDATA[
           SELECT

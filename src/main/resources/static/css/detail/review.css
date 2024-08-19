@@ -1,43 +1,45 @@
-@charset "utf-8";
-
-
-body{
+body {
     background-color: #F6F6F6;
 }
 
-#reviewContainer{
-    position: absolute;
+#reviewContainer {
+    position: relative;
+    margin-top: 10px;
     width: 700px;
-    top: 80px;
     left: 50%;
     transform: translate(-50%, 0%);
     background-color: #fff;
+    height: calc(100vh - 230px);
+    overflow: auto; /* 스크롤바 없애기 */
 }
-.ReviewRange{
+.ReviewRange {
+    position: relative;
+    left: -30px;
     height: 250px;
 }
 
-.reviewPicture{
+.reviewPicture {
     position: relative;
-    top: -40px;
+    top: -50px;
     left: 5px;
     display: inline-block;
     width: 60px;
     height: 60px;
-
 }
 
-.anonymous{
+.anonymous {
     position: relative;
-    top: -70px;
+    top: -60px;
     display: inline-block;
 }
-.reviewDate{
+
+.reviewDate {
     position: relative;
-    top: -50px;
+    top: -40px;
     left: -96px;
     display: inline-block;
 }
+
 .reviewComment {
     position: relative;
     top: -50px;
@@ -57,32 +59,36 @@ body{
     border: 1px solid #0066cc; /* 포커스 시 보더 색상 변경 */
     box-shadow: 0 0 5px rgba(0, 102, 204, 0.5); /* 포커스 시 그림자 색상 추가 */
 }
-.personReviewRange{
+
+.personReviewRange {
     position: relative;
     width: 600px;
-    height: 170px;
-    margin:0 auto;
+    height: 215px;
+    margin: 0 auto;
     border-bottom: 1px solid #F6F6F6;
     padding: 30px;
 }
+
 .deleteButton {
     position: relative;
     z-index: 1000; /* 버튼이 다른 요소들 위에 위치하도록 설정 */
-    top: 30px;
+    top: 20px;
     left: 580px;
-    background: none;
+    background: #83d3c9;
     border: none;
-    color: inherit;
     font: inherit;
     cursor: pointer;
     outline: none;
     font-size: 0.8em;
+    padding: 5px 10px;
+    color: white;
     display: inline-block; /* 버튼이 인라인 블록으로 설정되어 있어야 보임 */
-    /* 필요한 경우, 추가적인 스타일을 여기 추가 */
 }
 
 .deleteButton:hover {
-    color: red; /* 버튼 호버 시 색상 변화 (옵션) */
+    background: #83d3c9;
+    color: white;
+    border: none;
 }
 
 .target {
@@ -90,6 +96,7 @@ body{
     font-weight: bold;
     font-size: 1.5em;
 }
+
 .noLine {
     color: #000000;
     font-weight: normal;
@@ -97,6 +104,10 @@ body{
 }
 
 .selPage {
-	color:red;
-	font-weight:bold;
+    color: red;
+    font-weight: bold;
+}
+
+#pagingNum {
+    text-align: center;
 }

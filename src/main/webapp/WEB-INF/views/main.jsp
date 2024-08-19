@@ -89,17 +89,26 @@ a{
 
 <!-- CTA -->
 <section id="cta">
-    <header>
-        <h2>사업자이신가요?</h2>
-        <p>이지짐 사업자로 등록하고, 헬스장이나 운동시설을 보다 효과적으로 관리하고 홍보하세요.<br>지금 등록하셔서 귀하의 시설을 많은 고객들에게 알리고, 더 많은 기회를 잡아보세요!</p>
-    </header>
-    <footer>
-        <ul class="buttons">
-            <li><a href="/member/operLoginForm.do" class="button primary">Sign In</a></li>
-            <li><a href="/member/oprJoinForm.do" class="button">Sign Up</a></li>
-        </ul>
-    </footer>
+    <c:choose>
+        <c:when test="${sessionScope.isLogOn eq false or (sessionScope.member eq null and sessionScope.operator eq null)}">
+            <!-- 로그인이 되어 있지 않거나 일반회원, 사업자 모두 아닌 경우에만 보이도록 설정 -->
+            <header>
+                <h2>사업자이신가요?</h2>
+                <p>이지짐 사업자로 등록하고, 헬스장이나 운동시설을 보다 효과적으로 관리하고 홍보하세요.<br>지금 등록하셔서 귀하의 시설을 많은 고객들에게 알리고, 더 많은 기회를 잡아보세요!</p>
+            </header>
+            <footer>
+                <ul class="buttons">
+                    <li><a href="/member/operLoginForm.do" class="button primary">Sign In</a></li>
+                    <li><a href="/member/operJoinForm.do" class="button">Sign Up</a></li>
+                </ul>
+            </footer>
+        </c:when>
+        <c:otherwise>
+            <!-- 로그인 상태이거나 일반회원 또는 사업자로 로그인된 경우에는 아무 내용도 추가하지 않거나 빈 공간을 유지합니다. -->
+        </c:otherwise>
+    </c:choose>
 </section>
+
 &nbsp;
 <div class="container">
     <h2>헬스장 인기순위</h2>
@@ -304,7 +313,7 @@ a{
                     <header>
                         <h3>헬스 용품 쇼핑몰</h3>
                     </header>
-                    <p>건강한 삶을 위한 맛있는 선택! 저탄수화물 베이커리로 풍미 가득한 맛과 영양을 동시에 즐기세요. 다이어트와 행복을 함께 느껴보세요.</p>
+                    <p>건강과 체력을 위한 필수 아이템! 고품질 헬스 용품과 액세서리로 여러분의 운동 목표를 지원합니다. 체계적인 운동을 위한 신뢰할 수 있는 제품들을 만나보세요.</p>
                 </section>
             </div>
             <div class="col-4 col-12-narrower">
@@ -317,10 +326,8 @@ a{
                 </section>
             </div>
         </div>
-    </section>
-
-    <!-- 챗봇 아이콘 -->
-      <img src="/images/chatbot/chatbot.png" class="chatbot-icon" onmouseover="showTooltip()" onmouseout="hideTooltip()" onclick="toggleChatbot()">
+        <!-- 챗봇 아이콘 -->
+      <img src="/images/chatbot/chatbotRed.png" class="chatbot-icon" onmouseover="showTooltip()" onmouseout="hideTooltip()" onclick="toggleChatbot()">
       
       <!-- 툴팁 이미지 -->
        <img src="/images/chatbot/hello.png" class="tooltip-image" id="tooltip_image">
@@ -330,7 +337,9 @@ a{
            <iframe id="chatbot_frame" width="350" height="430" allow="microphone;"
            src="https://console.dialogflow.com/api-client/demo/embedded/835aec7e-894b-4357-b90d-e6fabbadfb94"></iframe>
        </div>
-      <script>
+    </section>
+    </article>
+<script>
       function toggleChatbot() {
             var frame = document.getElementById('chatbot_frame');
             if (frame.style.display === 'none' || frame.style.display === '') {
@@ -339,5 +348,17 @@ a{
                 frame.style.display = 'none';
             }
         }
+      
+      function showTooltip() {
+            var tooltip = document.getElementById('tooltip_image');
+            tooltip.style.display = 'block';
+        }
+
+        function hideTooltip() {
+            var tooltip = document.getElementById('tooltip_image');
+            tooltip.style.display = 'none';
+        }
+    
       </script>
+
 <%@ include file="/WEB-INF/views/layout/footer.jsp"%>

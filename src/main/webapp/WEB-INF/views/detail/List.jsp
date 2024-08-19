@@ -128,6 +128,9 @@
                 initializePage();
             });
         });
+        $(window).scroll(function (){
+            console.log($(window).scrollTop());
+        });
     </script>
     <section id="banner">
 		<div class="search-container">
@@ -168,6 +171,7 @@
 		    <div class="option-group">
 		        <label for="facilityType">시설 종류:</label>
 		        <select id="facilityType" class="option-select">
+                    <option value="">시설 선택</option>
 		            <option value="health">헬스</option>
 		            <option value="pilates">필라테스</option>
 		            <option value="boxing">복싱</option>
@@ -176,9 +180,6 @@
 		    </div>
 		</div>
 </section>
-
-<article id="main">
-
 
 <div class="main-container">
     <div class="left-margin"></div>
@@ -224,9 +225,8 @@
     <div class="map_wrap">
         <div id="map"></div>
     </div>
-    <div class="right-margin"></div>
 </div>
-</article>
+
 <script>
     const urlParams = new URLSearchParams(window.location.search);
     var map; // 전역 변수로 map 선언
@@ -241,7 +241,7 @@
         let initialCenter = {lat: 37.56682194967411, lng: 126.97864942970189};
         let initialLevel = 8;
 
-        if (query) {
+        if (query.includes("서울특별시")) {
             const district = query.split(' ')[1];
             document.getElementById('districtSelect').value = district;
             if (districtCoordinates[district]) {
@@ -249,14 +249,18 @@
                 initialLevel = 7;
             }
         }
+        else
+            document.getElementById('districtSelect').value = "default";
 
         if (detailClassification) {
             document.getElementById('facilityType').value = detailClassification;
         }
+        else
+            document.getElementById('facilityType').value = "";
+
 
         // 초기 지도 생성
         initializeMap(initialCenter, initialLevel);
-        updateInfowindows();
     }
 
     document.getElementById('districtSelect').addEventListener('change', updateUrl);
@@ -346,17 +350,19 @@
     }
 
     function addMarker(p1, p2, content) {
-        var iwPosition = new kakao.maps.LatLng(p1, p2);
+        var position = new kakao.maps.LatLng(p1, p2);
 
         var marker = new kakao.maps.Marker({
-            position: iwPosition
+            position: position
         });
 
         marker.setMap(map);
 
         var infowindow = new kakao.maps.InfoWindow({
-            position: iwPosition,
-            content: content
+            content: '<div style="width:150px;text-align:center;padding:6px 0;">' + content + '</div>',
+            position: position,
+            removable: true,
+            yAnchor: 1.5
         });
 
         markers.push(marker);
@@ -364,13 +370,19 @@
     }
 
     function updateInfowindows() {
+        var mapCenter = map.getCenter();
+        var mapLevel = map.getLevel();
+
         for (var i = 0; i < infowindows.length; i++) {
             if (maplevel < 7) {
                 infowindows[i].open(map, markers[i]);
-                console.log(maplevel)
             } else {
                 infowindows[i].close();
             }
         }
+
+        // 지도의 중심점과 레벨을 유지
+        map.setCenter(mapCenter);
+        map.setLevel(mapLevel);
     }
 </script>

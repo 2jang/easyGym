@@ -46,8 +46,6 @@
         </header>
         <p>회원가입 페이지입니다. 아래 양식을 작성하셔서 회원가입을 완료해 주세요.<br>가입 후 다양한 서비스와 혜택을 이용하실 수 있습니다.
         </p>
-        <footer>
-        </footer>
 </section>
 <article id="main">
 <!--   <header class="special container">
@@ -121,7 +119,8 @@
               <input type="text" id="sample6_address" name="memberAddr" placeholder="주소">
               <br>
               <input type="text" id="sample6_detailAddress" placeholder="상세주소">
-
+			  <input type="hidden" id="sample6_extraAddress" name="memberExtraAddr" placeholder="참고항목">
+			  
             </div>
           </div>
           <div class="col-12">

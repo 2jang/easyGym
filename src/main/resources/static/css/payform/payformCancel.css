@@ -59,10 +59,15 @@ select {
 
 #finalPrice {
     font-weight: bold;
-    color: #5cc253;
+    color: #83d3c9;
     font-size: 24px;
     text-align: center;
 }
+#pointsTag{
+    font-weight: bold;
+    color: #555555;
+}
+
 #cancelDay {
     width: 40px;
     text-align: center;
@@ -76,7 +81,7 @@ select {
     display: block;
     width: 100%;
     padding: 10px;
-    background-color: #5cc253;
+    background-color: #83d3c9;
     color: #ffffff;
     border: none;
     border-radius: 4px;
@@ -86,5 +91,5 @@ select {
 }
 
 #cancelButton:hover {
-    background-color: #45a049;
+    background-color: #a8cac4;
 }

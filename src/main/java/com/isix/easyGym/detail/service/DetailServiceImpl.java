@@ -184,6 +184,12 @@ public class DetailServiceImpl implements DetailService {
 		return selectMember;
 	}
 
+	@Override
+	public int getReviewCount(Map selectMap) throws DataAccessException {
+		int reviewCount = detailDAO.selectReviewCount(selectMap);
+		return reviewCount;
+	}
+
 
 
 	

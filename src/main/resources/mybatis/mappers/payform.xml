@@ -14,6 +14,7 @@
       <result property="payformStatus" column="payformStatus"/>
       <result property="payformPayment" column="payformPayment"/>
       <result property="payformCancelDate" column="payformCancelDate"/>
+      <result property="payformUsePoints" column="payformUsePoints"/>
    </resultMap>
 
    <resultMap type="memberDTO" id="memberResult">
@@ -29,6 +30,7 @@
       <result property="memberState" column="memberState"/>
       <result property="memberGender" column="memberGender"/>
       <result property="memberMarketing" column="memberMarketing"/>
+      <result property="memberPoints" column="memberPoints"/>
    </resultMap>
 
    <resultMap type="detailDTO" id="detailResult">
@@ -50,6 +52,12 @@
       <result property="detailKoClassification" column="detailKoClassification"/>
       <result property="detailTest" column="detailTest"/>
    </resultMap>
+
+   <select id="selectPurchaseCount" parameterType="java.util.Map" resultType="int">
+      SELECT COUNT(*) AS purchaseCount
+      FROM payform_tbl
+      WHERE memberNo = #{memberNo} AND detailNo = #{detailNo};
+   </select>
 
    <select id="selectMemberByNo" resultType="MemberDTO">
       SELECT * FROM member_tbl WHERE memberNo = #{memberNo}
@@ -79,15 +87,26 @@
    <insert id="insertPayform" parameterType="java.util.Map">
       INSERT INTO payform_tbl (
       payformNo, memberNo, detailNo, payformSub, payformPrice, payformDate,
-      payformStatus, payformPayment
+      payformStatus, payformPayment, payformUsePoints
       ) VALUES (
       #{payformNo}, #{memberNo}, #{detailNo}, #{payformSub}, #{payformPrice}, sysdate(),
-      1, #{payformPayment}
+      1, #{payformPayment}, #{payformUsePoints}
       )
    </insert>
 
+   <update id="updateMemberPoints" parameterType="java.util.Map">
+      UPDATE member_tbl SET member_tbl.memberPoints = #{remainPoints} WHERE member_tbl.memberNo = #{memberNo}
+   </update>
+
+   <update id="refundPoint" parameterType="java.util.Map">
+      UPDATE payform_tbl p
+      JOIN member_tbl m ON p.memberNo = m.memberNo
+      JOIN detail_tbl d ON p.detailNo = d.detailNo
+      SET m.memberPoints = memberPoints + #{refundPoint} WHERE m.memberNo = (SELECT memberNo FROM payform_tbl WHERE payformNo = #{payformNo})
+   </update>
+
    <update id="cancelPayform" parameterType="int">
-      UPDATE payform_tbl SET payformStatus = -1 WHERE payformNo = #{payformNo} AND payformStatus = 1
+      UPDATE payform_tbl SET payformStatus = -1, payformCancelDate = SYSDATE() WHERE payformNo = #{payformNo}
    </update>
 
    <select id="checkingBuy" parameterType="int" resultType="int">

@@ -122,7 +122,7 @@ body {
     min-height: calc(100vh - 130px);
 }
 
-.left-margin, .right-margin {
+.left-margin {
     width: 10%;
     background-color: #F6F6F6;
 }
@@ -130,17 +130,16 @@ body {
 .content {
     width: 50%;
     background-color: #fff;
-    padding: 20px;
+    padding-top: 10px;
     box-sizing: border-box;
 }
 
 .map_wrap {
-    position: fixed;
-    top: 350px;
+    position: absolute;
+    top: 270px;
     width: 30%;
-    height: 80%;
+    height: 100%;
     right: 10%;
-    bottom: 0;
 }
 
 #map {

@@ -31,6 +31,11 @@ request.setCharacterEncoding("utf-8");
                     <label for="bisName">헬스장 이름:</label>
                     <input type="text" id="bisName" name="bisName" value="${payform.detailBusinessName}" readonly required>
                 </div>
+                <div class="form_group">
+                    <label for="refPoint">반환된 포인트:</label>
+                    <input type="text" id="refPoint" name="refPoint" style="width:85%;" value="${payform.payformUsePoints}" readonly required>
+                    <span id="pointsTag"> Points</span>
+                </div>
             </div>
 
             <label for="finalPr">환불 금액:</label>

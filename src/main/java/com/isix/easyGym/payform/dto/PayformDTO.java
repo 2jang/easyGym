@@ -18,6 +18,7 @@ public class PayformDTO {
 	private String memberName;
 	private String memberPhone;
 	private String detailBusinessName;
+	private int payformUsePoints;
 
 	
 	public PayformDTO() {
@@ -63,6 +64,10 @@ public class PayformDTO {
 	public void setPayformPrice(int payformPrice) {
 		this.payformPrice = payformPrice;
 	}
+
+	public int getPayformUsePoints() {return payformUsePoints;}
+
+	public void setPayformUsePoints(int payformUsePoints) {this.payformUsePoints = payformUsePoints;}
 
 	public Date getPayformDate() {
 		return payformDate;
