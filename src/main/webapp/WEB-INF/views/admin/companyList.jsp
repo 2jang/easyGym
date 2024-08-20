@@ -120,7 +120,6 @@
                                             <th>업체 이름</th>
                                             <th>일일 회원권</th>
                                             <th>업체 위치</th>
-                                            <th>업체 평점</th>
                                             <th>메인 운동</th>
                                             <th>운영시간</th>
                                         </tr>
@@ -131,7 +130,6 @@
                                             <th>업체 이름</th>
                                             <th>일일 회원권</th>
                                             <th>업체 위치</th>
-                                            <th>업체 평점</th>
                                             <th>메인 운동</th>
                                             <th>운영시간</th>
                                         </tr>
@@ -152,7 +150,6 @@
 			                                            <td>${com.detailBusinessName}</td>
 			                                            <td>${com.detailDailyTicket}</td>
 			                                            <td>${com.detailRoadAddress}</td>
-			                                            <td>${com.detailScope}</td>
 			                                            <td>${com.detailKoClassification}</td>
 			                                            <td>${com.detailServiceProgram}</td>
 			                                        </tr>  

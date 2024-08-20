@@ -6,7 +6,14 @@
     request.setCharacterEncoding("utf-8");
 %>
 <%@ include file="/WEB-INF/views/layout/header.jsp"%>
-<main>
+<section id="banner">
+        <header>
+            <h2>Sign up</h2>
+        </header>
+        <p>회원가입 페이지입니다. 아래 양식을 작성하셔서 회원가입을 완료해 주세요.<br>가입 후 다양한 서비스와 혜택을 이용하실 수 있습니다.
+        </p>
+</section>
+<article id="main">
     <div id="insertForm">
         <form id="formId" name="frmFboard">
             <div class="form-container">
@@ -34,7 +41,7 @@
             </div>
         </form>
     </div>
-</main>
+</article>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
