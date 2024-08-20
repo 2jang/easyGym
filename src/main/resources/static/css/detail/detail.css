@@ -61,7 +61,7 @@
 .left_control {
     position: absolute;
     top: 170px;
-	height: 60px;
+   height: 60px;
     left: 5px;
     cursor: pointer;
     z-index: 10;
@@ -93,59 +93,59 @@ body{
     background-color: #fff;
 }
 #firstInfo{
-	height: 170px;
+   height: 170px;
 }
 #companyName{
-	position: relative;
-	left: 20px;
+   position: relative;
+   left: 20px;
 }
 
 #pointer{
-	position: relative;
-	top: -10px;
-	left: 13px;
+   position: relative;
+   top: -10px;
+   left: 13px;
     display: inline-block;
 }
 #fiveStar{
-	position: relative;
-	left: 20px;
-	top: -34px;
+   position: relative;
+   left: 20px;
+   top: -34px;
     display: inline-block;
-	font-size: 1.2em;
+   font-size: 1.2em;
 }
 
 #address{
-	position: relative;
-	top: -15px;
-	left: 13px;
+   position: relative;
+   top: -15px;
+   left: 13px;
     display: inline-block;
 }
 #toAddress{
-	position: relative;
-	top: -14px;
-	left: 10px;
-	font-size: 1.3em;
+   position: relative;
+   top: -14px;
+   left: 10px;
+   font-size: 1.3em;
 }
 #grade{
    display: inline-block;
 }
 #gradeLink{
-	position: relative;
-	left: 20px;
-	top: -36px;
+   position: relative;
+   left: 20px;
+   top: -36px;
     display: inline-block;
 }
 #toReview{
-	position: relative;
-	left: -3px;
-	font-size: 1.3em;
+   position: relative;
+   left: -3px;
+   font-size: 1.3em;
 }
 
 
 #dailyTicket{
-	position: relative;
-	left: 20px;
-	top: -40px;
+   position: relative;
+   left: 20px;
+   top: -40px;
 }
 /* 전체 화면을 덮는 배경 */
 .modal {
@@ -223,7 +223,7 @@ button:hover {
 .buttonRange{
     position: relative;
     padding-right: 6px;
-	z-index: 30;
+   z-index: 30;
     left: 600px;
     top: -170px;
     display: inline-block;
@@ -262,38 +262,38 @@ button:hover {
 }
 
 #memberTicketRange{
-	position: relative;
-	top: -30px;
+   position: relative;
+   top: -30px;
     height: 220px;
     border-bottom: 2px solid #F6F6F6;
     width: 700px;
 }
 
 #memberTicket{
-	position: relative;
-	left: 20px;
+   position: relative;
+   left: 20px;
 }
 
 #fieldMonthlyPrice{
-	position: relative;
-	left: 20px;
-	display: inline-block;
+   position: relative;
+   left: 20px;
+   display: inline-block;
 }
 
 #fieldDailyPrice{
-	position: relative;
-	left: 20px;
-	display: inline-block;
+   position: relative;
+   left: 20px;
+   display: inline-block;
 }
 
 #dailyLimit{
-	position: relative;
-	left: 20px;
-	font-size: 0.8em;
+   position: relative;
+   left: 20px;
+   font-size: 0.8em;
 }
 .ticket{
-	position: relative;
-	left: 20px;
+   position: relative;
+   left: 20px;
 }
 
 
@@ -304,9 +304,9 @@ button:hover {
     left: 380px;
 }
 .month {
-	position: relative;
+   position: relative;
     display: inline-block;
-	font-size: 0.7em;
+   font-size: 0.7em;
 }
 
 .memberTicketBox {
@@ -318,20 +318,20 @@ button:hover {
 }
 
 #dailyAndInfoRange{
-	position: relative;
-	top: -25px;
+   position: relative;
+   top: -25px;
     height: 370px;
     border-bottom: 2px solid #F6F6F6;
 }
 #dailyTicketRange{
-	position: relative;
-	left: 20px;
+   position: relative;
+   left: 20px;
 }
 
 #dailyInfoBox{
-	position: relative;
+   position: relative;
     margin: 0 auto;
-	top: 30px;
+   top: 30px;
     width: 620px;
     height: 120px;
     border-radius:  20px;
@@ -339,24 +339,24 @@ button:hover {
 }
 
 #dailyInfo{
-	position: absolute;
-	top: 5px;
-	left: 25px;
-	
+   position: absolute;
+   top: 5px;
+   left: 25px;
+   
 }
 
 #dailyInfoDetail{
-	position: absolute;
-	top: 50px;
-	left: 25px;
+   position: absolute;
+   top: 50px;
+   left: 25px;
 }
 
 #commentRange{
-	position: relative;
-	top: -25px;
+   position: relative;
+   top: -25px;
     padding: 40px 0;
     border-bottom: 2px solid #F6F6F6;
-	text-align: center;
+   text-align: center;
 }
 
 #commentBox {
@@ -391,9 +391,9 @@ button:hover {
 }
 
 #operatingRange{
-	position: relative;
-	top: -25px;
-	text-align: center;
+   position: relative;
+   top: -25px;
+   text-align: center;
     padding: 40px 0;
     border-bottom: 2px solid #F6F6F6;
 }
@@ -407,15 +407,15 @@ button:hover {
 }
 
 #convenienceFacility{
-	position: relative;
-	top: -20px;
+   position: relative;
+   top: -20px;
     border-bottom: 2px solid #F6F6F6;
     height: 180px;
 }
 
 #facilityInfo{
-	position: relative;
-	left: 20px;	
+   position: relative;
+   left: 20px;   
 }
 
 #FacilityRange{
@@ -432,46 +432,46 @@ button:hover {
 }
 
 #imageInfo{
-	position: relative;
-	left: 20px;
+   position: relative;
+   left: 20px;
 }
 
 #imageRange{
-	position: relative;
-	top: -20px;
-	width: 700px;
-	height:340px;
-	border-bottom: 2px solid #F6F6F6;
+   position: relative;
+   top: -20px;
+   width: 700px;
+   height:340px;
+   border-bottom: 2px solid #F6F6F6;
 }
 
 #imageBox{
-	text-align: center;
-	width: 700px;
-	margin:0 auto;	
+   text-align: center;
+   width: 700px;
+   margin:0 auto;   
 }
 
 #reviewImageRange{
-	position: relative;
-	height: 130px;
-	border-bottom: 2px solid #F6F6F6;
+   position: relative;
+   height: 130px;
+   border-bottom: 2px solid #F6F6F6;
 }
 
 #reviewRange{
-	position: relative;
-	
-	border-bottom: 2px solid #F6F6F6;
+   position: relative;
+   
+   border-bottom: 2px solid #F6F6F6;
 }
 
 
 
 .reviewImage{
-	position: relative;
-	top: -10px;
-	left: 20px;
-	display: inline-block;
-	padding-right: 10px;
-	width: 115px;
-	height: 115px;
+   position: relative;
+   top: -10px;
+   left: 20px;
+   display: inline-block;
+   padding-right: 10px;
+   width: 115px;
+   height: 115px;
 }
 
 
@@ -507,28 +507,28 @@ button:hover {
     margin: 0 auto;
 }
 #ReviewRange{
-	position: relative;
-	width: 700px;
-	
+   position: relative;
+   width: 700px;
+   
 }
 
 .reviewWriteRange{
-	width: 678px;
-	margin: 0 auto;
-	height: 230px;
+   width: 678px;
+   margin: 0 auto;
+   height: 230px;
 }
 
 #textArea {
-	margin: 0 auto;
-	width: 700px;
+   margin: 0 auto;
+   width: 700px;
 }
 
 #myTextarea {
-	position: relative;
-	left: 20px;
-	width: 600px;
-	height: 141px;
-	border-radius: 25px;
+   position: relative;
+   left: 20px;
+   width: 600px;
+   height: 141px;
+   border-radius: 25px;
     resize: none; /* 빗금 없애기 */
     border: 1px solid #ccc; /* 기본 border 색상 */
     padding: 15px;
@@ -537,12 +537,12 @@ button:hover {
 }
 
 #myTextarea:focus {
-	border: 1px solid #0066cc; /* 포커스 시 보더 색상 변경 */
-	box-shadow: 0 0 5px rgba(0, 102, 204, 0.5); /* 포커스 시 그림자 색상 추가 */
+   border: 1px solid #0066cc; /* 포커스 시 보더 색상 변경 */
+   box-shadow: 0 0 5px rgba(0, 102, 204, 0.5); /* 포커스 시 그림자 색상 추가 */
 }
 .reviewComment {
     position: relative;
-	top: -50px;
+   top: -50px;
     margin: 0 auto;
     padding: 15px;
     border: 1px solid #ccc; /* 기본 보더 색상 */
@@ -556,9 +556,9 @@ button:hover {
 
 
 #charCount {
-	position: relative;
-	left: 630px;
-	top: -145px;
+   position: relative;
+   left: 630px;
+   top: -145px;
     font-size: 0.9em;
     color: #666;
     margin-top: 5px;
@@ -569,7 +569,7 @@ button:hover {
     unicode-bidi: bidi-override;
     display: block;
     position: relative;
-	top: -5px;
+   top: -5px;
     left: -470px;
 }
 
@@ -590,26 +590,26 @@ button:hover {
 }
 
 #fileRange{
-	position: relative;
-	top: -30px;
-	left: 20px;
+   position: relative;
+   top: -30px;
+   left: 20px;
 }
 
 #fileInfo{
-	display: inline-block;
-	position: relative;
+   display: inline-block;
+   position: relative;
 }
 
 #writeButton{
-	position: relative;
-	left: 580px;
-	top:-70px;
-	padding :5px 15px;
-	background-color: #2478FF;
-	color: #fff;
-	border: 1px solid #2478FF;
-	border-radius: 8px;
-	z-index: 30;
+   position: relative;
+   left: 580px;
+   top:-70px;
+   padding :5px 15px;
+   background-color: #2478FF;
+   color: #fff;
+   border: 1px solid #2478FF;
+   border-radius: 8px;
+   z-index: 30;
 }
 .deleteButton {
     position: relative;
@@ -637,34 +637,34 @@ button:hover {
 }
 
 .ReviewRange{
-	height: 250px;
+   height: 250px;
 }
 
 .reviewPicture{
-	position: relative;
+   position: relative;
     top: -40px;
     left: 5px;
     display: inline-block;
-	width: 60px;
-	height: 60px;
-	
+   width: 60px;
+   height: 60px;
+   
 }
 
 .anonymous{
-	position: relative;
+   position: relative;
     left: 7px;
-	top: -70px;
-	display: inline-block;
+   top: -70px;
+   display: inline-block;
 }
 .reviewDate{
-	position: relative;
+   position: relative;
     left: 7px;
-	top: -70px;
-	display: inline-block;
+   top: -70px;
+   display: inline-block;
 }
 .reviewComment {
     position: relative;
-	top: -50px;
+   top: -50px;
     margin: 0 auto;
     padding: 15px;
     border: 1px solid #ccc; /* 기본 보더 색상 */
@@ -682,12 +682,12 @@ button:hover {
     box-shadow: 0 0 5px rgba(0, 102, 204, 0.5); /* 포커스 시 그림자 색상 추가 */
 }
 .personReviewRange{
-	position: relative;
-	width: 600px;
-	height: 170px;
-	margin:0 auto;
-	border-bottom: 1px solid #F6F6F6;
-	padding: 30px;
+   position: relative;
+   width: 600px;
+   height: 170px;
+   margin:0 auto;
+   border-bottom: 1px solid #F6F6F6;
+   padding: 30px;
 }
 
 .viewAllReviews {
@@ -704,24 +704,24 @@ button:hover {
 }
 
 #locationInfo{
-	position: relative;
-	left: -280px;
+   position: relative;
+   left: -280px;
 }
 
 #mapRange{
-	width: 700px;
-	text-align: center;
-	margin: 0 auto;
+   width: 700px;
+   text-align: center;
+   margin: 0 auto;
 }
 #map{
-	position: relative;
-	margin: 0 auto;
+   position: relative;
+   margin: 0 auto;
 }
 .viewAllReviews{
-	position: relative;
-	left: 40%;
-	margin: 0 auto;
-	top: 20px;
+   position: relative;
+   left: 40%;
+   margin: 0 auto;
+   top: 20px;
 }
 #banner {
     position: relative;
@@ -791,4 +791,4 @@ article {
 }
 .stars .filled {
     color: gold; /* 채워진 별 색상 */
-}
+} 
