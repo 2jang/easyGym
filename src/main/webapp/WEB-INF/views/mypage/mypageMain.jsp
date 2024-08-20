@@ -115,7 +115,7 @@
                     <form id="password-check-form" style="margin-bottom: 10px;">
                         <input class="passwordcheck" type="password" id="password" placeholder="비밀번호 확인">
                         <input type="hidden" id="memberNo" value="${member.memberNo}"> <!-- 멤버 번호를 위한 숨겨진 입력 필드 -->
-                        <button type="button" id="password-check-btn">확인</button> <!-- 폼 제출을 방지하기 위해 type="button" 사용 -->
+                        <button type="button" id="password-check-btn">확인</button>
                     </form>
                 </div>
                 <div class="modify" id="update-form" style="display:none;  width: 600px; align=center;">
