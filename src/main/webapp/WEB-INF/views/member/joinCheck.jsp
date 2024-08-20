@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/views/layout/header.jsp"%>
 <style>
-  body {
+  article {
     font-family: Arial, sans-serif;
     padding: 20px;
     background: #f0f2f5;
@@ -54,7 +54,7 @@
     width: 100%;
     height: 48px;
     padding: 0; 
-    background: #ffcc23;
+    background: #82D3C9;
     border: none;
     border-radius: 6px;
     color: #fff;
@@ -66,7 +66,7 @@
     line-height: 48px;
   }
   #join:hover {
-    background: #d4ac26;
+    background: #3e9c90;
   }
   .warning-message {
     display: none;
@@ -76,7 +76,16 @@
   }
 </style>
 </head>
-<body>
+<section id="banner">
+    <header>
+        <h2>Sign in</h2>
+    </header>
+    <p>로그인 페이지에 오신 것을 환영합니다. 사용자 아이디와 비밀번호를 입력하시고<br>
+    로그인 버튼을 클릭하시면, 개인화된 서비스와 설정에 접근하실 수 있습니다.</p>
+    <footer>
+    </footer>
+</section>
+<article id="main">
   <div class="container">
     <h1>이용약관 동의</h1>
     <form action="/member/memJoin.do" name="check" id="check" method="post" onsubmit="return validateForm()">
@@ -241,5 +250,5 @@
       }
     </script>
   </div>
-</body>
+</article>
 <%@ include file="/WEB-INF/views/layout/footer.jsp"%>
