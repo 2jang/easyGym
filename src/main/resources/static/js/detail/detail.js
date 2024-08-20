@@ -346,18 +346,30 @@ function refreshReviews(detailNo) {
 
             const reviewsToShow = reviews.slice(0, 2); // 첫 2개 리뷰만 표시
             reviewsToShow.forEach(function(review) {
+                var starsHtml = '';
+                for (var i = 1; i <= 5; i++) {
+                    if (i <= review.reviewRating) {
+                        starsHtml += '<span class="star filled">★</span>';
+                    } else {
+                        starsHtml += '<span class="star">☆</span>';
+                    }
+                }
+
                 var reviewHtml = `
-                        <div class="ReviewRange" data-review-no="${review.reviewNo}">
-                            <input class="reviewNo" type="hidden" value="${review.reviewNo}"/>
-                            <button class="deleteButton" onclick="deleteComment(${review.reviewNo})">삭제</button>
-                            <div class="personReviewRange">
-                                <img class="reviewPicture" src="${contextPath}/images/detail/detailpage/reviewImage.PNG">
-                                <p class="anonymous">(익명의 회원)</p>
-                                <p class="reviewDate">${review.reviewDate}</p>
-                                <textarea class="reviewComment" readonly>${review.reviewComment}</textarea>
+                    <div class="ReviewRange" data-review-no="${review.reviewNo}">
+                        <input class="reviewNo" type="hidden" value="${review.reviewNo}"/>
+                        <button class="deleteButton" onclick="deleteComment(${review.reviewNo})">삭제</button>
+                        <div class="personReviewRange">
+                            <img class="reviewPicture" src="${contextPath}/images/detail/detailpage/reviewImage.PNG">
+                            <p class="anonymous">(익명의 회원)</p>
+                            <div class="stars">
+                                ${starsHtml}
                             </div>
+                            <p class="reviewDate">${review.reviewDate}</p>
+                            <textarea class="reviewComment" readonly>${review.reviewComment}</textarea>
                         </div>
-                    `;
+                    </div>
+                `;
                 reviewContainer.append(reviewHtml);
             });
 

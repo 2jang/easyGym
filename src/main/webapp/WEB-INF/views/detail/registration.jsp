@@ -6,8 +6,9 @@
     request.setCharacterEncoding("utf-8");
 %>
 <%@ include file="/WEB-INF/views/layout/header.jsp"%>
-    <link rel="stylesheet" href="${contextPath}/css/mypage/mypageMain.css">
-    <script src="${contextPath}/js/mypage/mypageMain.js"></script>
+<link rel="stylesheet" href="${contextPath}/css/mypage/mypageMain.css">
+<script src="${contextPath}/js/mypage/mypageMain.js"></script>
+<script src="${contextPath}/js/detail/registration.js"></script>
 <style>
     body {
         font-family: Arial, sans-serif;
@@ -15,8 +16,8 @@
         padding: 0;
     }
     .container {
-		position: relative;
-		top: 40px;
+        position: relative;
+        top: 40px;
         width: 70%;
         margin: 30px auto;
         padding: 20px;
@@ -58,16 +59,17 @@
         font-size: 16px;
     }
 </style>
+
 <section id="banner">
-            <h2>Fitness Center Registration Page</h2>
-        <p>헬스장, 필라테스 스튜디오, 복싱 짐 등 다양한 피트니스 관련 업체를 등록해 주세요. <br>
+    <h2>Fitness Center Registration Page</h2>
+    <p>헬스장, 필라테스 스튜디오, 복싱 짐 등 다양한 피트니스 관련 업체를 등록해 주세요. <br>
         각 업체의 정확한 정보를 입력하여 고객들이 쉽게 찾을 수 있도록 도와주세요.
-        </p>
+    </p>
 </section>
 <article id="main">
     <div class="container">
         <form id="detailForm" action="/detail/signUpForm.do" method="post" enctype="multipart/form-data">
-			<input type="hidden" name="operatorNo" value="${operator.operatorNo}">
+            <input type="hidden" name="operatorNo" value="${operator.operatorNo}">
             <div class="form-group">
                 <label for="detailBusinessName">업체명</label>
                 <input type="text" id="detailBusinessName" name="detailBusinessName">
@@ -120,12 +122,8 @@
                 <label for="detailLongitude">지도에 표시할 경도</label>
                 <input type="text" id="detailLongitude" name="detailLongitude" placeholder="ex) 126.9309597">
             </div>
-            <div class="form-group">
-                <label for="operatorNo">사업자 번호</label>
-                <input type="number" id="operatorNo" name="operatorNo" placeholder="111-11-11111">
-            </div>
             <!-- Image upload fields -->
-			<input type="text" style="width:100%;" disabled  placeholder="영어로 기입 업체명을 기준으로 사진명을 수정해 주세요.PNG확장자로 부탁드립니다. ex)BBGym1.PNG">
+            <input type="text" style="width:100%;" disabled  placeholder="영어로 기입 업체명을 기준으로 사진명을 수정해 주세요.PNG확장자로 부탁드립니다. ex)BBGym1.PNG">
             <div class="form-group">
                 <label for="image1">이미지 1</label>
                 <input type="file" id="image1" name="image1">

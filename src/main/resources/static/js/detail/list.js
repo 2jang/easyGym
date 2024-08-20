@@ -1,4 +1,3 @@
-
 function goToDetail(detailNo) {
     let detailForm = document.createElement('form');
     let inputData = document.createElement('input');
