@@ -41,7 +41,6 @@
     <c:choose>
         <c:when test="${not empty reviewMap.reviews}">
             <c:forEach var="review" items="${reviewMap.reviews}">
-
                 <input type="hidden" class="detailNo" value="${reviewMap.detailNo}">
                 <div class="ReviewRange">
                     <button class="deleteButton" onclick="removeComment(${review.reviewNo})">삭제</button>
