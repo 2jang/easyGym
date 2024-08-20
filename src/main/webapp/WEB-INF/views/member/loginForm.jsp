@@ -94,7 +94,7 @@
                     </div>
                 </div>
                 <div class="joinSubmit" >
-                    <a href="${contextPath}/member/memJoin.do">회원가입</a>
+                    <a href="${contextPath}/member/joinCheck.do">회원가입</a>
                 </div>
                 <button class="button primary" type="submit" style="background-color: #82D3C9; border-radius: 15px;">로그인</button>
                 <a href="javascript:fn_kakao()" class="kakao-login-button">

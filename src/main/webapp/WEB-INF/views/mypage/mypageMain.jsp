@@ -91,7 +91,10 @@
             </div>
 			<div id="points" class="section">
                 <h2>포인트 적립/사용 내역</h2>
-                <img src="${contextPath}/images/payform/ana.png" alt="커밍 쑨!">
+				<table>
+					<tr><th>번호</th><th>적립/사용 내역</th><th>포인트 금액</th><th>적용일자</th></tr>
+					<tr><td colspan="4">적립내역이 없습니다.</td></tr>
+				</table>
             </div>
 			
 			<!-- 내역조회 탭 안에 사이드바 -->
