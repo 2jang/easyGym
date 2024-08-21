@@ -95,7 +95,8 @@
  	<!-- 글 삭제 -->
  	<delete id="delNotice" parameterType="int">
  		<![CDATA[
- 			delete from notice_tbl where noticeNo=#{noticeNo}
+ 			delete from noticeimage_tbl where noticeNo=#{noticeNo};
+ 			delete from notice_tbl where noticeNo=#{noticeNo};
  		]]>
  	</delete>
  	

@@ -21,7 +21,7 @@ import jakarta.servlet.http.HttpSession;
 @Controller("AnswerController")
 public class AnswerControllerImpl implements AnswerController{
 
-	private static String ARTICLE_IMG_REPO ="C:\\kh\\fileupload";
+	private static String ARTICLE_IMG_REPO= "C:\\isixProject\\easyGym\\src\\main\\resources\\static\\images\\freeboard\\answer";
 	@Autowired
 	private AnswerService answerService;
 	
