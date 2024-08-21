@@ -33,7 +33,7 @@ import jakarta.servlet.http.HttpSession;
 @Controller("noticeController")
 public class NoticeControllerImpl implements NoticeController{
 
-	private static String ARTICLE_IMG_REPO ="C:\\kh\\fileupload";
+	private static String ARTICLE_IMG_REPO= "C:\\isixProject\\easyGym\\src\\main\\resources\\static\\images\\notice";
 	
 	@Autowired
 	private NoticeService noticeService;

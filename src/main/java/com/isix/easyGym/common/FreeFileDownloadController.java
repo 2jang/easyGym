@@ -15,7 +15,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 @Controller("frfileDownload")
 public class FreeFileDownloadController extends HttpServlet {
-	private static String ARTICLE_IMG_REPO="C:\\kh\\fileupload";
+	private static String ARTICLE_IMG_REPO= "C:\\isixProject\\easyGym\\src\\main\\resources\\static\\images\\freeboard";
 
 	@GetMapping("/frdownload.do")
 	public void fileDown(@RequestParam("freeNo") int freeNo, @RequestParam("imageFileName") String imageFileName,HttpServletRequest request, HttpServletResponse response) throws Exception {
