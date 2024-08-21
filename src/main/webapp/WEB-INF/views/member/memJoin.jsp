@@ -103,7 +103,7 @@
               <input class="mail-check-input" placeholder="인증번호 6자리를 입력해주세요" disabled="disabled" maxlength="6">
             </div>
           </div>
-		  <span id="mail-check-warn"></span>
+            <span id="mail-check-warn"></span>
           <div class="col-12">
             <input type="text" name="memberPhone" autocompleted="off" id="memberPhone"
               tabindex="1" placeholder="전화번호를 입력해주세요." required autofocus />
