@@ -121,7 +121,8 @@
                 <!-- 슬라이더 패널 : 움직이는 이미지가 전환되는 효과 -->
                 <div class="slider_panel">
                     <c:forEach var="i" begin="1" end="10">
-                        <img class="slider_image" src="${contextPath}/images/detail/${details.detailClassification}/${details.detailBusinessEng}/${details.detailBusinessEng}${i}.PNG"/>
+                        <img class="slider_image" src="${contextPath}/images/detail/${details.detailClassification}/${details.detailBusinessEng}/${details.detailBusinessEng}${i}.PNG"
+                  onerror="this.onerror=null; this.src='${contextPath}/images/detail/boxing/banpoFitness/banpoFitness1.png'"/>
                     </c:forEach>
                 </div>
                 <!-- 좌우 컨트롤 버튼 패널 -->
@@ -223,7 +224,8 @@
                 <h4 id="imageInfo">사진</h4>
                 <div id="imageBox">
                     <c:forEach var="i" begin="1" end="10">
-                        <img src="${contextPath}/images/detail/${details.detailClassification}/${details.detailBusinessEng}/${details.detailBusinessEng}${i}.PNG" height="130" width="130"/>
+                        <img src="${contextPath}/images/detail/${details.detailClassification}/${details.detailBusinessEng}/${details.detailBusinessEng}${i}.PNG" height="130" width="130"
+                  		onerror="this.onerror=null; this.src='${contextPath}/images/member/wombat.png'">
                     </c:forEach>
                 </div>
             </div>

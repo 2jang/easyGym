@@ -201,9 +201,10 @@
                 <c:forEach var="allList" items="${allList}">
                     <div class="contentRange" onclick="goToDetail(${allList.detailNo})">
                         <div class="imgRange">
-                            <img class="img"
-                                 src="${contextPath}/images/detail/${allList.detailClassification}/${allList.detailBusinessEng}/${allList.detailBusinessEng}1.PNG"
-                                 alt="">
+							<img class="img"
+	                             src="${contextPath}/images/detail/${allList.detailClassification}/${allList.detailBusinessEng}/${allList.detailBusinessEng}1.PNG"
+	                             alt=""
+	                             onerror="this.onerror=null; this.src='${contextPath}/images/member/wombat.png'">
                         </div>
                         <div class="buttonRange">
                             <button class="favorite-button">
