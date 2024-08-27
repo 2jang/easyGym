@@ -3,7 +3,7 @@
 
 <p align="center">
   <br>
-  <img src="src/main/resources/static/images/readme/easygym-main.png">
+  <img src="src/main/resources/static/images/readme/easygym-mainpage.png">
   <br>
 </p>
 
