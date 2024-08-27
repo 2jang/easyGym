@@ -47,7 +47,7 @@ public class MypageControllerImpl implements MypageController {
 	private DetailReportDTO detailReportDTO;  //신고내역
 
 	//1.내 정보
-	//첫 페이지(이용중인 상품)
+	//첫 페이지(이용중인 상품) 화면 불러오기
 	@RequestMapping(value = "/mypage/mypageMain.do")
 	public ModelAndView mypageInfo(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ModelAndView mav=new ModelAndView();

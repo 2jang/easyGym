@@ -22,6 +22,10 @@ public interface PayformDAO {
 
     public void insertPayform(Map payformMap) throws DataAccessException;
 
+    public void refundPoint(Map payformMap) throws DataAccessException;
+
+    public void updateMemberPoints(Map payformMap) throws DataAccessException;
+
     public PayformDTO viewPayform(int payformNo) throws DataAccessException;
 
     public int cancelPayform(int payformNo) throws DataAccessException;
@@ -29,4 +33,6 @@ public interface PayformDAO {
     public int checkingBuy(int memberNo) throws DataAccessException;
 
     public int selectPayformNo(Map<String, Object> selectMap) throws DataAccessException;
+
+    public int selectPurchaseCount(Map selectMap) throws DataAccessException;
 }

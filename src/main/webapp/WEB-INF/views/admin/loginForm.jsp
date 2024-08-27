@@ -38,7 +38,7 @@
                                             </div>
                                             <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
                                                 <a class="small" href="/admin/joinForm.do">관리자 가입</a>
-                                                <a class="btn btn-primary" > <input type="submit" value="로그인"></a>
+                                                <a class="btn btn-primary" > <input type="submit" value="로그인" class="loginBtn"></a>
                                             </div>
                                         </form>
                                     </div>

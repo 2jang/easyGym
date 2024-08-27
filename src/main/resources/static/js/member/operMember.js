@@ -61,7 +61,11 @@ const idTag = document.getElementById('operatorId');
       		var operatorId = $("#operatorId").val();
       		
       		if(operatorId == '' || operatorId.length == 0) {
-      			$("#check").css("color", "red").text("공백은 ID로 사용할 수 없습니다.");
+      			$("#check").css({
+					"color": "red",
+					"font-size": "10px"
+
+					}).text("공백은 ID로 사용할 수 없습니다.");
       			return false;
       		}
       		
@@ -89,10 +93,8 @@ const idTag = document.getElementById('operatorId');
       		    }
       		});
           	}); //End Ajax
-   </script>
-   <script
-   	src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-   <script>
+
+
        function sample6_execDaumPostcode() {
            new daum.Postcode({
                oncomplete: function(data) {
@@ -180,3 +182,41 @@ const idTag = document.getElementById('operatorId');
 
        console.log("완성된 이메일: " + fullEmail); // 결합된 이메일 확인
    }
+   
+
+   mailCheckBtn.addEventListener("click", ()=>{
+   	const email = $('#operatorEmail1').val() + $('#operatorEmail2').val(); // 이메일 주소 값 가져오기
+   	console.log("완성된 이메일" + email); // 이메일 확인
+   	const checkInput = $('.mail-check-input');
+   	const checkBox = $('.mail-check-box');
+   	$('#operatorEmail').val(email);
+   	$.ajax({
+   		type : 'get',
+   		url : '/member/mailCheck?email='+email, // Get방식이라 Url뒤에 email을 붙힘
+   		success : function(data){
+   			console.log("data : " + data);
+   			checkInput.attr('disabled',false);
+   			code = data;
+   			alert('인증번호가 전송되었습니다.');
+   			checkBox.attr('style','display:block');
+   		}
+   	});
+   });
+
+   $('.mail-check-input').blur(function(){
+   	const inputCode = $(this).val();
+   	const $resultMsg = $('#mail-check-warn');
+   	
+   	if(inputCode === code){
+   		$resultMsg.html('인증번호가 일치합니다.');
+   		$resultMsg.css('color','blue');
+   		$('#mail-Check-Btn').attr('disabled',true);
+   		$('#userEamil1').attr('readonly',true);
+   		$('#userEamil2').attr('readonly',true);
+   		$('#userEmail2').attr('onFocus', 'this.initialSelect = this.selectedIndex');
+            $('#userEmail2').attr('onChange', 'this.selectedIndex = this.initialSelect');
+   	}else{
+   		$resultMsg.html('인증번호가 불일치 합니다. 다시 확인해주세요!.');
+   		$resultMsg.css('color','red');
+   	}
+   });

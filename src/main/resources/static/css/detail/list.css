@@ -1,3 +1,4 @@
+list.css
 @charset "UTF-8";
 
 body {
@@ -22,12 +23,9 @@ body {
 }
 
 .search-container {
-    position: absolute;
     width: 100%;
     right: 0;
-    background-color: #fff;
     left: 50%;
-    transform: translate(-50%, 0%);
     padding: 15px 20px;
     z-index: 1000;
     top: 60px;
@@ -87,9 +85,7 @@ body {
     position: absolute;
     left: 0;
     right: 0;
-    top: 141px;
     width: 100%;
-    background-color: #fff;
     padding: 10px 20px;
     z-index: 999;
     display: flex;
@@ -108,7 +104,7 @@ body {
     margin-right: 20px;
     white-space: nowrap;
     font-weight: bold;
-    color: #555555;
+    color: #fff;
 }
 
 .option-select {
@@ -124,11 +120,10 @@ body {
 .main-container {
     display: flex;
     top: 100px;
-    margin-top: 130px;
     min-height: calc(100vh - 130px);
 }
 
-.left-margin, .right-margin {
+.left-margin {
     width: 10%;
     background-color: #F6F6F6;
 }
@@ -136,17 +131,16 @@ body {
 .content {
     width: 50%;
     background-color: #fff;
-    padding: 20px;
+    padding-top: 10px;
     box-sizing: border-box;
 }
 
 .map_wrap {
-    position: fixed;
-    top: 80px;
+    position: absolute;
+    top: 270px;
     width: 30%;
-    height: 80%;
+    height: 100%;
     right: 10%;
-    bottom: 0;
 }
 
 #map {
@@ -346,5 +340,53 @@ body {
     }
     #districtSelect, #facilityType {
         width: 100%;
+    }
+}
+
+#alertContainer {
+    z-index: 9999; /* 값을 더 높게 설정 */
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    width: 80%;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.alertMessage {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 10px 20px;
+    margin-bottom: 10px;
+    text-align: center;
+    border-radius: 5px;
+    font-size: 14px;
+    animation: fadeIn 0.3s ease-out, fadeOut 3s ease forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
     }
 }

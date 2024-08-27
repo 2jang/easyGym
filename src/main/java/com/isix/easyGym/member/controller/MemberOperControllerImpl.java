@@ -43,12 +43,13 @@ public class MemberOperControllerImpl implements MemberOperController {
 			HttpServletResponse response) throws Exception {
 		ModelAndView mav = new ModelAndView();
 		memberOperService.addOperator(memberOperDTO);
-		mav.setViewName("redirect:/afterEntJoin.do");
+		mav.setViewName("redirect:/member/afterEntJoin.do");
 		return mav;
 	}
 	
 	// 사업자 회원가입 완료 페이지
 	@Override
+	@RequestMapping(value="/member/afterEntJoin.do")
 	public ModelAndView afterEntJoin(MemberOperDTO memberOperDTO, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		ModelAndView mav = new ModelAndView();
@@ -65,44 +66,34 @@ public class MemberOperControllerImpl implements MemberOperController {
 		mav.setViewName("member/operLoginForm");
 		return mav;
 	}
-
 	@Override
 	@RequestMapping(value = "/member/operLogin.do", method = RequestMethod.POST)
-	public ModelAndView operLogin(@ModelAttribute("operator") MemberOperDTO operator, RedirectAttributes rAttr,
-			HttpServletRequest request, HttpServletResponse response) throws Exception {
-		memberOperDTO = memberOperService.operLogin(operator);
-		ModelAndView mv = new ModelAndView();	
-		if (memberOperDTO != null) {
-			HttpSession session= request.getSession();
-			session.setMaxInactiveInterval(30 * 60);
-			session.setAttribute("operator", memberOperDTO);
-			session.setAttribute("isLogOn", true);
-			String action = (String) session.getAttribute("action");
-			if (action != null) {
-				mv.setViewName("redirect:" + action);
-			} else {
-				mv.setViewName("redirect:/main.do");
-			}
-		} else {
-			rAttr.addAttribute("result", "아이디, 비밀번호가 다릅니다. 다시 로그인해주세요.");
-			mv.setViewName("redirect:/member/operLoginForm.do");
-		}
-		return mv;
+	public ModelAndView operLogin(@ModelAttribute("operator") MemberOperDTO operator,
+	                              RedirectAttributes rAttr,
+	                              HttpServletRequest request,
+	                              HttpServletResponse response) throws Exception {
+	    memberOperDTO = memberOperService.operLogin(operator);
+	    ModelAndView mv = new ModelAndView();
+	    
+	    if (memberOperDTO != null) {
+	        HttpSession session = request.getSession();
+	        session.setMaxInactiveInterval(30 * 60);
+	        session.setAttribute("operator", memberOperDTO);
+	        session.setAttribute("isLogOn", true);
+	        String action = (String) session.getAttribute("action");
+	        if (action != null) {
+	            mv.setViewName("redirect:" + action);
+	        } else {
+	            mv.setViewName("redirect:/main.do");
+	        }
+	    } else {
+	        rAttr.addFlashAttribute("loginFailed", true);  // RedirectAttributes 사용하여 로그인 실패 메시지 전달
+	        mv.setViewName("redirect:/member/operLoginForm.do");  // 로그인 실패 시 다시 로그인 폼으로 리디렉션
+	    }
+	    
+	    return mv;
 	}
 
-	
-//	// 사업자 아이디 중복확인
-//	@Override
-//	@RequestMapping(value="/member/checkOpId.do", produces="application/text;charset=utf-8")
-//	public ModelAndView checkOpId(@RequestParam("operatorId") String operatorId, HttpServletRequest request, HttpServletResponse response)throws Exception{
-//		ModelAndView mav = new ModelAndView();
-//		if(memberOperService.checkId(operatorId)) {
-//			mav.addObject("message", "이미 사용중인 ID입니다.");
-//		} else {
-//			mav.addObject("message", "사용 가능한 ID입니다.");
-//		}
-//		return mav;
-//	}
 	// 사업자 삭제 기능
 	public ModelAndView delOperator(String id, HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
@@ -135,12 +126,6 @@ public class MemberOperControllerImpl implements MemberOperController {
 			
 			return new ResponseEntity<>(result, HttpStatus.OK);
 		}
-//		@Override
-//		public ModelAndView checkOpId(String operatorId, HttpServletRequest request, HttpServletResponse response)
-//				throws Exception {
-//			// TODO Auto-generated method stub
-//			return null;
-//		}
 
 
 }

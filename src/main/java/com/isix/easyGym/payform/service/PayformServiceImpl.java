@@ -1,7 +1,6 @@
 package com.isix.easyGym.payform.service;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -41,6 +40,7 @@ public class PayformServiceImpl implements PayformService {
         int payformNo = payformDAO.getNewPayformNo();
         payformMap.put("payformNo", payformNo);
         payformDAO.insertPayform(payformMap);
+        payformDAO.updateMemberPoints(payformMap);
         return payformNo;
     }
 
@@ -52,6 +52,16 @@ public class PayformServiceImpl implements PayformService {
     @Override
     public int cancelPayform(int payformNo) throws DataAccessException {
         return payformDAO.cancelPayform(payformNo);
+    }
+
+    @Override
+    public int getPurchaseCount(Map selectMap) throws DataAccessException {
+        int purchaseCount = payformDAO.selectPurchaseCount(selectMap);
+        return purchaseCount;
+    }
+
+    public void refundPoint(Map payformMap) throws DataAccessException {
+        payformDAO.refundPoint(payformMap);
     }
 
    @Override

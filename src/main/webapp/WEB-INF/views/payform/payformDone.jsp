@@ -42,7 +42,7 @@ request.setCharacterEncoding("utf-8");
                 fpElement.innerText = fp.toLocaleString();
             </script>
         </div>
-        <button type="button" id="goBack" onclick="window.location.replace('${contextPath}/main.do')">확인</button>
+        <button type="button" id="goBack" onclick="window.location.replace('${contextPath}/detail/search.do?query=')">확인</button>
     </form>
 </div>
 

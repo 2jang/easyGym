@@ -8,8 +8,15 @@
 
 <%@ include file="/WEB-INF/views/layout/header.jsp"%>
 <link href="/css/notice/detail.css" rel="stylesheet" />
-
- <main>
+<section id="banner">
+    <header>
+        <h2>Notice Board</h2>
+    </header>
+    <p>공지사항 페이지입니다. 중요한 소식, 업데이트, 이벤트, 공지사항 등을 <br>이곳에서 확인하실 수 있습니다.
+        항상 최신 정보를 받아보실 수 있도록 자주 방문해주세요.
+        </p>
+</section>
+<article id="main">
         <table class="details-table">
             <thead>
                 <tr>
@@ -44,6 +51,6 @@
         <div class="button-group">
             <input class="btn btn-outline-secondary reBtn" type="button" value="돌아가기" onclick="location.href='/notice/noticeList.do'">
         </div>
-</main>
+</article>
 
 <%@ include file="/WEB-INF/views/layout/footer.jsp"%>

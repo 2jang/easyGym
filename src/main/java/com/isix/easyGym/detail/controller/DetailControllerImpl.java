@@ -41,7 +41,7 @@ import jakarta.servlet.http.HttpSession;
 @Controller("detailController")
 public class DetailControllerImpl implements DetailController{
 	
-	private static String ARTICLE_IMG_REPO= "C:\\Users\\USER\\Desktop\\isix\\easyGym\\src\\main\\resources\\static\\images\\detail";
+	private static String ARTICLE_IMG_REPO= "C:\\isixProject\\easyGym\\src\\main\\resources\\static\\images\\detail";
 	
 	@Autowired
 	private DetailDTO detailDTO;
@@ -363,11 +363,19 @@ public class DetailControllerImpl implements DetailController{
 	        HttpServletResponse response) throws Exception {
 		String status = null;
 	    try {
-		    	Map<String,Object> selectMap = new HashMap<String,Object>();
-		 	    selectMap.put("detailNo", detailNo);
-		 	    selectMap.put("memberNo", memberNo);
-		 	    // 구매 여부 체크
-		 	    int payformNo = payformService.findpay(selectMap);
+			Map<String,Object> selectMap = new HashMap<String,Object>();
+			selectMap.put("detailNo", detailNo);
+			selectMap.put("memberNo", memberNo);
+			// 구매 여부 체크
+			int purchaseCount = payformService.getPurchaseCount(selectMap); // 구매 횟수 조회
+			int reviewCount = detailService.getReviewCount(selectMap);
+
+			if (reviewCount >= purchaseCount) {
+				status = "reviewLimitExceeded"; // 리뷰 작성 제한 초과
+				return status;
+			}
+
+			int payformNo = payformService.findpay(selectMap);
 		 	    if (payformNo != 0) {
 	                multipartRequest.setCharacterEncoding("utf-8");
 	                // Verify file upload
