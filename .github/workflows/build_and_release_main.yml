@@ -42,7 +42,9 @@ jobs:
     - name: Download previous release DB
       run: |
         curl -L https://github.com/2jang/easyGym/releases/download/v1.0.1/0826_easygymdb.sql -o 0826_easygymdb.sql
-        ls -l 0826_easygymdb.sql  # 파일이 존재하는지 확인
+        ls -la  # 현재 디렉토리의 모든 파일 리스트 출력
+        pwd    # 현재 작업 디렉토리 출력
+        cat 0826_easygymdb.sql | head -n 5  # 파일 내용 확인 (처음 5줄만)
 
     - name: Create Release
       id: create_release
@@ -71,7 +73,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: ./0826_easygymdb.sql
+        asset_path: ${{ github.workspace }}/0826_easygymdb.sql
         asset_name: 0826_easygymdb.sql
         asset_content_type: application/sql
 
