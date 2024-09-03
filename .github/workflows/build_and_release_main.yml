@@ -38,7 +38,11 @@ jobs:
 
     - name: Build with Gradle Wrapper
       run: ./gradlew build
-      
+
+    - name: Download previous release DB
+      run: |
+        curl -L https://github.com/2jang/easyGym/releases/download/v1.0.1/0826_easygymdb.sql
+
     - name: Create Release
       id: create_release
       uses: actions/create-release@v1
@@ -58,6 +62,16 @@ jobs:
         upload_url: ${{ steps.create_release.outputs.upload_url }}
         asset_path: ./build/libs/easyGym-0.0.1-SNAPSHOT.jar
         asset_name: easyGym-1.0.${{ github.run_number }}.jar
+        asset_content_type: application/java-archive
+
+    - name: Upload DB to Release
+      uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: ./0826_easygymdb.sql
+        asset_name: 0826_easygymdb.sql
         asset_content_type: application/java-archive
 
     # NOTE: The Gradle Wrapper is the default and recommended way to run Gradle (https://docs.gradle.org/current/userguide/gradle_wrapper.html).
