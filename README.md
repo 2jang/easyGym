@@ -52,7 +52,7 @@
 
 <br>
 
-<!-- Stack Icon Refernces -->
+<!-- Stack Icon Refernces --> 
 
 [java]: src/main/resources/static/images/readme/java.png
 [jsp]: src/main/resources/static/images/readme/jsp.png
