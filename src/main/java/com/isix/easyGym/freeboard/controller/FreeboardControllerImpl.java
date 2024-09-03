@@ -32,7 +32,7 @@ import jakarta.servlet.http.HttpSession;
 
 @Controller("FreeBoardController")
 public class FreeboardControllerImpl implements FreeBoardController {
-	private static String ARTICLE_IMG_REPO= "C:\\isixProject\\easyGym\\src\\main\\resources\\static\\images\\freeboard";
+	private static String ARTICLE_IMG_REPO= "src\\main\\resources\\static\\images\\freeboard";
 	
 	@Autowired
 	private FreeBoardService freeboardservice;

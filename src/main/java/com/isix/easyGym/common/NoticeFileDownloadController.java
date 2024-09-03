@@ -15,7 +15,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 @Controller("nofileDownload")
 public class NoticeFileDownloadController extends HttpServlet {
-	private static String ARTICLE_IMG_REPO= "C:\\isixProject\\easyGym\\src\\main\\resources\\static\\images\\notice";
+	private static String ARTICLE_IMG_REPO= "src\\main\\resources\\static\\images\\notice";
 
 	@GetMapping("/nodownload.do")
 	public void fileDown(@RequestParam("noticeNo") int noticeNo, @RequestParam("imageFileName") String imageFileName,HttpServletRequest request, HttpServletResponse response) throws Exception {
