@@ -79,7 +79,7 @@
 
     </script>
 
-    <link rel="stylesheet" type="text/css" href="${contextPath}/CSS/payform/payformCancel.css">
+    <link rel="stylesheet" type="text/css" href="${contextPath}/css/payform/payformCancel.css">
 </head>
 <body>
 <form id="refundForm" action="${contextPath}/payform/payformRefund.do" method="POST" style="display: none;">

@@ -39,7 +39,7 @@
             document.getElementById('creditForm').submit();
         }
     </script>
-    <link rel="stylesheet" type="text/css" href="${contextPath}/CSS/payform/payformForm.css">
+    <link rel="stylesheet" type="text/css" href="${contextPath}/css/payform/payformForm.css">
 </head>
 <body>
 <form id="creditForm" action="${contextPath}/payform/payformCredit.do" method="POST" target="_blank" style="display: none;">

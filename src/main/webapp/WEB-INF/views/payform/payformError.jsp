@@ -10,7 +10,7 @@
 <head>
     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
     <title>이지짐 구매 에러</title>
-    <link rel="stylesheet" type="text/css" href="${contextPath}/CSS/payform/payformDone.css">
+    <link rel="stylesheet" type="text/css" href="${contextPath}/css/payform/payformDone.css">
 
 </head>
 <body>

@@ -10,7 +10,7 @@ request.setCharacterEncoding("utf-8");
 <head>
     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
     <title>이지짐 환불 완료</title>
-    <link rel="stylesheet" type="text/css" href="${contextPath}/CSS/payform/payformRefund.css">
+    <link rel="stylesheet" type="text/css" href="${contextPath}/css/payform/payformRefund.css">
 </head>
 <body>
 <div class="bg-image"></div>
