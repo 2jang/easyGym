@@ -76,7 +76,7 @@
         </div>
 
         <h2>구독 정보</h2>
-        <div class="form_group">
+        <div class="form_group">1
             <label for="subscriptionMonths">구독 개월:</label>
             <select id="subscriptionMonths" name="subscriptionMonths" required>
                 <option value="1">1개월</option>
