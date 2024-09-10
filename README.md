@@ -1,4 +1,5 @@
-![Uptime Robot status](https://img.shields.io/uptimerobot/status/m797642181-b18ff4e3774e59b73ef48c01?up_message=easyGym%20%EC%84%9C%EB%B2%84%20%EC%8B%A4%ED%96%89%EC%A4%91!&down_message=easyGym%20%EC%84%9C%EB%B2%84%EC%97%90%20%EC%97%B0%EA%B2%B0%ED%95%A0%20%EC%88%98%20%EC%97%86%EC%8A%B5%EB%8B%88%EB%8B%A4&style=flat-square&link=https%3A%2F%2Feasygym.2jang.me%2Fmain.do)
+![Uptime Robot status](https://img.shields.io/uptimerobot/status/m797642181-b18ff4e3774e59b73ef48c01?up_message=easyGym%20%EC%84%9C%EB%B2%84%20%EC%8B%A4%ED%96%89%EC%A4%91!&down_message=easyGym%20%EC%84%9C%EB%B2%84%EC%97%90%20%EC%97%B0%EA%B2%B0%ED%95%A0%20%EC%88%98%20%EC%97%86%EC%9D%8C..&style=for-the-badge&link=https%3A%2F%2Feasygym.2jang.me%2Fmain.do)
+
 
 
 # EasyGym
