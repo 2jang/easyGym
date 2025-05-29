@@ -7,7 +7,7 @@
 [![Gradle](https://img.shields.io/badge/Gradle-8.8-02303A?style=for-the-badge&logo=gradle&logoColor=white)](https://gradle.org/)
 [![JSP](https://img.shields.io/badge/JSP-Jakarta%20EE-007396?style=for-the-badge&logo=jameson&logoColor=white)](https://www.oracle.com/java/technologies/jspt.html)
 
-내 손안에서 펼쳐지는 스마트한 운동 생활! **EasyGym**은 사용자가 주변의 다양한 운동 시설(헬스장, 복싱장, 필라테스 등) 정보를 손쉽게 찾고, 예약하며, 운동 관련 정보를 활발히 공유할 수 있도록 도움을 주는 웹 서비스입니다.  
+내 손안에서 펼쳐지는 스마트한 운동 생활! **EasyGym**은 사용자가 주변의 다양한 운동 시설(헬스장, 복싱장, 필라테스 등) 정보를 손쉽게 찾고, 예약하며, 운동 관련 정보를 활발히 공유할 수 있도록 도움을 주는 웹 서비스입니다.   
 사용자와 시설 업체 간의 연결을 지원하고, 운동을 사랑하는 모두를 위한 커뮤니티를 만들어갑니다!
 
 <p align="center">
