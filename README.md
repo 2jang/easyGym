@@ -20,7 +20,7 @@
 
 ### 일반 사용자 기능
 * **회원가입 및 로그인**:
-    * 일반 회원 가입 (이메일 인증), 로그인 (일반, 카카오 소셜 로그인), 로그아웃
+    * 일반 회원 가입 (이메일 인증), 로그인, 로그아웃
     * 도로명 주소기반 주소 검색 API 구현
 * **시설 정보 조회 및 검색**:
     * 운동 시설(헬스장, 복싱, 필라테스) 리스트 및 상세 정보 조회
@@ -118,7 +118,6 @@ EasyGym은 **서버 사이드 렌더링**을 위해 JSP를 주로 사용하며, 
 -   Java (JDK) 17
 -   Gradle 8.8
 -   MySQL 8.0.36
--   Kakao 계정 (로그인)
 -   [DB 덤프 파일](https://github.com/2jang/easyGym/releases/download/v1.0.19/0826_easygymdb.sql)
 
 ### 설치 단계
@@ -184,7 +183,6 @@ EasyGym은 **서버 사이드 렌더링**을 위해 JSP를 주로 사용하며, 
 * **Servlet API**: Jakarta Servlet API
 * **APIs & Libraries**:
     * Kakao Maps API
-    * Kakao Login API
     * Dialogflow API
     * Bootstrap, jQuery, Font Awesome 
 ## 🌟 특징
@@ -193,14 +191,13 @@ EasyGym은 **서버 사이드 렌더링**을 위해 JSP를 주로 사용하며, 
 -   **커뮤니티 기능**: 자유게시판을 통한 사용자 간 정보 교류
 -   **사업자 시설 등록**: 사업자 회원이 직접 자신의 운동 시설 정보를 플랫폼에 등록
 -   **관리자 기능**: 회원, 시설, 콘텐츠 등 서비스 운영에 필요한 제반 관리 기능 제공
--   **외부 API 연동**: 카카오(지도, 로그인), Dialogflow(챗봇) 등 활용
+-   **외부 API 연동**: 카카오(지도), Dialogflow(챗봇) 등 활용
 -   **보안**: HTTPS(SSL) 기본 적용
 
 ## 🔧 문제해결 팁
 
 -   **DB 연결 오류**: `application.properties` 정보가 정확한지, MySQL 서버가 정상 동작 중인지 확인합니다. `easygymdb` 스키마가 생성되어 있고 SQL 덤프가 올바르게 임포트되었는지 확인합니다.
 -   **Port 충돌**: `server.port=8090`이 다른 애플리케이션에서 사용 중인지 확인하고, 필요시 다른 포트로 변경합니다.
--   **Kakao/Dialogflow API 키 오류**: 관련 API 키가 정확한지, 해당 서비스의 콘솔에서 도메인 등록 등이 올바르게 되었는지 확인합니다.
 -   **의존성 문제**: `./gradlew clean build`를 통해 프로젝트를 클린 빌드하여 의존성이 올바르게 다운로드되었는지 확인합니다.
 
 ## 🤝 기여하기

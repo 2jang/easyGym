@@ -97,9 +97,9 @@
                     <a href="${contextPath}/member/joinCheck.do">회원가입</a>
                 </div>
                 <button class="button primary" type="submit" style="background-color: #82D3C9; border-radius: 15px;">로그인</button>
-                <a href="javascript:fn_kakao()" class="kakao-login-button">
-                    <img src="/images/member/kakao_login_large_wide.png" alt="카카오 로그인 버튼">
-                </a>
+<%--                <a href="javascript:fn_kakao()" class="kakao-login-button">--%>
+<%--                    <img src="/images/member/kakao_login_large_wide.png" alt="카카오 로그인 버튼">--%>
+<%--                </a>--%>
             </form>
         </div>
     </section>
