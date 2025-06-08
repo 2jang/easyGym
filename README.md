@@ -1,6 +1,6 @@
 
 # 💪 EasyGym: 스마트 피트니스 정보 플랫폼 🏋️
-[![Uptime Robot status](https://img.shields.io/uptimerobot/status/m797642181-b18ff4e3774e59b73ef48c01?up_message=%20%EC%84%9C%EB%B2%84%20%EC%8B%A4%ED%96%89%EC%A4%91!&down_message=%EC%84%9C%EB%B2%84+%EC%98%A4%ED%94%84%EB%9D%BC%EC%9D%B8&style=for-the-badge)](https://easygym.2jang.me/main.do)  
+[![Uptime Robot status](https://img.shields.io/uptimerobot/status/m797642181-b18ff4e3774e59b73ef48c01?up_message=Server%20is%20UP!&down_message=Server%20is%20DOWN..&style=for-the-badge)](https://easygym.2jang.me)  
 [![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.3.1-6DB33F?style=for-the-badge&logo=springboot&logoColor=white)](https://spring.io/projects/spring-boot)
 [![Java](https://img.shields.io/badge/Java-17-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)](https://www.java.com/)
 [![MySQL](https://img.shields.io/badge/MySQL-8.0.36-4479A1?style=for-the-badge&logo=mysql&logoColor=white)](https://www.mysql.com/)
