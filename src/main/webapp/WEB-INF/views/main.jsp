@@ -171,7 +171,7 @@ a{
                 <div class="col">
 					<a href="${contextPath}/detail/detail.do?detailNo=${healthList[2].detailNo}">
                     <div class="card shadow-sm">
-                        <img src="${contextPath}/images/detail/${healthList[2].detailClassification}/${healthList[2].detailBusinessEng}/${healthList[2].detailBusinessEng}3.png" class="card-img-top" alt="${healthList[2].detailBusinessName}" onerror="this.onerror=null; this.src='${contextPath}/images/detail/health/bodyCrush/bodyCrush1.png'">
+                        <img src="${contextPath}/images/detail/${healthList[2].detailClassification}/${healthList[2].detailBusinessEng}/${healthList[2].detailBusinessEng}3.png" class="card-img-top" alt="${healthList[2].detailBusinessName}" onerror="this.onerror=null; this.src='${contextPath}/images/detail/health/gymLight/gymLight1.png'">
                         <div class="card-body">
                             <h3 class="card-text">${healthList[2].detailBusinessName}</h3>
                             <p class="card-text">${healthList[2].detailRoadAddress}</p>
@@ -183,7 +183,7 @@ a{
             <c:otherwise>
                 <div class="col">
                     <div class="card shadow-sm">
-                        <img src="${contextPath}/images/placeholder.png" class="card-img-top" alt="Placeholder" onerror="this.onerror=null; this.src='${contextPath}/images/detail/health/bodyCrush/bodyCrush1.png'">
+                        <img src="${contextPath}/images/placeholder.png" class="card-img-top" alt="Placeholder" onerror="this.onerror=null; this.src='${contextPath}/images/detail/health/gymLight/gymLight1.png'">
                         <div class="card-body">
                             <p class="card-text">헬스장 정보가 없습니다.</p>
                         </div>
