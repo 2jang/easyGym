@@ -45,7 +45,7 @@
                 <div class="ReviewRange">
                     <button class="deleteButton" onclick="removeComment(${review.reviewNo})">삭제</button>
                     <div class="personReviewRange">
-                        <img class="reviewPicture" src="${contextPath}/images/detail/detailpage/reviewImage.PNG">
+                        <img class="reviewPicture" src="${contextPath}/images/detail/detailpage/reviewImage.png">
                         <p class="anonymous">(익명의 회원)</p>
                         <div class="stars">
                             <c:forEach begin="1" end="5" var="i">

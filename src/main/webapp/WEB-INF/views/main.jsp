@@ -119,7 +119,7 @@ a{
 		        <div class="col">
 		                <a href="${contextPath}/detail/detail.do?detailNo=${healthList[0].detailNo}">
 		            <div class="card shadow-sm">
-		                    <img src="${contextPath}/images/detail/${healthList[0].detailClassification}/${healthList[0].detailBusinessEng}/${healthList[0].detailBusinessEng}1.PNG" class="card-img-top" alt="${healthList[0].detailBusinessName}" onerror="this.onerror=null; this.src='${contextPath}/images/detail/boxing/banpoFitness/banpoFitness1.png'">
+		                    <img src="${contextPath}/images/detail/${healthList[0].detailClassification}/${healthList[0].detailBusinessEng}/${healthList[0].detailBusinessEng}1.png" class="card-img-top" alt="${healthList[0].detailBusinessName}" onerror="this.onerror=null; this.src='${contextPath}/images/detail/boxing/banpoFitness/banpoFitness1.png'">
 		                <div class="card-body">
 		                        <h3 class="card-text">${healthList[0].detailBusinessName}</h3>
 		                    	<p class="card-text">${healthList[0].detailRoadAddress}</p>
@@ -145,7 +145,7 @@ a{
                 <div class="col">
 					<a href="${contextPath}/detail/detail.do?detailNo=${healthList[1].detailNo}">
                     <div class="card shadow-sm">
-                        <img src="${contextPath}/images/detail/${healthList[1].detailClassification}/${healthList[1].detailBusinessEng}/${healthList[1].detailBusinessEng}2.PNG" class="card-img-top" alt="${healthList[1].detailBusinessName}" onerror="this.onerror=null; this.src='${contextPath}/images/detail/boxing/banpoFitness/banpoFitness1.png'">
+                        <img src="${contextPath}/images/detail/${healthList[1].detailClassification}/${healthList[1].detailBusinessEng}/${healthList[1].detailBusinessEng}2.png" class="card-img-top" alt="${healthList[1].detailBusinessName}" onerror="this.onerror=null; this.src='${contextPath}/images/detail/boxing/banpoFitness/banpoFitness1.png'">
                         <div class="card-body">
                             <h3 class="card-text">${healthList[1].detailBusinessName}</h3>
                             <p class="card-text">${healthList[1].detailRoadAddress}</p>
@@ -171,7 +171,7 @@ a{
                 <div class="col">
 					<a href="${contextPath}/detail/detail.do?detailNo=${healthList[2].detailNo}">
                     <div class="card shadow-sm">
-                        <img src="${contextPath}/images/detail/${healthList[2].detailClassification}/${healthList[2].detailBusinessEng}/${healthList[2].detailBusinessEng}3.PNG" class="card-img-top" alt="${healthList[2].detailBusinessName}" onerror="this.onerror=null; this.src='${contextPath}/images/detail/boxing/banpoFitness/banpoFitness1.png'">
+                        <img src="${contextPath}/images/detail/${healthList[2].detailClassification}/${healthList[2].detailBusinessEng}/${healthList[2].detailBusinessEng}3.png" class="card-img-top" alt="${healthList[2].detailBusinessName}" onerror="this.onerror=null; this.src='${contextPath}/images/detail/boxing/banpoFitness/banpoFitness1.png'">
                         <div class="card-body">
                             <h3 class="card-text">${healthList[2].detailBusinessName}</h3>
                             <p class="card-text">${healthList[2].detailRoadAddress}</p>
@@ -204,7 +204,7 @@ a{
         <div class="col">
 			<a href="${contextPath}/detail/detail.do?detailNo=${pilatesList[0].detailNo}">
             <div class="card shadow-sm">
-                <img src="${contextPath}/images/detail/${pilatesList[0].detailClassification}/${pilatesList[0].detailBusinessEng}/${pilatesList[0].detailBusinessEng}1.PNG" class="card-img-top" alt="${pilatesList[0].detailBusinessName}" onerror="this.onerror=null; this.src='${contextPath}/images/detail/boxing/banpoFitness/banpoFitness1.png'">
+                <img src="${contextPath}/images/detail/${pilatesList[0].detailClassification}/${pilatesList[0].detailBusinessEng}/${pilatesList[0].detailBusinessEng}1.png" class="card-img-top" alt="${pilatesList[0].detailBusinessName}" onerror="this.onerror=null; this.src='${contextPath}/images/detail/boxing/banpoFitness/banpoFitness1.png'">
                 <div class="card-body">
                     <h3 class="card-text">${pilatesList[0].detailBusinessName}</h3>
                     <p class="card-text">${pilatesList[0].detailRoadAddress}</p>
@@ -216,7 +216,7 @@ a{
         <div class="col">
 			<a href="${contextPath}/detail/detail.do?detailNo=${pilatesList[1].detailNo}">
             <div class="card shadow-sm">
-                <img src="${contextPath}/images/detail/${pilatesList[1].detailClassification}/${pilatesList[1].detailBusinessEng}/${pilatesList[1].detailBusinessEng}2.PNG" class="card-img-top" alt="${pilatesList[1].detailBusinessName}" onerror="this.onerror=null; this.src='${contextPath}/images/detail/boxing/banpoFitness/banpoFitness1.png'">
+                <img src="${contextPath}/images/detail/${pilatesList[1].detailClassification}/${pilatesList[1].detailBusinessEng}/${pilatesList[1].detailBusinessEng}2.png" class="card-img-top" alt="${pilatesList[1].detailBusinessName}" onerror="this.onerror=null; this.src='${contextPath}/images/detail/boxing/banpoFitness/banpoFitness1.png'">
                 <div class="card-body">
                     <h3 class="card-text">${pilatesList[1].detailBusinessName}</h3>
                     <p class="card-text">${pilatesList[1].detailRoadAddress}</p>
@@ -228,7 +228,7 @@ a{
         <div class="col">
 			<a href="${contextPath}/detail/detail.do?detailNo=${pilatesList[2].detailNo}">
             <div class="card shadow-sm">
-                <img src="${contextPath}/images/detail/${pilatesList[2].detailClassification}/${pilatesList[2].detailBusinessEng}/${pilatesList[2].detailBusinessEng}3.PNG" class="card-img-top" alt="${pilatesList[2].detailBusinessName}" onerror="this.onerror=null; this.src='${contextPath}/images/detail/boxing/banpoFitness/banpoFitness1.png'">
+                <img src="${contextPath}/images/detail/${pilatesList[2].detailClassification}/${pilatesList[2].detailBusinessEng}/${pilatesList[2].detailBusinessEng}3.png" class="card-img-top" alt="${pilatesList[2].detailBusinessName}" onerror="this.onerror=null; this.src='${contextPath}/images/detail/boxing/banpoFitness/banpoFitness1.png'">
                 <div class="card-body">
                     <h3 class="card-text">${pilatesList[2].detailBusinessName}</h3>
                     <p class="card-text">${pilatesList[2].detailRoadAddress}</p>
@@ -249,7 +249,7 @@ a{
         <div class="col">
 			<a href="${contextPath}/detail/detail.do?detailNo=${boxingList[0].detailNo}">
             <div class="card shadow-sm">
-                <img src="${contextPath}/images/detail/${boxingList[0].detailClassification}/${boxingList[0].detailBusinessEng}/${boxingList[0].detailBusinessEng}1.PNG" class="card-img-top" alt="${boxingList[0].detailBusinessName}" onerror="this.onerror=null; this.src='${contextPath}/images/detail/boxing/banpoFitness/banpoFitness1.png'">
+                <img src="${contextPath}/images/detail/${boxingList[0].detailClassification}/${boxingList[0].detailBusinessEng}/${boxingList[0].detailBusinessEng}1.png" class="card-img-top" alt="${boxingList[0].detailBusinessName}" onerror="this.onerror=null; this.src='${contextPath}/images/detail/boxing/banpoFitness/banpoFitness1.png'">
                 <div class="card-body">
                     <h3 class="card-text">${boxingList[0].detailBusinessName}</h3>
                     <p class="card-text">${boxingList[0].detailRoadAddress}</p>
@@ -261,7 +261,7 @@ a{
         <div class="col">
 			<a href="${contextPath}/detail/detail.do?detailNo=${boxingList[1].detailNo}">
             <div class="card shadow-sm">
-                <img src="${contextPath}/images/detail/${boxingList[1].detailClassification}/${boxingList[1].detailBusinessEng}/${boxingList[1].detailBusinessEng}2.PNG" class="card-img-top" alt="${boxingList[1].detailBusinessName}" onerror="this.onerror=null; this.src='${contextPath}/images/detail/boxing/banpoFitness/banpoFitness1.png'">
+                <img src="${contextPath}/images/detail/${boxingList[1].detailClassification}/${boxingList[1].detailBusinessEng}/${boxingList[1].detailBusinessEng}2.png" class="card-img-top" alt="${boxingList[1].detailBusinessName}" onerror="this.onerror=null; this.src='${contextPath}/images/detail/boxing/banpoFitness/banpoFitness1.png'">
                 <div class="card-body">
                     <h3 class="card-text">${boxingList[1].detailBusinessName}</h3>
                     <p class="card-text">${boxingList[1].detailRoadAddress}</p>
@@ -273,7 +273,7 @@ a{
         <div class="col">
 			<a href="${contextPath}/detail/detail.do?detailNo=${boxingList[2].detailNo}">
             <div class="card shadow-sm">
-                <img src="${contextPath}/images/detail/${boxingList[2].detailClassification}/${boxingList[2].detailBusinessEng}/${boxingList[2].detailBusinessEng}3.PNG" class="card-img-top" alt="${boxingList[2].detailBusinessName}" onerror="this.onerror=null; this.src='${contextPath}/images/detail/boxing/banpoFitness/banpoFitness1.png'">
+                <img src="${contextPath}/images/detail/${boxingList[2].detailClassification}/${boxingList[2].detailBusinessEng}/${boxingList[2].detailBusinessEng}3.png" class="card-img-top" alt="${boxingList[2].detailBusinessName}" onerror="this.onerror=null; this.src='${contextPath}/images/detail/boxing/banpoFitness/banpoFitness1.png'">
                 <div class="card-body">
                     <h3 class="card-text">${boxingList[2].detailBusinessName}</h3>
                     <p class="card-text">${boxingList[2].detailRoadAddress}</p>

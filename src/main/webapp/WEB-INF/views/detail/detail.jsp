@@ -121,7 +121,7 @@
                 <!-- 슬라이더 패널 : 움직이는 이미지가 전환되는 효과 -->
                 <div class="slider_panel">
                     <c:forEach var="i" begin="1" end="10">
-                        <img class="slider_image" src="${contextPath}/images/detail/${details.detailClassification}/${details.detailBusinessEng}/${details.detailBusinessEng}${i}.PNG"
+                        <img class="slider_image" src="${contextPath}/images/detail/${details.detailClassification}/${details.detailBusinessEng}/${details.detailBusinessEng}${i}.png"
                   onerror="this.onerror=null; this.src='${contextPath}/images/detail/boxing/banpoFitness/banpoFitness1.png'"/>
                     </c:forEach>
                 </div>
@@ -133,11 +133,11 @@
             </div>
             <div id="firstInfo">
                 <h3 id="companyName">${details.detailBusinessName}</h3>
-                <img id="pointer" src="${contextPath}/images/detail/detailpage/address.PNG" alt=""><h4 id="address">${details.detailRoadAddress}</h4><a id ="toAddress" href="#2"> ></a><br>
+                <img id="pointer" src="${contextPath}/images/detail/detailpage/address.png" alt=""><h4 id="address">${details.detailRoadAddress}</h4><a id ="toAddress" href="#2"> ></a><br>
                 <img id="fiveStar" src="${contextPath}/images/detail/detailpage/sStar.jpg">
                 <!--<p id="grade">4.8</p>-->
                 <p id="gradeLink">후기<a id="toReview" href="#1"> ></a></p><br>
-                <img id="dailyTicket" src="${contextPath}/images/detail/detailpage/dailyTicket.PNG"><br><br>
+                <img id="dailyTicket" src="${contextPath}/images/detail/detailpage/dailyTicket.png"><br><br>
             </div>
             <div class="buttonRange">
                 <button class="report-button">
@@ -211,20 +211,20 @@
             <div id="convenienceFacility">
                 <h4 id="facilityInfo">편의시설</h4>
                 <div id="FacilityRange">
-                    <img class="FacilityImage" src="${contextPath}/images/detail/conImage/analysis.PNG" alt="">
-                    <img class="FacilityImage" src="${contextPath}/images/detail/conImage/wifi.PNG" alt="">
-                    <img class="FacilityImage" src="${contextPath}/images/detail/conImage/bodyComposition.PNG" alt="">
-                    <img class="FacilityImage" src="${contextPath}/images/detail/conImage/cloth.PNG" alt="">
-                    <img class="FacilityImage" src="${contextPath}/images/detail/conImage/locker.PNG" alt="">
-                    <img class="FacilityImage" src="${contextPath}/images/detail/conImage/shower.PNG" alt="">
-                    <img class="FacilityImage" src="${contextPath}/images/detail/conImage/tower.PNG" alt="">
+                    <img class="FacilityImage" src="${contextPath}/images/detail/conImage/analysis.png" alt="">
+                    <img class="FacilityImage" src="${contextPath}/images/detail/conImage/wifi.png" alt="">
+                    <img class="FacilityImage" src="${contextPath}/images/detail/conImage/bodyComposition.png" alt="">
+                    <img class="FacilityImage" src="${contextPath}/images/detail/conImage/cloth.png" alt="">
+                    <img class="FacilityImage" src="${contextPath}/images/detail/conImage/locker.png" alt="">
+                    <img class="FacilityImage" src="${contextPath}/images/detail/conImage/shower.png" alt="">
+                    <img class="FacilityImage" src="${contextPath}/images/detail/conImage/tower.png" alt="">
                 </div>
             </div>
             <div id="imageRange">
                 <h4 id="imageInfo">사진</h4>
                 <div id="imageBox">
                     <c:forEach var="i" begin="1" end="10">
-                        <img src="${contextPath}/images/detail/${details.detailClassification}/${details.detailBusinessEng}/${details.detailBusinessEng}${i}.PNG" height="130" width="130"
+                        <img src="${contextPath}/images/detail/${details.detailClassification}/${details.detailBusinessEng}/${details.detailBusinessEng}${i}.png" height="130" width="130"
                   		onerror="this.onerror=null; this.src='${contextPath}/images/member/wombat.png'">
                     </c:forEach>
                 </div>
@@ -276,7 +276,7 @@
                                                 <div class="ReviewRange" data-review-no="${review.reviewNo}">
                                                     <button class="deleteButton" onclick="deleteComment(${review.reviewNo})">삭제</button>
                                                     <div class="personReviewRange">
-                                                        <img class="reviewPicture" src="${contextPath}/images/detail/detailpage/reviewImage.PNG">
+                                                        <img class="reviewPicture" src="${contextPath}/images/detail/detailpage/reviewImage.png">
                                                         <p class="anonymous">(익명의 회원)</p>
                                                         <!-- 별점 표시 코드 추가 -->
                                                         <div class="stars">
@@ -306,7 +306,7 @@
                                             <div class="ReviewRange" data-review-no="${review.reviewNo}">
                                                 <button class="deleteButton" onclick="deleteComment(${review.reviewNo})">삭제</button>
                                                 <div class="personReviewRange">
-                                                    <img class="reviewPicture" src="${contextPath}/images/detail/detailpage/reviewImage.PNG">
+                                                    <img class="reviewPicture" src="${contextPath}/images/detail/detailpage/reviewImage.png">
                                                     <p class="anonymous">(익명의 회원)</p>
                                                     <!-- 별점 표시 코드 추가 -->
                                                     <div class="stars">

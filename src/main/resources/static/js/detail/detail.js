@@ -360,7 +360,7 @@ function refreshReviews(detailNo) {
                         <input class="reviewNo" type="hidden" value="${review.reviewNo}"/>
                         <button class="deleteButton" onclick="deleteComment(${review.reviewNo})">삭제</button>
                         <div class="personReviewRange">
-                            <img class="reviewPicture" src="${contextPath}/images/detail/detailpage/reviewImage.PNG">
+                            <img class="reviewPicture" src="${contextPath}/images/detail/detailpage/reviewImage.png">
                             <p class="anonymous">(익명의 회원)</p>
                             <div class="stars">
                                 ${starsHtml}

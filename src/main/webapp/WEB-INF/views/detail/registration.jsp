@@ -123,7 +123,7 @@
                 <input type="text" id="detailLongitude" name="detailLongitude" placeholder="ex) 126.9309597">
             </div>
             <!-- Image upload fields -->
-            <input type="text" style="width:100%;" disabled  placeholder="영어로 기입 업체명을 기준으로 사진명을 수정해 주세요.PNG확장자로 부탁드립니다. ex)BBGym1.PNG">
+            <input type="text" style="width:100%;" disabled  placeholder="영어로 기입 업체명을 기준으로 사진명을 수정해 주세요.png확장자로 부탁드립니다. ex)BBGym1.png">
             <div class="form-group">
                 <label for="image1">이미지 1</label>
                 <input type="file" id="image1" name="image1">

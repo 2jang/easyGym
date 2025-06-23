@@ -202,7 +202,7 @@
                     <div class="contentRange" onclick="goToDetail(${allList.detailNo})">
                         <div class="imgRange">
 							<img class="img"
-	                             src="${contextPath}/images/detail/${allList.detailClassification}/${allList.detailBusinessEng}/${allList.detailBusinessEng}1.PNG"
+	                             src="${contextPath}/images/detail/${allList.detailClassification}/${allList.detailBusinessEng}/${allList.detailBusinessEng}1.png"
 	                             alt=""
 	                             onerror="this.onerror=null; this.src='${contextPath}/images/member/wombat.png'">
                         </div>
