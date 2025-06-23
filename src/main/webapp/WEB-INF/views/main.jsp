@@ -119,7 +119,7 @@ a{
 		        <div class="col">
 		                <a href="${contextPath}/detail/detail.do?detailNo=${healthList[0].detailNo}">
 		            <div class="card shadow-sm">
-		                    <img src="${contextPath}/images/detail/${healthList[0].detailClassification}/${healthList[0].detailBusinessEng}/${healthList[0].detailBusinessEng}1.png" class="card-img-top" alt="${healthList[0].detailBusinessName}" onerror="this.onerror=null; this.src='${contextPath}/images/detail/boxing/banpoFitness/banpoFitness1.png'">
+		                    <img src="${contextPath}/images/detail/${healthList[0].detailClassification}/${healthList[0].detailBusinessEng}/${healthList[0].detailBusinessEng}1.png" class="card-img-top" alt="${healthList[0].detailBusinessName}" onerror="this.onerror=null; this.src='${contextPath}/images/detail/health/bodyCrush/bodyCrush1.png'">
 		                <div class="card-body">
 		                        <h3 class="card-text">${healthList[0].detailBusinessName}</h3>
 		                    	<p class="card-text">${healthList[0].detailRoadAddress}</p>
@@ -131,7 +131,7 @@ a{
 		    <c:otherwise>
 		        <div class="col">
 		            <div class="card shadow-sm">
-		                <img src="${contextPath}/images/placeholder.png" class="card-img-top" alt="Placeholder" onerror="this.onerror=null; this.src='${contextPath}/images/detail/boxing/banpoFitness/banpoFitness1.png'">
+		                <img src="${contextPath}/images/placeholder.png" class="card-img-top" alt="Placeholder" onerror="this.onerror=null; this.src='${contextPath}/images/detail/health/bodyCrush/bodyCrush1.png'">
 		                <div class="card-body">
 		                    <p class="card-text">헬스장 정보가 없습니다.</p>
 		                </div>
@@ -145,7 +145,7 @@ a{
                 <div class="col">
 					<a href="${contextPath}/detail/detail.do?detailNo=${healthList[1].detailNo}">
                     <div class="card shadow-sm">
-                        <img src="${contextPath}/images/detail/${healthList[1].detailClassification}/${healthList[1].detailBusinessEng}/${healthList[1].detailBusinessEng}2.png" class="card-img-top" alt="${healthList[1].detailBusinessName}" onerror="this.onerror=null; this.src='${contextPath}/images/detail/boxing/banpoFitness/banpoFitness1.png'">
+                        <img src="${contextPath}/images/detail/${healthList[1].detailClassification}/${healthList[1].detailBusinessEng}/${healthList[1].detailBusinessEng}2.png" class="card-img-top" alt="${healthList[1].detailBusinessName}" onerror="this.onerror=null; this.src='${contextPath}/images/detail/health/bodyCrush/bodyCrush1.png'">
                         <div class="card-body">
                             <h3 class="card-text">${healthList[1].detailBusinessName}</h3>
                             <p class="card-text">${healthList[1].detailRoadAddress}</p>
@@ -157,7 +157,7 @@ a{
             <c:otherwise>
                 <div class="col">
                     <div class="card shadow-sm">
-                        <img src="${contextPath}/images/placeholder.png" class="card-img-top" alt="Placeholder" onerror="this.onerror=null; this.src='${contextPath}/images/detail/boxing/banpoFitness/banpoFitness1.png'">
+                        <img src="${contextPath}/images/placeholder.png" class="card-img-top" alt="Placeholder" onerror="this.onerror=null; this.src='${contextPath}/images/detail/health/bodyCrush/bodyCrush1.png'">
                         <div class="card-body">
                             <p class="card-text">헬스장 정보가 없습니다.</p>
                         </div>
@@ -171,7 +171,7 @@ a{
                 <div class="col">
 					<a href="${contextPath}/detail/detail.do?detailNo=${healthList[2].detailNo}">
                     <div class="card shadow-sm">
-                        <img src="${contextPath}/images/detail/${healthList[2].detailClassification}/${healthList[2].detailBusinessEng}/${healthList[2].detailBusinessEng}3.png" class="card-img-top" alt="${healthList[2].detailBusinessName}" onerror="this.onerror=null; this.src='${contextPath}/images/detail/boxing/banpoFitness/banpoFitness1.png'">
+                        <img src="${contextPath}/images/detail/${healthList[2].detailClassification}/${healthList[2].detailBusinessEng}/${healthList[2].detailBusinessEng}3.png" class="card-img-top" alt="${healthList[2].detailBusinessName}" onerror="this.onerror=null; this.src='${contextPath}/images/detail/health/bodyCrush/bodyCrush1.png'">
                         <div class="card-body">
                             <h3 class="card-text">${healthList[2].detailBusinessName}</h3>
                             <p class="card-text">${healthList[2].detailRoadAddress}</p>
@@ -183,7 +183,7 @@ a{
             <c:otherwise>
                 <div class="col">
                     <div class="card shadow-sm">
-                        <img src="${contextPath}/images/placeholder.png" class="card-img-top" alt="Placeholder" onerror="this.onerror=null; this.src='${contextPath}/images/detail/boxing/banpoFitness/banpoFitness1.png'">
+                        <img src="${contextPath}/images/placeholder.png" class="card-img-top" alt="Placeholder" onerror="this.onerror=null; this.src='${contextPath}/images/detail/health/bodyCrush/bodyCrush1.png'">
                         <div class="card-body">
                             <p class="card-text">헬스장 정보가 없습니다.</p>
                         </div>
@@ -204,7 +204,7 @@ a{
         <div class="col">
 			<a href="${contextPath}/detail/detail.do?detailNo=${pilatesList[0].detailNo}">
             <div class="card shadow-sm">
-                <img src="${contextPath}/images/detail/${pilatesList[0].detailClassification}/${pilatesList[0].detailBusinessEng}/${pilatesList[0].detailBusinessEng}1.png" class="card-img-top" alt="${pilatesList[0].detailBusinessName}" onerror="this.onerror=null; this.src='${contextPath}/images/detail/boxing/banpoFitness/banpoFitness1.png'">
+                <img src="${contextPath}/images/detail/${pilatesList[0].detailClassification}/${pilatesList[0].detailBusinessEng}/${pilatesList[0].detailBusinessEng}1.png" class="card-img-top" alt="${pilatesList[0].detailBusinessName}" onerror="this.onerror=null; this.src='${contextPath}/images/detail/health/bodyCrush/bodyCrush1.png'">
                 <div class="card-body">
                     <h3 class="card-text">${pilatesList[0].detailBusinessName}</h3>
                     <p class="card-text">${pilatesList[0].detailRoadAddress}</p>
@@ -216,7 +216,7 @@ a{
         <div class="col">
 			<a href="${contextPath}/detail/detail.do?detailNo=${pilatesList[1].detailNo}">
             <div class="card shadow-sm">
-                <img src="${contextPath}/images/detail/${pilatesList[1].detailClassification}/${pilatesList[1].detailBusinessEng}/${pilatesList[1].detailBusinessEng}2.png" class="card-img-top" alt="${pilatesList[1].detailBusinessName}" onerror="this.onerror=null; this.src='${contextPath}/images/detail/boxing/banpoFitness/banpoFitness1.png'">
+                <img src="${contextPath}/images/detail/${pilatesList[1].detailClassification}/${pilatesList[1].detailBusinessEng}/${pilatesList[1].detailBusinessEng}2.png" class="card-img-top" alt="${pilatesList[1].detailBusinessName}" onerror="this.onerror=null; this.src='${contextPath}/images/detail/health/bodyCrush/bodyCrush1.png'">
                 <div class="card-body">
                     <h3 class="card-text">${pilatesList[1].detailBusinessName}</h3>
                     <p class="card-text">${pilatesList[1].detailRoadAddress}</p>
@@ -228,7 +228,7 @@ a{
         <div class="col">
 			<a href="${contextPath}/detail/detail.do?detailNo=${pilatesList[2].detailNo}">
             <div class="card shadow-sm">
-                <img src="${contextPath}/images/detail/${pilatesList[2].detailClassification}/${pilatesList[2].detailBusinessEng}/${pilatesList[2].detailBusinessEng}3.png" class="card-img-top" alt="${pilatesList[2].detailBusinessName}" onerror="this.onerror=null; this.src='${contextPath}/images/detail/boxing/banpoFitness/banpoFitness1.png'">
+                <img src="${contextPath}/images/detail/${pilatesList[2].detailClassification}/${pilatesList[2].detailBusinessEng}/${pilatesList[2].detailBusinessEng}3.png" class="card-img-top" alt="${pilatesList[2].detailBusinessName}" onerror="this.onerror=null; this.src='${contextPath}/images/detail/health/bodyCrush/bodyCrush1.png'">
                 <div class="card-body">
                     <h3 class="card-text">${pilatesList[2].detailBusinessName}</h3>
                     <p class="card-text">${pilatesList[2].detailRoadAddress}</p>
@@ -249,7 +249,7 @@ a{
         <div class="col">
 			<a href="${contextPath}/detail/detail.do?detailNo=${boxingList[0].detailNo}">
             <div class="card shadow-sm">
-                <img src="${contextPath}/images/detail/${boxingList[0].detailClassification}/${boxingList[0].detailBusinessEng}/${boxingList[0].detailBusinessEng}1.png" class="card-img-top" alt="${boxingList[0].detailBusinessName}" onerror="this.onerror=null; this.src='${contextPath}/images/detail/boxing/banpoFitness/banpoFitness1.png'">
+                <img src="${contextPath}/images/detail/${boxingList[0].detailClassification}/${boxingList[0].detailBusinessEng}/${boxingList[0].detailBusinessEng}1.png" class="card-img-top" alt="${boxingList[0].detailBusinessName}" onerror="this.onerror=null; this.src='${contextPath}/images/detail/health/bodyCrush/bodyCrush1.png'">
                 <div class="card-body">
                     <h3 class="card-text">${boxingList[0].detailBusinessName}</h3>
                     <p class="card-text">${boxingList[0].detailRoadAddress}</p>
@@ -261,7 +261,7 @@ a{
         <div class="col">
 			<a href="${contextPath}/detail/detail.do?detailNo=${boxingList[1].detailNo}">
             <div class="card shadow-sm">
-                <img src="${contextPath}/images/detail/${boxingList[1].detailClassification}/${boxingList[1].detailBusinessEng}/${boxingList[1].detailBusinessEng}2.png" class="card-img-top" alt="${boxingList[1].detailBusinessName}" onerror="this.onerror=null; this.src='${contextPath}/images/detail/boxing/banpoFitness/banpoFitness1.png'">
+                <img src="${contextPath}/images/detail/${boxingList[1].detailClassification}/${boxingList[1].detailBusinessEng}/${boxingList[1].detailBusinessEng}2.png" class="card-img-top" alt="${boxingList[1].detailBusinessName}" onerror="this.onerror=null; this.src='${contextPath}/images/detail/health/bodyCrush/bodyCrush1.png'">
                 <div class="card-body">
                     <h3 class="card-text">${boxingList[1].detailBusinessName}</h3>
                     <p class="card-text">${boxingList[1].detailRoadAddress}</p>
@@ -273,7 +273,7 @@ a{
         <div class="col">
 			<a href="${contextPath}/detail/detail.do?detailNo=${boxingList[2].detailNo}">
             <div class="card shadow-sm">
-                <img src="${contextPath}/images/detail/${boxingList[2].detailClassification}/${boxingList[2].detailBusinessEng}/${boxingList[2].detailBusinessEng}3.png" class="card-img-top" alt="${boxingList[2].detailBusinessName}" onerror="this.onerror=null; this.src='${contextPath}/images/detail/boxing/banpoFitness/banpoFitness1.png'">
+                <img src="${contextPath}/images/detail/${boxingList[2].detailClassification}/${boxingList[2].detailBusinessEng}/${boxingList[2].detailBusinessEng}3.png" class="card-img-top" alt="${boxingList[2].detailBusinessName}" onerror="this.onerror=null; this.src='${contextPath}/images/detail/health/bodyCrush/bodyCrush1.png'">
                 <div class="card-body">
                     <h3 class="card-text">${boxingList[2].detailBusinessName}</h3>
                     <p class="card-text">${boxingList[2].detailRoadAddress}</p>
@@ -298,7 +298,7 @@ a{
                 <section>
                     <span>
                     <a href="https://5colorsfood.co.kr/?gad_source=1&gclid=CjwKCAjwnei0BhB-EiwAA2xuBsNhqOgv84-y_YRFY6s6ZxLzjr-ilMy-ZYddi_MArhc9dVGj8F9HvRoCExsQAvD_BwE" class="image featured">
-                    <img src="/images/member/mainshop2.png" alt="" onerror="this.onerror=null; this.src='${contextPath}/images/detail/boxing/banpoFitness/banpoFitness1.png'"/>
+                    <img src="/images/member/mainshop2.png" alt="" onerror="this.onerror=null; this.src='${contextPath}/images/detail/health/bodyCrush/bodyCrush1.png'"/>
                     </a>
                     </span>
                     <header>
@@ -309,7 +309,7 @@ a{
             </div>
             <div class="col-4 col-12-narrower">
                 <section>
-                    <span><a href="https://zerotohero.co.kr/?gad_source=1&gclid=CjwKCAjw2dG1BhB4EiwA998cqJBk0UsTIn0cORgsB6ViiUCPsy3b9s8IC-0nJx1RATkIcp457mc2uxoCDTsQAvD_BwE" class="image featured"><img src="/images/member/mainShop1.png" alt="" onerror="this.onerror=null; this.src='${contextPath}/images/detail/boxing/banpoFitness/banpoFitness1.png'"/></a></span>
+                    <span><a href="https://zerotohero.co.kr/?gad_source=1&gclid=CjwKCAjw2dG1BhB4EiwA998cqJBk0UsTIn0cORgsB6ViiUCPsy3b9s8IC-0nJx1RATkIcp457mc2uxoCDTsQAvD_BwE" class="image featured"><img src="/images/member/mainShop1.png" alt="" onerror="this.onerror=null; this.src='${contextPath}/images/detail/health/bodyCrush/bodyCrush1.png'"/></a></span>
                     <header>
                         <h3>헬스 용품 쇼핑몰</h3>
                     </header>
@@ -318,7 +318,7 @@ a{
             </div>
             <div class="col-4 col-12-narrower">
                 <section>
-                    <span><a href="http://demo047.megaweb1.kr/" class="image featured"><img src="/images/member/mainShop4.jpg" alt="" onerror="this.onerror=null; this.src='${contextPath}/images/detail/boxing/banpoFitness/banpoFitness1.png'"/></a></span>
+                    <span><a href="http://demo047.megaweb1.kr/" class="image featured"><img src="/images/member/mainShop4.jpg" alt="" onerror="this.onerror=null; this.src='${contextPath}/images/detail/health/bodyCrush/bodyCrush1.png'"/></a></span>
                     <header>
                         <h3>홈트레이닝 참고 사이트</h3>
                     </header>
@@ -327,10 +327,10 @@ a{
             </div>
         </div>
         <!-- 챗봇 아이콘 -->
-      <img src="/images/chatbot/chatbotRed.png" class="chatbot-icon" onerror="this.onerror=null; this.src='${contextPath}/images/detail/boxing/banpoFitness/banpoFitness1.png'" onmouseover="showTooltip()" onmouseout="hideTooltip()" onclick="toggleChatbot()">
+      <img src="/images/chatbot/chatbotRed.png" class="chatbot-icon" onmouseover="showTooltip()" onmouseout="hideTooltip()" onclick="toggleChatbot()">
       
       <!-- 툴팁 이미지 -->
-       <img src="/images/chatbot/hello.png" class="tooltip-image" id="tooltip_image" onerror="this.onerror=null; this.src='${contextPath}/images/detail/boxing/banpoFitness/banpoFitness1.png'">
+       <img src="/images/chatbot/hello.png" class="tooltip-image" id="tooltip_image">
       
       <!-- 챗봇 프레임 -->
       <div class="chatbot">

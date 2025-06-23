@@ -204,7 +204,7 @@
 							<img class="img"
 	                             src="${contextPath}/images/detail/${allList.detailClassification}/${allList.detailBusinessEng}/${allList.detailBusinessEng}1.png"
 	                             alt=""
-	                             onerror="this.onerror=null; this.src='${contextPath}/images/member/wombat.png'">
+	                             onerror="this.onerror=null; this.src='${contextPath}/images/detail/health/bodyCrush/bodyCrush1.png'">
                         </div>
                         <div class="buttonRange">
                             <button class="favorite-button">

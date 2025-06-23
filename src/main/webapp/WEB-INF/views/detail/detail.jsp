@@ -122,7 +122,7 @@
                 <div class="slider_panel">
                     <c:forEach var="i" begin="1" end="10">
                         <img class="slider_image" src="${contextPath}/images/detail/${details.detailClassification}/${details.detailBusinessEng}/${details.detailBusinessEng}${i}.png"
-                  onerror="this.onerror=null; this.src='${contextPath}/images/detail/boxing/banpoFitness/banpoFitness1.png'"/>
+                             onerror="this.onerror=null; this.src='${contextPath}/images/detail/health/bodyCrush/bodyCrush1.png'"/>
                     </c:forEach>
                 </div>
                 <!-- 좌우 컨트롤 버튼 패널 -->
@@ -225,7 +225,7 @@
                 <div id="imageBox">
                     <c:forEach var="i" begin="1" end="10">
                         <img src="${contextPath}/images/detail/${details.detailClassification}/${details.detailBusinessEng}/${details.detailBusinessEng}${i}.png" height="130" width="130"
-                  		onerror="this.onerror=null; this.src='${contextPath}/images/member/wombat.png'">
+                             onerror="this.onerror=null; this.src='${contextPath}/images/detail/health/bodyCrush/bodyCrush1.png'">
                     </c:forEach>
                 </div>
             </div>
