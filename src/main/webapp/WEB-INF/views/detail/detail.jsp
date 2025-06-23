@@ -134,7 +134,7 @@
             <div id="firstInfo">
                 <h3 id="companyName">${details.detailBusinessName}</h3>
                 <img id="pointer" src="${contextPath}/images/detail/detailpage/address.PNG" alt=""><h4 id="address">${details.detailRoadAddress}</h4><a id ="toAddress" href="#2"> ></a><br>
-                <img id="fiveStar" src="${contextPath}/images/detail/detailpage/sStar.JPG">
+                <img id="fiveStar" src="${contextPath}/images/detail/detailpage/sStar.jpg">
                 <!--<p id="grade">4.8</p>-->
                 <p id="gradeLink">후기<a id="toReview" href="#1"> ></a></p><br>
                 <img id="dailyTicket" src="${contextPath}/images/detail/detailpage/dailyTicket.PNG"><br><br>
