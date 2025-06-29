@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-			<!-- Footer -->
-				<footer id="footer">
-					<ul class="copyright">
-						<li>&copy; EASYGYM</li><li>Design: <a href="/main.do">EASYGYM</a></li><li><a href="/admin/loginForm.do">ADMIN</a></li>
-					</ul>
-				</footer>
+		 pageEncoding="UTF-8"%>
+<!-- Footer -->
+<footer id="footer">
+	<ul class="copyright">
+		<li>© EASYGYM</li><li>Design: <a href="/main.do">EASYGYM</a></li><li><a href="/admin/loginForm.do">ADMIN</a></li>
+	</ul>
+</footer>
 
 <%-- JSP/CSS/JS 기반 챗봇 코드 시작 --%>
 
@@ -172,7 +172,6 @@
 			sendButton.disabled = userInput.value.trim() === '';
 		});
 
-		// 메시지 전송 처리
 		function sendMessage() {
 			const userText = userInput.value.trim();
 			if (userText === '') return;
@@ -192,17 +191,18 @@
 			}
 		});
 
-		// 메시지를 화면에 추가하는 함수
+		// 메시지를 화면에 추가하는 함수 (사용자 메시지는 마크다운 적용 안함)
 		function addMessage(text, sender, isStreaming = false) {
 			const messageBubble = document.createElement('div');
-
-			// ▼▼▼ [수정] 템플릿 리터럴 대신 전통적인 문자열 합치기 사용 ▼▼▼
 			messageBubble.className = 'message-bubble message-' + sender;
 
-			const textNode = document.createTextNode(text);
-			messageBubble.appendChild(textNode);
+			if (sender === 'user') {
+				// 사용자 메시지는 일반 텍스트로 처리
+				messageBubble.textContent = text;
+			}
 
 			if (isStreaming) {
+				// 봇의 스트리밍 메시지를 위한 초기 설정
 				const typingIndicator = document.createElement('div');
 				typingIndicator.className = 'typing-indicator';
 				typingIndicator.innerHTML = '<span class="dot"></span><span class="dot"></span><span class="dot"></span>';
@@ -225,22 +225,36 @@
 			const eventSource = new EventSource(eventSourceUrl);
 
 			eventSource.onmessage = function(event) {
+				// "DONE" 신호는 무시 (실제 종료는 onerror 또는 다른 이벤트로 처리 가능)
+				if (event.data === "[DONE]") {
+					eventSource.close();
+					const typingIndicator = streamingBubble.querySelector('.typing-indicator');
+					if (typingIndicator) {
+						typingIndicator.remove();
+					}
+					return;
+				}
+
 				accumulatedText += event.data;
-				streamingBubble.childNodes[0].nodeValue = accumulatedText;
+
+				// ▼▼▼ [핵심 변경] 마크다운을 HTML로 변환하고, 보안 처리 후 innerHTML에 삽입 ▼▼▼
+				const unsafeHtml = marked.parse(accumulatedText);
+				streamingBubble.innerHTML = DOMPurify.sanitize(unsafeHtml); // 보안 처리된 HTML을 삽입
+
 				messagesDiv.scrollTop = messagesDiv.scrollHeight;
 			};
 
 			eventSource.onerror = function(error) {
+				eventSource.close();
 				const typingIndicator = streamingBubble.querySelector('.typing-indicator');
-				if(typingIndicator) {
+				if (typingIndicator) {
 					typingIndicator.remove();
 				}
 
+				// 이미 내용이 있으면 에러 메시지를 추가하지 않고, 없으면 에러 메시지 표시
 				if (accumulatedText.trim() === '') {
-					streamingBubble.childNodes[0].nodeValue = "죄송합니다. 서버와 통신 중 오류가 발생했습니다.";
+					streamingBubble.innerHTML = "죄송합니다. 서버와 통신 중 오류가 발생했습니다.";
 				}
-
-				eventSource.close();
 			};
 		}
 	});
@@ -248,20 +262,23 @@
 
 <%-- JSP/CSS/JS 기반 챗봇 코드 끝 --%>
 
-	<!-- 부트스트랩 JS 로드 -->
-	<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-	<!-- Scripts -->
-	<script src="/js/member/jquery.min.js"></script>
-	<script src="/js/member/jquery.dropotron.min.js"></script>
-	<script src="/js/member/jquery.scrolly.min.js"></script>
+<!-- 부트스트랩 JS 로드 -->
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<!-- Scripts -->
+<script src="/js/member/jquery.min.js"></script>
+<script src="/js/member/jquery.dropotron.min.js"></script>
+<script src="/js/member/jquery.scrolly.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dompurify/dist/purify.min.js"></script>
+
 <!-- 	<script src="/js/member/jquery.scrollgress.min.js"></script>
- -->
- 	<script src="/js/member/jquery.scrollex.min.js"></script>
-	<script src="/js/member/browser.min.js"></script>
-	<script src="/js/member/breakpoints.min.js"></script>
-	<script src="/js/member/util.js"></script>
-	<script src="/js/member/main.js"></script>
-	</body>
+-->
+<script src="/js/member/jquery.scrollex.min.js"></script>
+<script src="/js/member/browser.min.js"></script>
+<script src="/js/member/breakpoints.min.js"></script>
+<script src="/js/member/util.js"></script>
+<script src="/js/member/main.js"></script>
+</body>
 </html>
