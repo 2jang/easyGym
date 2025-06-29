@@ -29,7 +29,7 @@ public class ChatbotService {
     private String openRouterApiKey;
 
     private static final String OPENROUTER_API_URL = "https://openrouter.ai/api/v1/chat/completions";
-    private static final String MODEL_NAME = "google/gemini-flash-1.5"; // 모델 변경 또는 그대로 사용
+    private static final String MODEL_NAME = "google/gemma-3-4b-it:free";
 
     @Autowired
     public ChatbotService(WebClient.Builder webClientBuilder, ObjectMapper objectMapper) {
