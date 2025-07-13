@@ -329,7 +329,7 @@ function loadUsingProducts() {
        });
 }
 
-//결제 취소하기
+//결제 취소
 function cancelPayform(payformNo) {
    // 동적으로 form 생성
    var form = document.createElement('form');
