@@ -126,6 +126,7 @@
     document.getElementById("submit-btn").disabled = true;
   }
 </script>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 
 <!-- 로그인 실패 시 알러트 띄우기 -->
 <c:if test="${not empty loginError}">
