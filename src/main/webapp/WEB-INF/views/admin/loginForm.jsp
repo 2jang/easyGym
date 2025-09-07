@@ -52,7 +52,7 @@
                                         </form>
                                     </div>
                                     <div class="card-footer text-center py-3">
-                                        <div class="small"><a href="/admin/index.do">관리자 페이지로 돌아가기</a></div>
+                                        <div class="small"><a href="javascript:history.back();">이전 페이지로 돌아가기</a></div>
                                     </div>
                                 </div>
                             </div>
