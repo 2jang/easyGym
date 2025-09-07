@@ -148,13 +148,38 @@
             </div>
           </div>
           <input type="hidden" name="memberState" value="1">
+          <!-- Turnstile 위젯 추가 -->
+          <div
+            class="cf-turnstile"
+            data-sitekey="0x4AAAAAABzyMbhmo7j2Zd0d"
+            data-theme="auto"
+            data-size="flexible"
+            data-callback="onTurnstileSuccess"
+            data-error-callback="onTurnstileError"
+            data-expired-callback="onTurnstileExpired"
+            style="margin: 20px 0;"
+          ></div>
           <div class="col-12">
             <ul class="buttons">
-              <li><input type="submit" id="join" value="join" class="button primary" onclick="javascript:checkJoin()" /></li>
+              <li><input type="submit" id="submit-btn" value="join" class="button primary" onclick="javascript:checkJoin()" disabled /></li>
             </ul>
           </div>
         </div>
       </form>
+      <script>
+        function onTurnstileSuccess(token) {
+          console.log("Turnstile success:", token);
+          document.getElementById("submit-btn").disabled = false;
+        }
+        function onTurnstileError(errorCode) {
+          console.error("Turnstile error:", errorCode);
+          document.getElementById("submit-btn").disabled = true;
+        }
+        function onTurnstileExpired() {
+          console.warn("Turnstile token expired");
+          document.getElementById("submit-btn").disabled = true;
+        }
+      </script>
     </div>
   </section>
 </article>

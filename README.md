@@ -22,6 +22,7 @@
 * **회원가입 및 로그인**:
     * 일반 회원 가입 (이메일 인증), 로그인, 로그아웃
     * 도로명 주소기반 주소 검색 API 구현
+    * 로그인/회원가입에 Cloudflare Turnstile CAPTCHA 검증 적용
 * **시설 정보 조회 및 검색**:
     * 운동 시설(헬스장, 복싱, 필라테스) 리스트 및 상세 정보 조회
     * 지역별, 운동 종류별 시설 검색 및 지도 기반 위치 제공 (Kakao Maps API 연동)
@@ -156,6 +157,12 @@ EasyGym은 **서버 사이드 렌더링**을 위해 JSP를 주로 사용하며, 
         spring.datasource.password=[DB 비밀번호]  # 예: 1234
         ~~~
 
+    * **캡차 설정(Cloudflare Turnstile)**:
+        ~~~properties
+        turnstile.secret=YOUR_TURNSTILE_SECRET
+        ~~~
+        - 사이트 키는 각 JSP의 Turnstile 위젯 `data-sitekey`에 설정합니다.
+
 4.  **프로젝트 빌드** (Gradle Wrapper 사용)
 
     ~~~bash
@@ -194,7 +201,7 @@ EasyGym은 **서버 사이드 렌더링**을 위해 JSP를 주로 사용하며, 
 -   **사업자 시설 등록**: 사업자 회원이 직접 자신의 운동 시설 정보를 플랫폼에 등록
 -   **관리자 기능**: 회원, 시설, 콘텐츠 등 서비스 운영에 필요한 제반 관리 기능 제공
 -   **외부 API 연동**: 카카오(지도), Dialogflow(챗봇) 등 활용
--   **보안**: HTTPS(SSL) 기본 적용
+-   **보안**: HTTPS(SSL) 기본 적용, 로그인/가입에 Cloudflare Turnstile CAPTCHA 검증 적용
 
 ## 🔧 문제해결 팁
 

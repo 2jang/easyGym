@@ -19,6 +19,8 @@ import com.isix.easyGym.admin.dao.AdminDAO;
 import com.isix.easyGym.admin.dto.AdminDTO;
 import com.isix.easyGym.admin.service.AdminServiceImpl;
 import com.isix.easyGym.member.dto.MemberDTO;
+import com.isix.easyGym.chatbot.service.TurnstileService;
+import com.isix.easyGym.chatbot.dto.TurnstileResponse;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -35,12 +37,27 @@ public class AdminControllerImpl implements AdminController {
 	
 	@Autowired
 	private AdminDAO adminDAO;
+
+	@Autowired
+	private TurnstileService turnstileService;
 	
 	// 관리자 가입
 	@Override
 	@PostMapping("/admin/joinAd.do")
 	public ModelAndView joinAd(AdminDTO adminDTO, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		request.setCharacterEncoding("utf-8");
+		// Turnstile 검증
+		String tokenJoin = request.getParameter("cf-turnstile-response");
+		String remoteipJoin = request.getHeader("CF-Connecting-IP");
+		if (remoteipJoin == null) remoteipJoin = request.getHeader("X-Forwarded-For");
+		if (remoteipJoin == null) remoteipJoin = request.getRemoteAddr();
+		TurnstileResponse validationJoin = turnstileService.validateToken(tokenJoin, remoteipJoin);
+		if (validationJoin == null || !validationJoin.isSuccess()) {
+			ModelAndView fail = new ModelAndView();
+			fail.addObject("loginError", "봇 방지 인증에 실패했습니다. 다시 시도해 주세요.");
+			fail.setViewName("admin/joinForm");
+			return fail;
+		}
 		adminService.addAdmin(adminDTO);
 		ModelAndView mv = new ModelAndView("redirect:/admin/loginForm.do");
 		return mv;
@@ -77,6 +94,19 @@ public class AdminControllerImpl implements AdminController {
 	@Override
 	@PostMapping("/admin/login.do")
 	public ModelAndView login(@ModelAttribute("admin") AdminDTO admin, RedirectAttributes rAttr, HttpServletRequest req, HttpServletResponse res) throws Exception {
+		// Turnstile 검증
+		String token = req.getParameter("cf-turnstile-response");
+		String remoteip = req.getHeader("CF-Connecting-IP");
+		if (remoteip == null) remoteip = req.getHeader("X-Forwarded-For");
+		if (remoteip == null) remoteip = req.getRemoteAddr();
+		TurnstileResponse validation = turnstileService.validateToken(token, remoteip);
+		if (validation == null || !validation.isSuccess()) {
+			ModelAndView mv = new ModelAndView();
+			mv.addObject("result", "봇 방지 인증에 실패했습니다.");
+			mv.setViewName("redirect:/admin/loginForm.do");
+			return mv;
+		}
+
 		adminDTO = adminService.login(admin);
 		ModelAndView mv = new ModelAndView();
 		if(adminDTO != null) {

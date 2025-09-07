@@ -16,6 +16,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.isix.easyGym.member.dto.MemberDTO;
 import com.isix.easyGym.member.dto.MemberOperDTO;
 import com.isix.easyGym.member.service.MemberOperService;
+import com.isix.easyGym.chatbot.service.TurnstileService;
+import com.isix.easyGym.chatbot.dto.TurnstileResponse;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -29,6 +31,9 @@ public class MemberOperControllerImpl implements MemberOperController {
 	
 	@Autowired
 	private MemberOperDTO memberOperDTO;
+
+	@Autowired
+	private TurnstileService turnstileService;
 	
 	// 사업자 회원가입 페이지
 	@RequestMapping(value = "/member/operJoinForm.do")
@@ -42,6 +47,18 @@ public class MemberOperControllerImpl implements MemberOperController {
 	public ModelAndView addOperator(@ModelAttribute("memberOperDTO") MemberOperDTO memberOperDTO, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		ModelAndView mav = new ModelAndView();
+
+		// Turnstile 검증
+		String tokenJoin = request.getParameter("cf-turnstile-response");
+		String remoteipJoin = request.getHeader("CF-Connecting-IP");
+		if (remoteipJoin == null) remoteipJoin = request.getHeader("X-Forwarded-For");
+		if (remoteipJoin == null) remoteipJoin = request.getRemoteAddr();
+		TurnstileResponse validationJoin = turnstileService.validateToken(tokenJoin, remoteipJoin);
+		if (validationJoin == null || !validationJoin.isSuccess()) {
+			mav.addObject("loginError", "봇 방지 인증에 실패했습니다. 다시 시도해 주세요.");
+			mav.setViewName("member/operJoin");
+			return mav;
+		}
 		memberOperService.addOperator(memberOperDTO);
 		mav.setViewName("redirect:/member/afterEntJoin.do");
 		return mav;
@@ -74,6 +91,18 @@ public class MemberOperControllerImpl implements MemberOperController {
 	                              HttpServletResponse response) throws Exception {
 	    memberOperDTO = memberOperService.operLogin(operator);
 	    ModelAndView mv = new ModelAndView();
+
+	    // Turnstile 검증
+	    String token = request.getParameter("cf-turnstile-response");
+	    String remoteip = request.getHeader("CF-Connecting-IP");
+	    if (remoteip == null) remoteip = request.getHeader("X-Forwarded-For");
+	    if (remoteip == null) remoteip = request.getRemoteAddr();
+	    TurnstileResponse validation = turnstileService.validateToken(token, remoteip);
+	    if (validation == null || !validation.isSuccess()) {
+	        mv.addObject("loginError", "봇 방지 인증에 실패했습니다. 다시 시도해 주세요.");
+	        mv.setViewName("member/operLoginForm");
+	        return mv;
+	    }
 	    
 	    if (memberOperDTO != null) {
 	        HttpSession session = request.getSession();

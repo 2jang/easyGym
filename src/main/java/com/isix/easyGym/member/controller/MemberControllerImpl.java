@@ -17,6 +17,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.isix.easyGym.member.dto.KakaoDTO;
 import com.isix.easyGym.member.dto.MemberDTO;
 import com.isix.easyGym.member.service.MemberService;
+import com.isix.easyGym.chatbot.service.TurnstileService;
+import com.isix.easyGym.chatbot.dto.TurnstileResponse;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -27,6 +29,9 @@ public class MemberControllerImpl implements MemberController {
 
 	@Autowired
 	private MemberService memberService;
+
+	@Autowired
+	private TurnstileService turnstileService;
 
 	@Autowired
 	private MemberDTO memberDTO;
@@ -151,20 +156,36 @@ public class MemberControllerImpl implements MemberController {
 	
 	@Override
 	@RequestMapping(value = "/member/login.do", method = RequestMethod.POST)
-	public ModelAndView login(@ModelAttribute("member") MemberDTO member,
+	public ModelAndView login(@ModelAttribute("memberDTO") MemberDTO memberDTOParam,
 	                           @RequestParam(value ="action", required=false) String action,
 	                           RedirectAttributes rAttr,
 	                           HttpServletRequest request,
 	                           HttpServletResponse response) throws Exception {
-	    MemberDTO memberDTO = memberService.login(member);
 	    ModelAndView mv = new ModelAndView();
+
+	    // Turnstile 서버 검증
+	    String token = request.getParameter("cf-turnstile-response");
+	    String remoteip = request.getHeader("CF-Connecting-IP");
+	    if (remoteip == null) {
+	        remoteip = request.getHeader("X-Forwarded-For");
+	    }
+	    if (remoteip == null) {
+	        remoteip = request.getRemoteAddr();
+	    }
+
+	    TurnstileResponse validation = turnstileService.validateToken(token, remoteip);
+	    if (validation == null || !validation.isSuccess()) {
+	        mv.addObject("loginError", "봇 방지 인증에 실패했습니다. 다시 시도해 주세요.");
+	        mv.setViewName("member/loginForm");
+	        return mv;
+	    }
+
+	    MemberDTO memberDTO = memberService.login(memberDTOParam);
 
 	    if (memberDTO != null) {
 	        if (memberDTO.getMemberState() == 0) {
-	            // 탈퇴한 회원의 경우
-	            mv.setViewName("redirect:/member/loginForm.do?result=2"); // result=2로 탈퇴 상태 처리
+	            mv.setViewName("redirect:/member/loginForm.do?result=2");
 	        } else {
-	            // 로그인 성공
 	            HttpSession session = request.getSession();
 	            session.setMaxInactiveInterval(30 * 60);
 	            session.setAttribute("member", memberDTO);
@@ -178,7 +199,6 @@ public class MemberControllerImpl implements MemberController {
 	            }
 	        }
 	    } else {
-	        // 로그인 실패
 	        mv.addObject("loginError", "아이디 또는 비밀번호가 잘못되었습니다. 다시 시도해 주세요.");
 	        mv.setViewName("member/loginForm");
 	    }

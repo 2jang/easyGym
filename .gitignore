@@ -39,3 +39,6 @@ out/
 /src/main/resources/application.properties
 /src/main/resources/keystore
 gradlew
+
+.cursorindexingignore
+.specstory

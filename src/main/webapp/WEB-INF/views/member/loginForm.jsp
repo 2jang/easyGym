@@ -4,7 +4,7 @@
 <%@ include file="/WEB-INF/views/layout/header.jsp"%>
 <style>
     /* 전체 폼 스타일 - 연한 회색 보더 추가 */
-    form {
+    form {  
         border: 1px solid #ddd; /* 연한 회색 보더 */
         padding: 30px; /* 내부 여백을 1.5배로 */
         border-radius: 15px; /* 모서리 둥글게 */
@@ -83,27 +83,49 @@
     <section class="wrapper style4 special container medium">
         <!-- Content -->
         <div class="content">
-            <form class="text-center mb-3" action="/member/login.do" onsubmit="return check(this)" method="post">
-               <img class="mb-4" src="/images/member/user.png" alt="로그인" width="72" height="72">
+            <form class="text-center mb-3" action="/member/login.do" onsubmit="return check(this)" method="post" id="login-form">
+                <img class="mb-4" src="/images/member/user.png" alt="로그인" width="72" height="72">
                 <div class="row gtr-50">
                     <div class="col-12">
-                        <input type="text" name="memberId" id="memberId" placeholder="아이디를 입력해주세요." autocomplete="off"/>
+                        <input type="text" name="memberId" id="memberId" placeholder="아이디를 입력해주세요." autocomplete="off" required />
                     </div>
                     <div class="col-12">
-                        <input type="password" name="memberPwd" placeholder="비밀번호를 입력해주세요." id="memberPwd" autocomplete="current-password" />
+                        <input type="password" name="memberPwd" placeholder="비밀번호를 입력해주세요." id="memberPwd" autocomplete="current-password" required />
                     </div>
                 </div>
-                <div class="joinSubmit" >
+                <!-- Cloudflare Turnstile 위젯 추가 -->
+                <div
+                    class="cf-turnstile"
+                    data-sitekey="0x4AAAAAABzyMbhmo7j2Zd0d"
+                    data-theme="auto"
+                    data-size="flexible"
+                    data-callback="onTurnstileSuccess"
+                    data-error-callback="onTurnstileError"
+                    data-expired-callback="onTurnstileExpired"
+                    style="margin: 20px 0;"
+                ></div>
+                <div class="joinSubmit">
                     <a href="${contextPath}/member/joinCheck.do">회원가입</a>
                 </div>
-                <button class="button primary" type="submit" style="background-color: #82D3C9; border-radius: 15px;">로그인</button>
-<%--                <a href="javascript:fn_kakao()" class="kakao-login-button">--%>
-<%--                    <img src="/images/member/kakao_login_large_wide.png" alt="카카오 로그인 버튼">--%>
-<%--                </a>--%>
+                <button class="button primary" type="submit" id="submit-btn" style="background-color: #82D3C9; border-radius: 15px;" disabled>로그인</button>
             </form>
         </div>
     </section>
 </article>
+<script>
+  function onTurnstileSuccess(token) {
+    console.log("Turnstile success:", token);
+    document.getElementById("submit-btn").disabled = false;
+  }
+  function onTurnstileError(errorCode) {
+    console.error("Turnstile error:", errorCode);
+    document.getElementById("submit-btn").disabled = true;
+  }
+  function onTurnstileExpired() {
+    console.warn("Turnstile token expired");
+    document.getElementById("submit-btn").disabled = true;
+  }
+</script>
 
 <!-- 로그인 실패 시 알러트 띄우기 -->
 <c:if test="${not empty loginError}">

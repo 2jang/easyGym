@@ -27,7 +27,7 @@
                                 <div class="card shadow-lg border-0 rounded-lg mt-5">
                                     <div class="card-header"><h3 class="text-center font-weight-light my-4">Create Account</h3></div>
                                     <div class="card-body">
-                                        <form action="/admin/joinAd.do" method="post">
+                                        <form action="/admin/joinAd.do" method="post" id="admin-join-form">
                                             <div class="row mb-3">
                                                 <div class="col-md-6">
                                                     <div class="form-floating mb-3 mb-md-0">
@@ -50,8 +50,17 @@
                                                 <input class="form-control" id="inputEmail" name="adminEmail" type="email" placeholder="name@example.com" />
                                                 <label for="inputEmail">이메일</label>
                                             </div>
+                                            <div class="cf-turnstile"
+                                                 data-sitekey="0x4AAAAAABzyMbhmo7j2Zd0d"
+                                                 data-theme="auto"
+                                                 data-size="flexible"
+                                                 data-callback="onTurnstileSuccessAdminJoin"
+                                                 data-error-callback="onTurnstileErrorAdminJoin"
+                                                 data-expired-callback="onTurnstileExpiredAdminJoin"
+                                                 style="margin: 20px 0;">
+                                            </div>
                                             <div class="mt-4 mb-0">
-                                                <div class="d-grid"><a class="btn btn-primary btn-block" href="/admin/loginForm.do"><input type="submit" value="가입하기"></a></div>
+                                                <div class="d-grid"><a class="btn btn-primary btn-block" href="/admin/loginForm.do"><input type="submit" value="가입하기" id="admin-join-submit" disabled></a></div>
                                             </div>
                                         </form>
                                     </div>
@@ -81,5 +90,20 @@
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="/js/admin/scripts.js"></script>
+        <script type="text/javascript">
+            function onTurnstileSuccessAdminJoin(token) {
+                var btn = document.getElementById('admin-join-submit');
+                if (btn) btn.disabled = false;
+            }
+            function onTurnstileErrorAdminJoin() {
+                var btn = document.getElementById('admin-join-submit');
+                if (btn) btn.disabled = true;
+            }
+            function onTurnstileExpiredAdminJoin() {
+                var btn = document.getElementById('admin-join-submit');
+                if (btn) btn.disabled = true;
+            }
+        </script>
+        <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
     </body>
 </html>

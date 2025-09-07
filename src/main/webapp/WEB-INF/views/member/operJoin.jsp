@@ -100,12 +100,38 @@
 		</div>
 
 		<button type="submit" id="join" value="Join" class="btn btn-success"
-			onclick="javascript:checkJoin()">가입하기</button>
+			onclick="javascript:checkJoin()" disabled>가입하기</button>
+		<!-- Cloudflare Turnstile 위젯 -->
+		<div
+			class="cf-turnstile"
+			data-sitekey="0x4AAAAAABzyMbhmo7j2Zd0d"
+			data-theme="auto"
+			data-size="flexible"
+			data-callback="onTurnstileSuccessJoin"
+			data-error-callback="onTurnstileErrorJoin"
+			data-expired-callback="onTurnstileExpiredJoin"
+			style="margin: 20px 0;"
+		></div>
 	</form>
 </div>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 
 <script src="/js/member/operMember.js"></script>
+<script type="text/javascript">
+  function onTurnstileSuccessJoin(token) {
+    var btn = document.getElementById('join');
+    if (btn) btn.disabled = false;
+  }
+  function onTurnstileErrorJoin() {
+    var btn = document.getElementById('join');
+    if (btn) btn.disabled = true;
+  }
+  function onTurnstileExpiredJoin() {
+    var btn = document.getElementById('join');
+    if (btn) btn.disabled = true;
+  }
+</script>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 
 
 <%@ include file="/WEB-INF/views/layout/footer.jsp"%>

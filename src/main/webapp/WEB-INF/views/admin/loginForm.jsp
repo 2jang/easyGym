@@ -27,7 +27,7 @@
                                 <div class="card shadow-lg border-0 rounded-lg mt-5">
                                     <div class="card-header"><h3 class="text-center font-weight-light my-4">Login</h3></div>
                                     <div class="card-body">
-                                        <form name="adminLogin" action="/admin/login.do" method="post">
+                                        <form name="adminLogin" action="/admin/login.do" method="post" id="admin-login-form">
                                             <div class="form-floating mb-3">
                                                 <input class="form-control" id="inputId" name="adminId" type="text" placeholder="Id" />
                                                 <label for="inputId">Id</label>
@@ -36,9 +36,18 @@
                                                 <input class="form-control" id="inputPassword" name=adminPwd type="password" placeholder="Password" />
                                                 <label for="inputPassword">Password</label>
                                             </div>
+                                            <div class="cf-turnstile"
+                                                 data-sitekey="0x4AAAAAABzyMbhmo7j2Zd0d"
+                                                 data-theme="auto"
+                                                 data-size="flexible"
+                                                 data-callback="onTurnstileSuccessAdmin"
+                                                 data-error-callback="onTurnstileErrorAdmin"
+                                                 data-expired-callback="onTurnstileExpiredAdmin"
+                                                 style="margin: 20px 0;">
+                                            </div>
                                             <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
                                                 <a class="small" href="/admin/joinForm.do">관리자 가입</a>
-                                                <a class="btn btn-primary" > <input type="submit" value="로그인" class="loginBtn"></a>
+                                                <a class="btn btn-primary" > <input type="submit" value="로그인" class="loginBtn" id="admin-login-submit" disabled></a>
                                             </div>
                                         </form>
                                     </div>
@@ -68,5 +77,20 @@
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="/js/admin/scripts.js"></script>
+        <script type="text/javascript">
+            function onTurnstileSuccessAdmin(token) {
+                var btn = document.getElementById('admin-login-submit');
+                if (btn) btn.disabled = false;
+            }
+            function onTurnstileErrorAdmin() {
+                var btn = document.getElementById('admin-login-submit');
+                if (btn) btn.disabled = true;
+            }
+            function onTurnstileExpiredAdmin() {
+                var btn = document.getElementById('admin-login-submit');
+                if (btn) btn.disabled = true;
+            }
+        </script>
+        <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
     </body>
 </html>

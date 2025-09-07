@@ -19,7 +19,7 @@
    <div class="row justify-content-center">
       <div class="col-md-6">
          <div class="card p-4 border border-light" style="border-radius: 15px;">
-            <form class="text-center mb-3" action="/member/operLogin.do" onsubmit="return check(this)" method="post">
+            <form class="text-center mb-3" action="/member/operLogin.do" onsubmit="return check(this)" method="post" id="oper-login-form">
                <img class="mb-4" src="/images/member/user.png" alt="로그인" width="72" height="72">
                <div class="form-floating mb-3">
                   <input type="text" class="form-control" id="operatorId" name="operatorId" placeholder="아이디 입력" style="border-radius: 15px;"> 
@@ -31,20 +31,51 @@
                </div>
                <div class="row justify-content-between mb-3">
                   <div class="col-md-6 text-start">
-                     <small class="d-block"><a href="/member/operJoin.do">회원가입</a></small>
+                     <small class="d-block"><a href="/member/operJoinForm.do">회원가입</a></small>
                   </div>
                </div>
-               <button class="btn btn-primary w-100 py-2" type="submit" style="border-radius: 15px;">로그인</button>
+               <!-- Cloudflare Turnstile 위젯 -->
+               <div
+                  class="cf-turnstile"
+                  data-sitekey="0x4AAAAAABzyMbhmo7j2Zd0d"
+                  data-theme="auto"
+                  data-size="flexible"
+                  data-callback="onTurnstileSuccess"
+                  data-error-callback="onTurnstileError"
+                  data-expired-callback="onTurnstileExpired"
+                  style="margin: 20px 0;"
+               ></div>
+               <button class="btn btn-primary w-100 py-2" type="submit" id="oper-login-submit" style="border-radius: 15px;" disabled>로그인</button>
                
             </form>
          </div>
       </div>
    </div>
 </div>
+<c:if test="${not empty loginFailed}">
 <script type="text/javascript">
-    <c:if test="${not empty loginFailed}">
-        alert("아이디 또는 비밀번호가 틀렸습니다.");
-    </c:if>
+    alert("아이디 또는 비밀번호가 틀렸습니다.");
 </script>
+</c:if>
+<c:if test="${not empty loginError}">
+<script type="text/javascript">
+    alert("${loginError}");
+</script>
+</c:if>
+<script type="text/javascript">
+    function onTurnstileSuccess(token) {
+        var btn = document.getElementById('oper-login-submit');
+        if (btn) btn.disabled = false;
+    }
+    function onTurnstileError() {
+        var btn = document.getElementById('oper-login-submit');
+        if (btn) btn.disabled = true;
+    }
+    function onTurnstileExpired() {
+        var btn = document.getElementById('oper-login-submit');
+        if (btn) btn.disabled = true;
+    }
+</script>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 
 <%@ include file="/WEB-INF/views/layout/footer.jsp"%>
