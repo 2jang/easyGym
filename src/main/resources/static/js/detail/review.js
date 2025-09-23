@@ -5,13 +5,13 @@ function removeComment(reviewNo) {
     if (!memberNo) {
         alert("로그인이 필요합니다. 로그인 페이지로 이동합니다.");
         let address = window.location.href;
-        window.location.href = '/member/loginForm.do?action=' + encodeURIComponent(address);
+        window.location.href = '/member/loginForm?action=' + encodeURIComponent(address);
         return;
     }
 
     $.ajax({
         type: "POST",
-        url: "/delete.do",
+        url: "/delete",
         data: {
             reviewNo: reviewNo,
             memberNo: memberNo,
@@ -37,7 +37,7 @@ function removeComment(reviewNo) {
 
 function refreshReviews(detailNo) {
     $.ajax({
-        url: '/getReviews.do',
+        url: '/getReviews',
         type: 'GET',
         dataType: 'json',
         data: { detailNo: detailNo },
@@ -75,7 +75,7 @@ function refreshReviews(detailNo) {
             });
 
             if (reviews.length > 2) {
-                var viewAllReviewsHtml = `<a href="${contextPath}/detail/reviewViewer.do?detailNo=${detailNo}" class="viewAllReviews">후기 ${reviews.length}개 전체보기</a>`;
+                var viewAllReviewsHtml = `<a href="${contextPath}/detail/reviewViewer?detailNo=${detailNo}" class="viewAllReviews">후기 ${reviews.length}개 전체보기</a>`;
                 reviewContainer.append(viewAllReviewsHtml);
             }
 

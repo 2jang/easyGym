@@ -72,7 +72,7 @@ function check(f){
 
 		//Ajax로 전송
 		$.ajax({
-			url: '/member/checkId.do',
+			url: '/member/checkId',
 			data: {
 				memberId: memberId
 			},

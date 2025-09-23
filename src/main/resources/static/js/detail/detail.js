@@ -43,7 +43,7 @@ $(document).ready(function() {
         if (!memberNo) {
             showAlert("로그인이 필요합니다. 로그인 페이지로 이동합니다.");
             let address = window.location.href;
-            window.location.href = '/member/loginForm.do?action=' + encodeURIComponent(address);
+            window.location.href = '/member/loginForm?action=' + encodeURIComponent(address);
             return;
         }
 
@@ -53,7 +53,7 @@ $(document).ready(function() {
 
         $.ajax({
             type: "POST",
-            url: "/detail/selectReport.do",
+            url: "/detail/selectReport",
             data: { memberNo: memberNo,
                 detailNo: detailNo
             },
@@ -115,7 +115,7 @@ $(document).ready(function() {
         // Ajax 요청
         $.ajax({
             type: "POST",
-            url: `/report.do`,
+            url: `/report`,
             data: {
                 detailNo: detailNo,
                 memberNo: memberNo,
@@ -245,7 +245,7 @@ function writeSubmit() {
     if (!memberNo) {
         showAlert("로그인이 필요합니다. 로그인 페이지로 이동합니다.");
         let address = window.location.href;
-        window.location.href = '/member/loginForm.do?action=' + encodeURIComponent(address);
+        window.location.href = '/member/loginForm?action=' + encodeURIComponent(address);
         return;
     }
 
@@ -285,7 +285,7 @@ function writeSubmit() {
         async: false,
         enctype: 'multipart/form-data',
         cache: false,
-        url: '/writeReview.do',
+        url: '/writeReview',
         type: 'POST',
         data: formData,
         processData: false,
@@ -312,7 +312,7 @@ function writeSubmit() {
 // 리뷰 이미지 업데이트 (삭제 전용)
 function updateReviewImagesForDeletion(detailNo) {
     $.ajax({
-        url: '/getReviewImages.do',
+        url: '/getReviewImages',
         type: 'GET',
         dataType: 'json',
         cache: false,
@@ -336,7 +336,7 @@ function updateReviewImagesForDeletion(detailNo) {
 
 function refreshReviews(detailNo) {
     $.ajax({
-        url: '/getReviews.do',
+        url: '/getReviews',
         type: 'GET',
         dataType: 'json',
         data: { detailNo: detailNo },
@@ -374,7 +374,7 @@ function refreshReviews(detailNo) {
             });
 
             if (reviews.length > 2) {
-                var viewAllReviewsHtml = `<a href="${contextPath}/detail/reviewViewer.do?detailNo=${detailNo}" class="viewAllReviews">후기 ${reviews.length}개 전체보기</a>`;
+                var viewAllReviewsHtml = `<a href="${contextPath}/detail/reviewViewer?detailNo=${detailNo}" class="viewAllReviews">후기 ${reviews.length}개 전체보기</a>`;
                 reviewContainer.append(viewAllReviewsHtml);
             }
 
@@ -392,7 +392,7 @@ function refreshReviews(detailNo) {
 // 리뷰 이미지 업데이트
 function updateReviewImages(detailNo) {
     $.ajax({
-        url: '/getReviewImages.do',
+        url: '/getReviewImages',
         type: 'GET',
         dataType: 'json',
         cache: false,
@@ -427,13 +427,13 @@ function deleteComment(reviewNo) {
     if (!memberNo) {
         showAlert("로그인이 필요합니다. 로그인 페이지로 이동합니다.");
         let address = window.location.href;
-        window.location.href = '/member/loginForm.do?action=' + encodeURIComponent(address);
+        window.location.href = '/member/loginForm?action=' + encodeURIComponent(address);
         return;
     }
 
     $.ajax({
         type: "POST",
-        url: "/delete.do",
+        url: "/delete",
         data: {
             reviewNo: reviewNo,
             memberNo: memberNo,

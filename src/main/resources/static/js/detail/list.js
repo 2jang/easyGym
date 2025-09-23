@@ -6,7 +6,7 @@ function goToDetail(detailNo) {
     inputData.setAttribute('value', detailNo);
     detailForm.appendChild(inputData);
     document.body.appendChild(detailForm);
-    detailForm.setAttribute('action', '/detail/detail.do');
+    detailForm.setAttribute('action', '/detail/detail');
     detailForm.setAttribute('method', 'get');
     detailForm.submit();
 }

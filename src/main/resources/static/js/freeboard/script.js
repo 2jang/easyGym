@@ -7,7 +7,7 @@ function fn_fboardForm(isLogOn, freeboard, loginForm) {
         location.href = freeboard;
     } else {
         alert("로그인 후 글쓰기가 가능합니다.");
-        location.href = loginForm + '?action=/member/loginForm.do';
+        location.href = loginForm + '?action=/member/loginForm';
     }
 }
 
@@ -45,19 +45,19 @@ function fn_enable(obj) {
 	   
 	// 글 수정 반영하기
 	function fn_modify_fboard(obj) {
-		obj.action = "/freeboard/modFboard.do";
+		obj.action = "/freeboard/modFboard";
 		obj.submit();
 	}
 
 	// 글 상세보기 전환(취소)
 	function toList(obj) {
-		obj.action = "/freeboard/viewfboard.do";
+		obj.action = "/freeboard/viewfboard";
 		obj.submit();
 	}
 
 	// 리스트로 돌아가기
 	function backToList(obj) {
-		obj.action = "/freeboard/fboardList.do";
+		obj.action = "/freeboard/fboardList";
 		obj.submit();
 	}
 

@@ -4,7 +4,7 @@ function fn_noticeForm(isLogOn, noticeForm, loginForm) {
         location.href = noticeForm;
     } else {
         alert("로그인 후 글쓰기가 가능합니다.");
-        location.href = loginForm + '?action=/admin/noticeForm.do';
+        location.href = loginForm + '?action=/admin/noticeForm';
     }
 }
 
@@ -73,19 +73,19 @@ document.addEventListener('click', function(event) {
 		   
 		// 글 수정 반영하기
 		function fn_modify_notice(obj) {
-			obj.action = "/admin/modNotice.do";
+			obj.action = "/admin/modNotice";
 			obj.submit();
 		}
 
 		// 글 상세보기 전환(취소)
 		function toList(obj) {
-			obj.action = "/admin/viewNotice.do";
+			obj.action = "/admin/viewNotice";
 			obj.submit();
 		}
 
 		// 리스트로 돌아가기
 		function backToList(obj) {
-			obj.action = "/admin/noticeList.do";
+			obj.action = "/admin/noticeList";
 			obj.submit();
 		}
 

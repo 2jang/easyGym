@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', function () {
       formData.append('memberPwd', memberPwd);
 
       // 비밀번호 확인을 위해 POST 요청
-      fetch(`${contextPath}/mypage/checkPassword.do`, {
+      fetch(`${contextPath}/mypage/checkPassword`, {
          method: 'POST',
          body: formData
       })
@@ -163,7 +163,7 @@ document.addEventListener('DOMContentLoaded', function () {
          formData.append('memberPhone', memberPhone);
          formData.append('memberEmail', memberEmail);
 
-         fetch(`${contextPath}/mypage/memberUpdate.do`, {
+         fetch(`${contextPath}/mypage/memberUpdate`, {
             method: 'POST',
             headers: {
                'Content-Type': 'application/x-www-form-urlencoded'
@@ -177,7 +177,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 return response.text();
              })
              .then(data => {
-                window.location.href = `${contextPath}/mypage/mypageMain.do`;
+                window.location.href = `${contextPath}/mypage/mypageMain`;
              })
              .catch(error => {
                 console.error('Error:', error);
@@ -194,7 +194,7 @@ document.addEventListener('DOMContentLoaded', function () {
          const formData = new URLSearchParams();
          formData.append('memberNo', memberNo);
 
-         fetch(`${contextPath}/mypage/withdraw.do`, {
+         fetch(`${contextPath}/mypage/withdraw`, {
             method: 'POST',
             headers: {
                'Content-Type': 'application/x-www-form-urlencoded'
@@ -209,7 +209,7 @@ document.addEventListener('DOMContentLoaded', function () {
              })
              .then(data => {
                 alert("회원탈퇴가 완료되었습니다.");
-                window.location.href = `${contextPath}/main.do`;
+                window.location.href = `${contextPath}/main`;
              })
              .catch(error => {
                 console.error('Error:', error);
@@ -223,7 +223,7 @@ document.addEventListener('DOMContentLoaded', function () {
    const cancelBtn = document.getElementById('cancel-btn');
    if (cancelBtn) {
       cancelBtn.addEventListener('click', function() {
-         location.href = `${contextPath}/mypage/mypageMain.do`; // 마이페이지 첫 화면으로 이동
+         location.href = `${contextPath}/mypage/mypageMain`; // 마이페이지 첫 화면으로 이동
       });
    }
 
@@ -237,7 +237,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 //1-2)찜 목록 불러오기
 function fn_dibsList() {
-   fetch(`${contextPath}/mypage/mypageMain.do`, {
+   fetch(`${contextPath}/mypage/mypageMain`, {
       method: 'POST',
       headers: {
          'Content-Type': 'application/json',
@@ -270,7 +270,7 @@ function fn_dibsList() {
 
 //찜 목록 취소하기
 function fn_removeDibs(detailNo) {
-   fetch(`${contextPath}/mypage/removeDibs.do?detailNo=${detailNo}`, {
+   fetch(`${contextPath}/mypage/removeDibs?detailNo=${detailNo}`, {
       method: 'GET'
    })
        .then(response => {
@@ -291,7 +291,7 @@ function fn_removeDibs(detailNo) {
 
 //이용중인 상품 불러오기
 function loadUsingProducts() {
-   fetch(`${contextPath}/mypage/mypageMain.do`, {
+   fetch(`${contextPath}/mypage/mypageMain`, {
       method: 'POST',
       headers: {
          'Content-Type': 'application/json',
@@ -334,7 +334,7 @@ function cancelPayform(payformNo) {
    // 동적으로 form 생성
    var form = document.createElement('form');
    form.method = 'POST';
-   form.action = contextPath + '/payform/payformCancel.do';
+   form.action = contextPath + '/payform/payformCancel';
 
    // payformNo를 위한 hidden input 추가
    var input = document.createElement('input');
@@ -357,7 +357,7 @@ document.addEventListener('DOMContentLoaded', function() {
 // 2.내역조회
 // 구매내역 불러오기
 function loadPurchaseHistory() {
-   fetch(`${contextPath}/mypage/searchHistory.do`, {
+   fetch(`${contextPath}/mypage/searchHistory`, {
       method: 'POST',
       headers: {
          'Content-Type': 'application/json',
@@ -396,7 +396,7 @@ function loadPurchaseHistory() {
 
 // 리뷰내역 불러오기
 function loadReviewHistory() {
-   fetch(`${contextPath}/mypage/searchHistory.do`, {
+   fetch(`${contextPath}/mypage/searchHistory`, {
       method: 'POST',
       headers: {
          'Content-Type': 'application/json',
@@ -434,7 +434,7 @@ function loadReviewHistory() {
 
 // 신고내역 불러오기
 function loadReportHistory() {
-   fetch(`${contextPath}/mypage/searchHistory.do`, {
+   fetch(`${contextPath}/mypage/searchHistory`, {
       method: 'POST',
       headers: {
          'Content-Type': 'application/json',

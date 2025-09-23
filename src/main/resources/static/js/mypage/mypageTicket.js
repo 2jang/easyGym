@@ -1,4 +1,4 @@
 function backToMypage(obj) {
-	obj.action="/mypage/mypageMain.do";
+	obj.action="/mypage/mypageMain";
 	obj.submit();
 }

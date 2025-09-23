@@ -71,7 +71,7 @@ const idTag = document.getElementById('operatorId');
       		
           	//Ajax로 전송
       		$.ajax({
-      		    url: '/operator/checkId.do',
+      		    url: '/operator/checkId',
       		    data: {
       		        operatorId: operatorId
       		    },
