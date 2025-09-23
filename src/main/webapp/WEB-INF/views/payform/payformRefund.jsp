@@ -47,7 +47,7 @@ request.setCharacterEncoding("utf-8");
                 fpElement.innerText = fp.toLocaleString();
             </script>
         </div>
-        <button type="button" id="goBack" onclick="window.location.href='${contextPath}/main.do'">확인</button>
+        <button type="button" id="goBack" onclick="window.location.href='${contextPath}/main'">확인</button>
     </form>
 </div>
 

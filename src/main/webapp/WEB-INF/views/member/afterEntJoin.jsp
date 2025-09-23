@@ -45,10 +45,11 @@
          <h5 class="card-title">사업자회원으로 가입해주셔서 감사합니다!</h5>
          <p class="card-text">사업자 등록이 완료되었으니 로그인을 하고 헬스장 플랫폼에 당신의 헬스장을
             등록해주세요.</p>
-         <a href="/member/operLoginForm.do" class="btn btn-primary stretched-link">로그인하러가기</a>
+         <a href="/member/operLoginForm" class="btn btn-primary stretched-link">로그인하러가기</a>
       </div>
    </div>
 </div>
 
 <%@ include file="/WEB-INF/views/layout/footer.jsp"%>
+
 

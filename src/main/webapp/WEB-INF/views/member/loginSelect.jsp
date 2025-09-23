@@ -10,10 +10,10 @@
       이지짐 회원가입 페이지에 오신 것을 환영합니다! 주변 헬스장을 검색하거나, 헬스장을 등록해보세요!
     </p>
     <div class="d-inline-flex gap-2 mb-5">
-      <a href="/member/loginForm.do" class="btn btn-primary btn-lg px-4 rounded-pill" role="button">
+      <a href="/member/loginForm" class="btn btn-primary btn-lg px-4 rounded-pill" role="button">
         일반회원로그인
       </a>
-      <a href = "/member/operLoginForm.do" class="btn btn-outline-secondary btn-lg px-4 rounded-pill" type="button">
+      <a href = "/member/operLoginForm" class="btn btn-outline-secondary btn-lg px-4 rounded-pill" type="button">
         사업자회원로그인
       </a>
     </div>
@@ -21,3 +21,4 @@
 </div>
 
 <%@ include file="/WEB-INF/views/layout/footer.jsp" %>
+

@@ -65,7 +65,7 @@
         </p>
         <footer>
             <ul class="buttons stacked">
-                <li><a href="${contextPath}/detail/search.do?query=" class="button fit scrolly">Search My Location</a></li>
+                <li><a href="${contextPath}/detail/search?query=" class="button fit scrolly">Search My Location</a></li>
             </ul>
         </footer>
     </div>
@@ -90,8 +90,8 @@
                 </header>
                 <footer>
                     <ul class="buttons">
-                        <li><a href="/member/operLoginForm.do" class="button primary">Sign In</a></li>
-                        <li><a href="/member/operJoinForm.do" class="button">Sign Up</a></li>
+                        <li><a href="/member/operLoginForm" class="button primary">Sign In</a></li>
+                        <li><a href="/member/operJoinForm" class="button">Sign Up</a></li>
                     </ul>
                 </footer>
             </c:when>
@@ -106,7 +106,7 @@
             <c:choose>
                 <c:when test="${not empty healthList[0]}">
                     <div class="col">
-                        <a href="${contextPath}/detail/detail.do?detailNo=${healthList[0].detailNo}">
+                        <a href="${contextPath}/detail/detail?detailNo=${healthList[0].detailNo}">
                             <div class="card shadow-sm">
                                 <img src="${contextPath}/images/detail/${healthList[0].detailClassification}/${healthList[0].detailBusinessEng}/${healthList[0].detailBusinessEng}1.png" class="card-img-top" alt="${healthList[0].detailBusinessName}" onerror="this.onerror=null; this.src='${contextPath}/images/detail/health/bodyCrush/bodyCrush1.png'">
                                 <div class="card-body">
@@ -132,7 +132,7 @@
             <c:choose>
                 <c:when test="${not empty healthList[1]}">
                     <div class="col">
-                        <a href="${contextPath}/detail/detail.do?detailNo=${healthList[1].detailNo}">
+                        <a href="${contextPath}/detail/detail?detailNo=${healthList[1].detailNo}">
                             <div class="card shadow-sm">
                                 <img src="${contextPath}/images/detail/${healthList[1].detailClassification}/${healthList[1].detailBusinessEng}/${healthList[1].detailBusinessEng}2.png" class="card-img-top" alt="${healthList[1].detailBusinessName}" onerror="this.onerror=null; this.src='${contextPath}/images/detail/health/bodyCrush/bodyCrush1.png'">
                                 <div class="card-body">
@@ -158,7 +158,7 @@
             <c:choose>
                 <c:when test="${not empty healthList[2]}">
                     <div class="col">
-                        <a href="${contextPath}/detail/detail.do?detailNo=${healthList[2].detailNo}">
+                        <a href="${contextPath}/detail/detail?detailNo=${healthList[2].detailNo}">
                             <div class="card shadow-sm">
                                 <img src="${contextPath}/images/detail/${healthList[2].detailClassification}/${healthList[2].detailBusinessEng}/${healthList[2].detailBusinessEng}3.png" class="card-img-top" alt="${healthList[2].detailBusinessName}" onerror="this.onerror=null; this.src='${contextPath}/images/detail/health/gymLight/gymLight1.png'">
                                 <div class="card-body">
@@ -183,7 +183,7 @@
         </div>
         <footer class="major">
             <ul class="buttons">
-                <li><a href="${contextPath}/detail/search.do?query=&detailClassification=health" class="button primary">헬스 더보기</a></li>
+                <li><a href="${contextPath}/detail/search?query=&detailClassification=health" class="button primary">헬스 더보기</a></li>
             </ul>
         </footer>
          
@@ -192,7 +192,7 @@
             <!-- 첫 번째 필라테스 -->
             <c:if test="${not empty pilatesList[0]}">
                 <div class="col">
-                    <a href="${contextPath}/detail/detail.do?detailNo=${pilatesList[0].detailNo}">
+                    <a href="${contextPath}/detail/detail?detailNo=${pilatesList[0].detailNo}">
                         <div class="card shadow-sm">
                             <img src="${contextPath}/images/detail/${pilatesList[0].detailClassification}/${pilatesList[0].detailBusinessEng}/${pilatesList[0].detailBusinessEng}1.png" class="card-img-top" alt="${pilatesList[0].detailBusinessName}" onerror="this.onerror=null; this.src='${contextPath}/images/detail/health/bodyCrush/bodyCrush1.png'">
                             <div class="card-body">
@@ -206,7 +206,7 @@
             <!-- 두 번째 필라테스 -->
             <c:if test="${not empty pilatesList[1]}">
                 <div class="col">
-                    <a href="${contextPath}/detail/detail.do?detailNo=${pilatesList[1].detailNo}">
+                    <a href="${contextPath}/detail/detail?detailNo=${pilatesList[1].detailNo}">
                         <div class="card shadow-sm">
                             <img src="${contextPath}/images/detail/${pilatesList[1].detailClassification}/${pilatesList[1].detailBusinessEng}/${pilatesList[1].detailBusinessEng}2.png" class="card-img-top" alt="${pilatesList[1].detailBusinessName}" onerror="this.onerror=null; this.src='${contextPath}/images/detail/health/bodyCrush/bodyCrush1.png'">
                             <div class="card-body">
@@ -220,7 +220,7 @@
             <!-- 세 번째 필라테스 -->
             <c:if test="${not empty pilatesList[2]}">
                 <div class="col">
-                    <a href="${contextPath}/detail/detail.do?detailNo=${pilatesList[2].detailNo}">
+                    <a href="${contextPath}/detail/detail?detailNo=${pilatesList[2].detailNo}">
                         <div class="card shadow-sm">
                             <img src="${contextPath}/images/detail/${pilatesList[2].detailClassification}/${pilatesList[2].detailBusinessEng}/${pilatesList[2].detailBusinessEng}3.png" class="card-img-top" alt="${pilatesList[2].detailBusinessName}" onerror="this.onerror=null; this.src='${contextPath}/images/detail/health/bodyCrush/bodyCrush1.png'">
                             <div class="card-body">
@@ -234,7 +234,7 @@
         </div>
         <footer class="major">
             <ul class="buttons">
-                <li><a href="${contextPath}/detail/search.do?query=&detailClassification=pilates"" class="button primary">필라테스 더보기</a></li>
+                <li><a href="${contextPath}/detail/search?query=&detailClassification=pilates"" class="button primary">필라테스 더보기</a></li>
             </ul>
         </footer>
          
@@ -243,7 +243,7 @@
             <!-- 첫 번째 복싱장 -->
             <c:if test="${not empty boxingList[0]}">
                 <div class="col">
-                    <a href="${contextPath}/detail/detail.do?detailNo=${boxingList[0].detailNo}">
+                    <a href="${contextPath}/detail/detail?detailNo=${boxingList[0].detailNo}">
                         <div class="card shadow-sm">
                             <img src="${contextPath}/images/detail/${boxingList[0].detailClassification}/${boxingList[0].detailBusinessEng}/${boxingList[0].detailBusinessEng}1.png" class="card-img-top" alt="${boxingList[0].detailBusinessName}" onerror="this.onerror=null; this.src='${contextPath}/images/detail/health/bodyCrush/bodyCrush1.png'">
                             <div class="card-body">
@@ -257,7 +257,7 @@
             <!-- 두 번째 복싱장 -->
             <c:if test="${not empty boxingList[1]}">
                 <div class="col">
-                    <a href="${contextPath}/detail/detail.do?detailNo=${boxingList[1].detailNo}">
+                    <a href="${contextPath}/detail/detail?detailNo=${boxingList[1].detailNo}">
                         <div class="card shadow-sm">
                             <img src="${contextPath}/images/detail/${boxingList[1].detailClassification}/${boxingList[1].detailBusinessEng}/${boxingList[1].detailBusinessEng}2.png" class="card-img-top" alt="${boxingList[1].detailBusinessName}" onerror="this.onerror=null; this.src='${contextPath}/images/detail/health/bodyCrush/bodyCrush1.png'">
                             <div class="card-body">
@@ -271,7 +271,7 @@
             <!-- 세 번째 복싱장 -->
             <c:if test="${not empty boxingList[2]}">
                 <div class="col">
-                    <a href="${contextPath}/detail/detail.do?detailNo=${boxingList[2].detailNo}">
+                    <a href="${contextPath}/detail/detail?detailNo=${boxingList[2].detailNo}">
                         <div class="card shadow-sm">
                             <img src="${contextPath}/images/detail/${boxingList[2].detailClassification}/${boxingList[2].detailBusinessEng}/${boxingList[2].detailBusinessEng}3.png" class="card-img-top" alt="${boxingList[2].detailBusinessName}" onerror="this.onerror=null; this.src='${contextPath}/images/detail/health/bodyCrush/bodyCrush1.png'">
                             <div class="card-body">
@@ -285,7 +285,7 @@
         </div>
         <footer class="major">
             <ul class="buttons">
-                <li><a href="${contextPath}/detail/search.do?query=&detailClassification=boxing" class="button primary">복싱 더보기</a></li>
+                <li><a href="${contextPath}/detail/search?query=&detailClassification=boxing" class="button primary">복싱 더보기</a></li>
             </ul>
         </footer>
     </div>

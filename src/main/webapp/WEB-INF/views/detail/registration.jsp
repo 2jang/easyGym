@@ -68,7 +68,7 @@
 </section>
 <article id="main">
     <div class="container">
-        <form id="detailForm" action="/detail/signUpForm.do" method="post" enctype="multipart/form-data">
+        <form id="detailForm" action="/detail/signUpForm" method="post" enctype="multipart/form-data">
             <input type="hidden" name="operatorNo" value="${operator.operatorNo}">
             <div class="form-group">
                 <label for="detailBusinessName">업체명</label>

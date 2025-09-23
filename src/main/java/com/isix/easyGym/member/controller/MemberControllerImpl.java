@@ -40,7 +40,7 @@ public class MemberControllerImpl implements MemberController {
 	private KakaoDTO kakaoDTO;
 	
 	@Override
-	@GetMapping("/member/joinSelect.do")
+	@GetMapping("/member/joinSelect")
 	public ModelAndView joinSelect(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("member/joinSelect");
@@ -48,7 +48,7 @@ public class MemberControllerImpl implements MemberController {
 	}
 	
 	// 회원가입 페이지
-	@RequestMapping(value = "/member/memJoin.do")
+	@RequestMapping(value = "/member/memJoin")
     public ModelAndView showJoinForm() {
         ModelAndView mav = new ModelAndView();
         mav.setViewName("member/memJoin"); 
@@ -56,24 +56,24 @@ public class MemberControllerImpl implements MemberController {
     }
 	
 	// 회원가입 기능
-	@PostMapping(value = "/member/addMember.do")
+	@PostMapping(value = "/member/addMember")
 	public ModelAndView addMember(@ModelAttribute("memberDTO") MemberDTO memberDTO, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		ModelAndView mav = new ModelAndView();
 		memberService.addMember(memberDTO);
-		mav.setViewName("redirect:/member/afterMemJoin.do");
+		mav.setViewName("redirect:/member/afterMemJoin");
 		return mav;
 	}
 	
 	@Override 
-	@GetMapping("/member/gymRegister.do")
+	@GetMapping("/member/gymRegister")
 	public ModelAndView gymRegister(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("member/gymRegister");
 		return mav;
 	}	
 	
-	@RequestMapping(value = "/member/afterMemJoin.do")
+	@RequestMapping(value = "/member/afterMemJoin")
     public ModelAndView afterMemJoin() {
         ModelAndView mav = new ModelAndView();
         mav.setViewName("member/afterMemJoin"); 
@@ -81,7 +81,7 @@ public class MemberControllerImpl implements MemberController {
     }
 	
 	@Override
-	@RequestMapping(value = "/member/joinCheck.do")	// 이용 약관 동의
+	@RequestMapping(value = "/member/joinCheck")	// 이용 약관 동의
 	public ModelAndView joinCheck(@ModelAttribute("memberDTO") MemberDTO memberDTO, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		ModelAndView mav = new ModelAndView();
@@ -90,14 +90,14 @@ public class MemberControllerImpl implements MemberController {
 	}
 
 	@Override 
-	@GetMapping("/member/loginSelect.do")
+	@GetMapping("/member/loginSelect")
 	public ModelAndView loginSelect(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("member/loginSelect");
 		return mav;
 	}	
 	@Override
-	@GetMapping("/member/modMemberForm.do")
+	@GetMapping("/member/modMemberForm")
 	public ModelAndView modMemberForm(@RequestParam("id") String id, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		memberDTO = memberService.findMember(id); // 회원정보 id를 찾아서 memberDTO에 넘겨줌
@@ -107,26 +107,26 @@ public class MemberControllerImpl implements MemberController {
 	}
 
 	@Override
-	@PostMapping("/member/updateMember.do")
+	@PostMapping("/member/updateMember")
 	public ModelAndView updateMember(@ModelAttribute("memberDTO") MemberDTO memberDTO, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		request.setCharacterEncoding("utf-8");
 		memberService.updateMember(memberDTO); // 업데이트 하기
-		ModelAndView mav = new ModelAndView("redirect:/member/listMembers.do"); // 회원정보수정하면 listMembers 메서드를 찾아가서 다시
+		ModelAndView mav = new ModelAndView("redirect:/member/listMembers"); // 회원정보수정하면 listMembers 메서드를 찾아가서 다시
 																				// 회원목록을 보여주게 됨
 		return mav;
 	}
 
 	@Override
-	@GetMapping("/member/delMember.do")
+	@GetMapping("/member/delMember")
 	public ModelAndView delMember(String id, HttpServletRequest request, HttpServletResponse response)throws Exception {
 		memberService.delMember(id);
-		ModelAndView mav = new ModelAndView("redirect:/member/listMembers.do"); // 회원삭제하면 listMembers 메서드를 찾아가서 다시 회원목록을
+		ModelAndView mav = new ModelAndView("redirect:/member/listMembers"); // 회원삭제하면 listMembers 메서드를 찾아가서 다시 회원목록을
 																				// 보여주게 됨
 		return mav;
 	}
 
-	@GetMapping("/member/loginForm.do")
+	@GetMapping("/member/loginForm")
 	public ModelAndView loginForm(@ModelAttribute("member") MemberDTO member,
 	                               @RequestParam(value = "action", required = false) String action,
 	                               @RequestParam(value = "result", required = false) Integer result,
@@ -155,7 +155,7 @@ public class MemberControllerImpl implements MemberController {
 
 	
 	@Override
-	@RequestMapping(value = "/member/login.do", method = RequestMethod.POST)
+	@RequestMapping(value = "/member/login", method = RequestMethod.POST)
 	public ModelAndView login(@ModelAttribute("memberDTO") MemberDTO memberDTOParam,
 	                           @RequestParam(value ="action", required=false) String action,
 	                           RedirectAttributes rAttr,
@@ -184,7 +184,7 @@ public class MemberControllerImpl implements MemberController {
 
 	    if (memberDTO != null) {
 	        if (memberDTO.getMemberState() == 0) {
-	            mv.setViewName("redirect:/member/loginForm.do?result=2");
+	            mv.setViewName("redirect:/member/loginForm?result=2");
 	        } else {
 	            HttpSession session = request.getSession();
 	            session.setMaxInactiveInterval(30 * 60);
@@ -195,7 +195,7 @@ public class MemberControllerImpl implements MemberController {
 	            if (action != null) {
 	                mv.setViewName("redirect:" + action);
 	            } else {
-	                mv.setViewName("redirect:/main.do");
+	                mv.setViewName("redirect:/");
 	            }
 	        }
 	    } else {
@@ -209,7 +209,7 @@ public class MemberControllerImpl implements MemberController {
 
 
 	// 아이디 중복체크
-	@PostMapping("/member/checkId.do")
+	@PostMapping("/member/checkId")
 	@ResponseBody
 	public ResponseEntity<Boolean> confirmId(@RequestParam("memberId")String memberId) {
 		
@@ -261,12 +261,12 @@ public class MemberControllerImpl implements MemberController {
 	        e.printStackTrace();
 	        // 예외 발생 시 오류 페이지로 리다이렉트
 	        ModelAndView mav = new ModelAndView();
-	        mav.setViewName("redirect:/errorPage.do");
+	        mav.setViewName("redirect:/errorPage");
 	        return mav;
 	    }
 
 	    ModelAndView mav = new ModelAndView();
-	    mav.setViewName("redirect:/main.do");
+	    mav.setViewName("redirect:/");
 	    return mav;
 	}
 

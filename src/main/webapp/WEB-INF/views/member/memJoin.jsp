@@ -57,7 +57,7 @@
 
     <!-- Content -->
     <div class="content">
-      <form id="form" name="join" method="post" action="/member/addMember.do">
+      <form id="form" name="join" method="post" action="/member/addMember">
         <div class="row gtr-50">
           <div class="col-12">
             <input type="text" name="memberId" autocompleted="off" id="memberId"
@@ -235,3 +235,4 @@ function sample6_execDaumPostcode() {
     }).open();
 }</script>
 <%@ include file="/WEB-INF/views/layout/footer.jsp"%>
+

@@ -88,7 +88,7 @@
 <article id="main">
   <div class="container">
     <h1>이용약관 동의</h1>
-    <form action="/member/memJoin.do" name="check" id="check" method="post" onsubmit="return validateForm()">
+    <form action="/member/memJoin" name="check" id="check" method="post" onsubmit="return validateForm()">
       <label id="allAgree">
         <input type="checkbox" id="checkAll" name="selectAll"> 모든 항목 동의
       </label>

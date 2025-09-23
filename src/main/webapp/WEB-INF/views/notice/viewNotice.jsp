@@ -39,7 +39,7 @@
                         <td colspan="3">
                             <div class="image-container">
                                 <c:forEach var="imgList" items="${noMap.imageFileList}" varStatus="status">
-                                    <img id="preview${status.count}" src="<c:url value='/nodownload.do'/>?noticeNo=${imgList.noticeNo}&imageFileName=${imgList.imageFileName}">
+                                    <img id="preview${status.count}" src="<c:url value='/nodownload'/>?noticeNo=${imgList.noticeNo}&imageFileName=${imgList.imageFileName}">
                                 </c:forEach>
                             </div>
                         </td>
@@ -49,8 +49,9 @@
         </table>
 
         <div class="button-group">
-            <input class="btn btn-outline-secondary reBtn" type="button" value="돌아가기" onclick="location.href='/notice/noticeList.do'">
+            <input class="btn btn-outline-secondary reBtn" type="button" value="돌아가기" onclick="location.href='/notice/noticeList'">
         </div>
 </article>
 
 <%@ include file="/WEB-INF/views/layout/footer.jsp"%>
+

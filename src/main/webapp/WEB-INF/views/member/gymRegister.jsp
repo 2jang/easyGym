@@ -6,7 +6,7 @@
 </div>
 <div class="form-container">
 	<form name="opJoin" id="form" class="form" method="post"
-		action="/member/operJoin.do" onsubmit="combineBizNum()">
+		action="/member/operJoin" onsubmit="combineBizNum()">
 		<img src="/images/member/fitness.png" class="img-fluid"
 			alt="Fitness Image" style="width: 100px; height: auto;">
 		<div class="column">
@@ -119,3 +119,4 @@
 </script>
 <%@ include file="/WEB-INF/views/layout/footer.jsp"%>
 <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+

@@ -18,7 +18,7 @@ import net.coobird.thumbnailator.Thumbnails;
 public class DetailFileDownloadController extends HttpServlet {
 	
 	 	@ResponseBody
-	 	@GetMapping("/detailDownload.do")
+	 	@GetMapping("/detailDownload")
 	    public void fileDown(@RequestParam("detailNo") String detailNo,
 	                         @RequestParam("memberNo") String memberNo,
 	                         @RequestParam("imageFileName") String imageFileName,
@@ -47,4 +47,5 @@ public class DetailFileDownloadController extends HttpServlet {
 	        }
 	    }
 	}
+
 

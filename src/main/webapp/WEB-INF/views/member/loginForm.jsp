@@ -83,7 +83,7 @@
     <section class="wrapper style4 special container medium">
         <!-- Content -->
         <div class="content">
-            <form class="text-center mb-3" action="/member/login.do" onsubmit="return check(this)" method="post" id="login-form">
+            <form class="text-center mb-3" action="/member/login" onsubmit="return check(this)" method="post" id="login-form">
                 <img class="mb-4" src="/images/member/user.png" alt="로그인" width="72" height="72">
                 <div class="row gtr-50">
                     <div class="col-12">
@@ -105,7 +105,7 @@
                     style="margin: 20px 0;"
                 ></div>
                 <div class="joinSubmit">
-                    <a href="${contextPath}/member/joinCheck.do">회원가입</a>
+                    <a href="${contextPath}/member/joinCheck">회원가입</a>
                 </div>
                 <button class="button primary" type="submit" id="submit-btn" style="background-color: #82D3C9; border-radius: 15px;" disabled>로그인</button>
             </form>
@@ -137,3 +137,4 @@
 
 <script src="/js/member/kakao.js"></script>
 <%@ include file="/WEB-INF/views/layout/footer.jsp"%>
+

@@ -16,7 +16,7 @@
 </section>
     <main>
     <div class="table-header">
-        <a class="write-button" href="javascript:fn_fboardForm(${sessionScope.isLogOn ? 'true' : 'false'}, '/freeboard/fboardForm.do', '/member/loginForm.do');">글쓰기</a>
+        <a class="write-button" href="javascript:fn_fboardForm(${sessionScope.isLogOn ? 'true' : 'false'}, '/freeboard/fboardForm', '/member/loginForm');">글쓰기</a>
     </div>
     
     <table class="table table-hover">
@@ -41,7 +41,7 @@
                         <tr>
                             <td class="bd-num">${fboard.freeNo}</td>
                             <td class="L">
-                                <a href="/freeboard/viewfboard.do?freeNo=${fboard.freeNo}" class="link">
+                                <a href="/freeboard/viewfboard?freeNo=${fboard.freeNo}" class="link">
                                     ${fboard.freeTitle}
                                 </a>
                             </td>
@@ -60,26 +60,26 @@
             <c:if test="${fbmap.tFreeboard > 100}">
                 <c:forEach var="num" begin="1" end="${fbmap.section > fbmap.tFreeboard / 100 ? (fbmap.tFreeboard % 100) / 10 + 1 : 10}">
                     <c:if test="${fbmap.section > 1 && num == 1}">
-                        <a class="pagination-link" href="/freeboard/fboardList.do?section=${fbmap.section - 1}&pageNum=${(fbmap.section - 1) * 10}">prev</a>
+                        <a class="pagination-link" href="/freeboard/fboardList?section=${fbmap.section - 1}&pageNum=${(fbmap.section - 1) * 10}">prev</a>
                     </c:if>
                     <c:if test="${num == (fbmap.pageNum % 10 == 0 ? 10 : fbmap.pageNum % 10)}">
-                        <a class="pagination-link active" href="/freeboard/fboardList.do?section=${fbmap.section}&pageNum=${(fbmap.section - 1) * 10 + num}">${(fbmap.section-1)*10+num}</a>
+                        <a class="pagination-link active" href="/freeboard/fboardList?section=${fbmap.section}&pageNum=${(fbmap.section - 1) * 10 + num}">${(fbmap.section-1)*10+num}</a>
                     </c:if>
                     <c:if test="${num != (fbmap.pageNum % 10 == 0 ? 10 : fbmap.pageNum % 10)}">
-                        <a class="pagination-link" href="/freeboard/fboardList.do?section=${fbmap.section}&pageNum=${(fbmap.section - 1) * 10 + num}">${(fbmap.section-1)*10+num}</a>
+                        <a class="pagination-link" href="/freeboard/fboardList?section=${fbmap.section}&pageNum=${(fbmap.section - 1) * 10 + num}">${(fbmap.section-1)*10+num}</a>
                     </c:if>
                     <c:if test="${num == 10}">
-                        <a class="pagination-link" href="/freeboard/fboardList.do?section=${fbmap.section + 1}&pageNum=${fbmap.section * 10 + 1}">next</a>
+                        <a class="pagination-link" href="/freeboard/fboardList?section=${fbmap.section + 1}&pageNum=${fbmap.section * 10 + 1}">next</a>
                     </c:if>
                 </c:forEach>
             </c:if>
             <c:if test="${fbmap.tArticles <= 100}">
                 <c:forEach var="num" begin="1" end="${fbmap.tArticles / 10 + 1}">
                     <c:if test="${num == fbmap.pageNum}">
-                        <a class="pagination-link active" href="/freeboard/fboardList.do?section=${fbmap.section}&pageNum=${num}">${num}</a>
+                        <a class="pagination-link active" href="/freeboard/fboardList?section=${fbmap.section}&pageNum=${num}">${num}</a>
                     </c:if>
                     <c:if test="${num != fbmap.pageNum}">
-                        <a class="pagination-link" href="/freeboard/fboardList.do?section=${fbmap.section}&pageNum=${num}">${num}</a>
+                        <a class="pagination-link" href="/freeboard/fboardList?section=${fbmap.section}&pageNum=${num}">${num}</a>
                     </c:if>
                 </c:forEach>
             </c:if>

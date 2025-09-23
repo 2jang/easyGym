@@ -18,7 +18,7 @@ import jakarta.servlet.http.HttpServletResponse;
 public class FileDownloadController extends HttpServlet {
 	private static final String ARTICLE_IMG_REPO = "fileupload";
 
-	@GetMapping("/download.do")
+	@GetMapping("/download")
 	public void fileDown(@RequestParam("noticeNo") int noticeNo, @RequestParam("imageFileName") String imageFileName,
 						 HttpServletRequest request, HttpServletResponse response) throws Exception {
 		request.setCharacterEncoding("utf-8");

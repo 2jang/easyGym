@@ -19,7 +19,7 @@
    <div class="row justify-content-center">
       <div class="col-md-6">
          <div class="card p-4 border border-light" style="border-radius: 15px;">
-            <form class="text-center mb-3" action="/member/operLogin.do" onsubmit="return check(this)" method="post" id="oper-login-form">
+            <form class="text-center mb-3" action="/member/operLogin" onsubmit="return check(this)" method="post" id="oper-login-form">
                <img class="mb-4" src="/images/member/user.png" alt="로그인" width="72" height="72">
                <div class="form-floating mb-3">
                   <input type="text" class="form-control" id="operatorId" name="operatorId" placeholder="아이디 입력" style="border-radius: 15px;"> 
@@ -31,7 +31,7 @@
                </div>
                <div class="row justify-content-between mb-3">
                   <div class="col-md-6 text-start">
-                     <small class="d-block"><a href="/member/operJoinForm.do">회원가입</a></small>
+                     <small class="d-block"><a href="/member/operJoinForm">회원가입</a></small>
                   </div>
                </div>
                <!-- Cloudflare Turnstile 위젯 -->
@@ -79,3 +79,4 @@
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 
 <%@ include file="/WEB-INF/views/layout/footer.jsp"%>
+

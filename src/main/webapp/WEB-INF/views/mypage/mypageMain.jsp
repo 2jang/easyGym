@@ -123,7 +123,7 @@
                 </div>
                 <div class="modify" id="update-form" style="display:none;  width: 600px; align=center;">
                     <h2>회원정보 수정</h2>
-                    <form method="post" action="${contextPath}/mypage/memberUpdate.do" id="form">
+                    <form method="post" action="${contextPath}/mypage/memberUpdate" id="form">
                         <input type="hidden" id="memberNo" value="${member.memberNo}">
                         <div class="form-group">
                         	<label for ="memberName">이름</label>
@@ -146,7 +146,7 @@
                        </form>
                        <div class="button-container" style="margin-bottom: 30px;">
 						    <button class="button primary" type="button" id="update-btn">수정하기</button>
-						    <button class="button primary" id="cancel-btn" style="color:#fff; text-decoration:none;"><a href="${contextPath}/mypage/mypageMain.do">취소하기</a></button>
+						    <button class="button primary" id="cancel-btn" style="color:#fff; text-decoration:none;"><a href="${contextPath}/mypage/mypageMain">취소하기</a></button>
 						    <button class="button primary" type="button" id="withdraw-btn">회원탈퇴</button>
 						</div>
                 </div>

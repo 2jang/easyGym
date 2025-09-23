@@ -39,10 +39,10 @@
                                 <c:choose>
                                     <c:when test="${notice.noticeCategory == '1'}">
                                         <span class="hit">필독</span>
-                                        <a href="/notice/viewNotice.do?noticeNo=${notice.noticeNo}" class="link">${notice.noticeTitle}</a>
+                                        <a href="/notice/viewNotice?noticeNo=${notice.noticeNo}" class="link">${notice.noticeTitle}</a>
                                     </c:when>
                                     <c:otherwise>
-                                        <a href="/notice/viewNotice.do?noticeNo=${notice.noticeNo}" class="link">${notice.noticeTitle}</a>
+                                        <a href="/notice/viewNotice?noticeNo=${notice.noticeNo}" class="link">${notice.noticeTitle}</a>
                                     </c:otherwise>
                                 </c:choose>
                             </td>
@@ -60,26 +60,26 @@
             <c:if test="${noMap.noBoard > 100}">
                 <c:forEach var="num" begin="1" end="${noMap.section > noMap.noBoard / 100 ? (noMap.noBoard % 100) / 10 + 1 : 10}">
                     <c:if test="${noMap.section > 1 && num == 1}">
-                        <a href="/notice/noticeList.do?section=${noMap.section - 1}&pageNum=${(noMap.section - 1) * 10}" class="pagination-link">prev</a>
+                        <a href="/notice/noticeList?section=${noMap.section - 1}&pageNum=${(noMap.section - 1) * 10}" class="pagination-link">prev</a>
                     </c:if>
                     <c:if test="${num == (noMap.pageNum % 10 == 0 ? 10 : noMap.pageNum % 10)}">
-                        <a class="pagination-link active" href="/notice/noticeList.do?section=${noMap.section}&pageNum=${(noMap.section - 1) * 10 + num}">${(noMap.section-1)*10+num}</a>
+                        <a class="pagination-link active" href="/notice/noticeList?section=${noMap.section}&pageNum=${(noMap.section - 1) * 10 + num}">${(noMap.section-1)*10+num}</a>
                     </c:if>
                     <c:if test="${num != (noMap.pageNum % 10 == 0 ? 10 : noMap.pageNum % 10)}">
-                        <a class="pagination-link" href="/notice/noticeList.do?section=${noMap.section}&pageNum=${(noMap.section - 1) * 10 + num}">${(noMap.section-1)*10+num}</a>
+                        <a class="pagination-link" href="/notice/noticeList?section=${noMap.section}&pageNum=${(noMap.section - 1) * 10 + num}">${(noMap.section-1)*10+num}</a>
                     </c:if>
                     <c:if test="${num == 10}">
-                        <a href="/notice/noticeList.do?section=${noMap.section + 1}&pageNum=${noMap.section * 10 + 1}" class="pagination-link">next</a>
+                        <a href="/notice/noticeList?section=${noMap.section + 1}&pageNum=${noMap.section * 10 + 1}" class="pagination-link">next</a>
                     </c:if>
                 </c:forEach>
             </c:if>
             <c:if test="${noMap.noBoard <= 100}">
                 <c:forEach var="num" begin="1" end="${noMap.noBoard / 10 + 1}">
                     <c:if test="${num == noMap.pageNum}">
-                        <a class="pagination-link active" href="/notice/noticeList.do?section=${noMap.section}&pageNum=${num}">${num}</a>
+                        <a class="pagination-link active" href="/notice/noticeList?section=${noMap.section}&pageNum=${num}">${num}</a>
                     </c:if>
                     <c:if test="${num != noMap.pageNum}">
-                        <a class="pagination-link" href="/notice/noticeList.do?section=${noMap.section}&pageNum=${num}">${num}</a>
+                        <a class="pagination-link" href="/notice/noticeList?section=${noMap.section}&pageNum=${num}">${num}</a>
                     </c:if>
                 </c:forEach>
             </c:if>
@@ -87,3 +87,4 @@
     </div>
 </article>
 <%@ include file="/WEB-INF/views/layout/footer.jsp"%>
+

@@ -21,7 +21,7 @@
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Navbar Brand-->
-            <a class="navbar-brand ps-3" href="/admin/memberList.do">관리자 페이지</a>
+            <a class="navbar-brand ps-3" href="/admin/memberList">관리자 페이지</a>
             <!-- Sidebar Toggle-->
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
             <!-- Navbar Search-->
@@ -57,8 +57,8 @@
                            </a>
                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                <nav class="sb-sidenav-menu-nested nav">
-                                   <a class="nav-link" href="/admin/memberList.do">Member List</a> <!-- 회원 리스트로 이동-->
-                                   <a class="nav-link" href="/admin/withdrawMem.do">Withdraw Member</a>
+                                   <a class="nav-link" href="/admin/memberList">Member List</a> <!-- 회원 리스트로 이동-->
+                                   <a class="nav-link" href="/admin/withdrawMem">Withdraw Member</a>
                                </nav>
                            </div>
                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
@@ -68,20 +68,20 @@
                            </a>
                            <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
                                <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                                   <a class="nav-link" href="/admin/operList.do">Operator List</a> <!-- 사업자 리스트로 이동-->
-                                   <a class="nav-link" href="/admin/companyList.do">Company List</a>
+                                   <a class="nav-link" href="/admin/operList">Operator List</a> <!-- 사업자 리스트로 이동-->
+                                   <a class="nav-link" href="/admin/companyList">Company List</a>
                                </nav>
                            </div>
                            <div class="sb-sidenav-menu-heading">Comunity</div>
-                           <a class="nav-link" href="/admin/noticeList.do">
+                           <a class="nav-link" href="/admin/noticeList">
                                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                                공지사항
                            </a>
-                           <a class="nav-link" href="/admin/contactList.do">
+                           <a class="nav-link" href="/admin/contactList">
                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                문의하기
                            </a>
-                           <a class="nav-link" href="/admin/reportList.do">
+                           <a class="nav-link" href="/admin/reportList">
                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                신고리스트
                            </a>
@@ -194,3 +194,4 @@
         <script src="js/datatables-simple-demo.js"></script>
     </body>
 </html>
+

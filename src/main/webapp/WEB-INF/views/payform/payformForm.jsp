@@ -23,7 +23,7 @@
 
         if(${loginCheck} == "-1") {
             alert("로그인 후 이용해주세요. 로그인창으로 이동합니다.");
-            window.location.href = "${contextPath}/member/loginForm.do";
+            window.location.href = "${contextPath}/member/loginForm";
         }
 
         function PaymentMockup() {
@@ -42,7 +42,7 @@
     <link rel="stylesheet" type="text/css" href="${contextPath}/css/payform/payformForm.css">
 </head>
 <body>
-<form id="creditForm" action="${contextPath}/payform/payformCredit.do" method="POST" target="_blank" style="display: none;">
+<form id="creditForm" action="${contextPath}/payform/payformCredit" method="POST" target="_blank" style="display: none;">
     <input type="hidden" name="memberNo" value="${payform[0].memberNo}">
     <input type="hidden" name="detailNo" value="${payform[1].detailNo}">
     <input type="hidden" name="detailNa" value="${payform[1].detailBusinessName}">
@@ -54,7 +54,7 @@
 </form>
 <div class="bg-image"></div>
 <button type="button" id="paymentProcess" onclick="PaymentMockup()">토스 결제 구현</button>
-<form id="payment_form" action="${contextPath}/payform/payformProcess.do" method="POST">
+<form id="payment_form" action="${contextPath}/payform/payformProcess" method="POST">
     <div class="container">
         <div class="receipt_info">
             <span class="hidden">멤버 번호: <input id="memberNo" name="memberNo" value="${payform[0].memberNo}"></span>

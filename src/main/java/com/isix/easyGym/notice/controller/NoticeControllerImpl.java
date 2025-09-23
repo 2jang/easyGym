@@ -42,7 +42,7 @@ public class NoticeControllerImpl implements NoticeController{
 	private NoticeDTO noticeDTO;
 	
 	// 공지사항 조회
-	@RequestMapping(value = "/admin/noticeList.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/admin/noticeList", method = RequestMethod.GET)
 	public ModelAndView noticeList(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		
 		List nlist=noticeService.noticeList();
@@ -55,7 +55,7 @@ public class NoticeControllerImpl implements NoticeController{
 	
 	// 공지사항 작성폼
 	@Override
-	@GetMapping("/admin/noticeForm.do")
+	@GetMapping("/admin/noticeForm")
 	public ModelAndView noticeForm(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ModelAndView mv=new ModelAndView();
 		mv.setViewName("admin/noticeForm");
@@ -63,7 +63,7 @@ public class NoticeControllerImpl implements NoticeController{
 	}
 	
 	@Override
-	@PostMapping("/admin/addNotice.do")
+	@PostMapping("/admin/addNotice")
 	public ModelAndView addNotice(MultipartHttpServletRequest mulReq, HttpServletResponse response) throws Exception {
 		String imageFileName = null;
 		mulReq.setCharacterEncoding("utf-8");
@@ -111,13 +111,13 @@ public class NoticeControllerImpl implements NoticeController{
 				}
 			}
 		}
-		ModelAndView mv=new ModelAndView("redirect:/admin/noticeList.do");  //글 리스트 추가한걸 리스트목록에서 보여주기
+		ModelAndView mv=new ModelAndView("redirect:/admin/noticeList");  //글 리스트 추가한걸 리스트목록에서 보여주기
 		return mv;
 	}
 		
 	//여러 개의 이미지 상세 글보기
 	@Override
-	@RequestMapping("/admin/viewNotice.do") //상세 글 보기
+	@RequestMapping("/admin/viewNotice") //상세 글 보기
 	public ModelAndView viewNotice(@RequestParam("noticeNo") int noticeNo, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		Map noticeMap=noticeService.viewNotice(noticeNo);
 		ModelAndView mv=new ModelAndView();
@@ -127,7 +127,7 @@ public class NoticeControllerImpl implements NoticeController{
 	}
 	//여러 개의 이미지 글 수정하기
 	@Override
-	@PostMapping("/admin/modNotice.do")
+	@PostMapping("/admin/modNotice")
 	public ModelAndView modNotice(MultipartHttpServletRequest multipartRequest, HttpServletResponse response) throws Exception {
 		String imageFileName=null;
 		multipartRequest.setCharacterEncoding("utf-8");
@@ -174,19 +174,19 @@ public class NoticeControllerImpl implements NoticeController{
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
-		ModelAndView mav=new ModelAndView("redirect:/admin/noticeList.do");  
+		ModelAndView mav=new ModelAndView("redirect:/admin/noticeList");  
 		return mav;
 	}
 
 	@Override
-	@PostMapping("/admin/removeNotice.do")
+	@PostMapping("/admin/removeNotice")
 	public ModelAndView removeNotice(@RequestParam("noticeNo") int noticeNo, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		noticeService.removeNotice(noticeNo);
 		File imgDir=new File(ARTICLE_IMG_REPO + "\\" + noticeNo);  //객체 정보를 파일 형태로 만듦
 		if(imgDir.exists()) { 
 			FileUtils.deleteDirectory(imgDir);  
 		}
-		ModelAndView mv=new ModelAndView("redirect:/admin/noticeList.do");  //글 삭제 후 리스트목록 보여주기
+		ModelAndView mv=new ModelAndView("redirect:/admin/noticeList");  //글 삭제 후 리스트목록 보여주기
 		return mv;
 	}
 		
@@ -224,7 +224,7 @@ public class NoticeControllerImpl implements NoticeController{
 	
 	
 	// 공지사항 페이지에서 조회 ( 일반 조회 )
-		@RequestMapping(value = "/notice/noticeList.do", method = RequestMethod.GET)
+		@RequestMapping(value = "/notice/noticeList", method = RequestMethod.GET)
 		public ModelAndView noticePageList(@RequestParam(value ="section" , required = false) String _section, @RequestParam(value = "pageNum" ,  required = false) String _pageNum,HttpServletRequest request, HttpServletResponse response) throws Exception {
 			int section = Integer.parseInt((_section == null) ? "1" : _section);
 			int pageNum = Integer.parseInt((_pageNum == null) ? "1" : _pageNum);
@@ -245,7 +245,7 @@ public class NoticeControllerImpl implements NoticeController{
 		
 	// 공지사항 페이지 상세
 	@Override
-	@RequestMapping("/notice/viewNotice.do") //상세 글 보기
+	@RequestMapping("/notice/viewNotice") //상세 글 보기
 	public ModelAndView viewNoticePage(@RequestParam("noticeNo") int noticeNo, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		Map noMap=noticeService.viewNotice(noticeNo);
 		ModelAndView mv=new ModelAndView();
@@ -254,3 +254,4 @@ public class NoticeControllerImpl implements NoticeController{
 		return mv;
 	}
 }
+

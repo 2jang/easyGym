@@ -51,7 +51,7 @@
 
             if (parseInt('${payform.payformStatus}') === -1) {
                 alert("이미 환불이 완료된 결제건입니다.\n마이페이지로 돌아갑니다.");
-                window.location.replace("${contextPath}/mypage/mypageMain.do");
+                window.location.replace("${contextPath}/mypage/mypageMain");
             } else {
                 if (refundDay <= 7) {
                     var result = confirm("전액 환불이 가능합니다. 환불금액은 " + finalPr.toLocaleString() + "원입니다.\n환불을 진행하시겠습니까?");
@@ -67,7 +67,7 @@
                         alert("환불 진행을 취소했습니다.");
                 } else {
                     alert("환불 가능 기간이 경과하여 환불이 불가능합니다.");
-                    window.location.replace("${contextPath}/main.do");
+                    window.location.replace("${contextPath}/main");
                 }
             }
         }
@@ -82,7 +82,7 @@
     <link rel="stylesheet" type="text/css" href="${contextPath}/css/payform/payformCancel.css">
 </head>
 <body>
-<form id="refundForm" action="${contextPath}/payform/payformRefund.do" method="POST" style="display: none;">
+<form id="refundForm" action="${contextPath}/payform/payformRefund" method="POST" style="display: none;">
     <input type="hidden" name="payformNo" value="${payform.payformNo}">
     <input type="hidden" name="refundPrice" id="refundPrice">
     <input type="hidden" name="refundPoint" id="refundPoint" value="${payform.payformUsePoints}">

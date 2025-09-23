@@ -19,7 +19,7 @@ public class MemberLogoutController {
     @Autowired
     MemberService memberService;
 
-    @RequestMapping(value = {"/member/logout.do", "/member/operLogout.do"}, method = RequestMethod.GET)
+    @RequestMapping(value = {"/member/logout", "/member/operLogout"}, method = RequestMethod.GET)
     public ModelAndView logout(HttpServletRequest request, HttpServletResponse response) throws Exception {
         HttpSession session = request.getSession(false); // 기존 세션이 있을 경우 가져옴 (없으면 null 반환)
         ModelAndView mav = new ModelAndView();
@@ -48,7 +48,8 @@ public class MemberLogoutController {
             session.invalidate();
         }
 
-        mav.setViewName("redirect:/main.do"); // 로그아웃 후 메인 페이지로 리디렉션
+        mav.setViewName("redirect:/"); // 로그아웃 후 메인 페이지로 리디렉션
         return mav;
     }
 }
+

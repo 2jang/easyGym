@@ -17,7 +17,7 @@ import jakarta.servlet.http.HttpServletResponse;
 public class NoticeFileDownloadController extends HttpServlet {
 	private static String ARTICLE_IMG_REPO= "src\\main\\resources\\static\\images\\notice";
 
-	@GetMapping("/nodownload.do")
+	@GetMapping("/nodownload")
 	public void fileDown(@RequestParam("noticeNo") int noticeNo, @RequestParam("imageFileName") String imageFileName,HttpServletRequest request, HttpServletResponse response) throws Exception {
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html;charset=utf-8");
@@ -44,3 +44,4 @@ public class NoticeFileDownloadController extends HttpServlet {
 	        }
 	}
 }
+

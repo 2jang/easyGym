@@ -97,7 +97,7 @@
                 if (!memberNo) {
                     showAlert("로그인이 필요합니다. 로그인 페이지로 이동합니다.");
                     let address = window.location.href;
-                    window.location.href = '${contextPath}/member/loginForm.do?action=' + encodeURIComponent(address);
+                    window.location.href = '${contextPath}/member/loginForm?action=' + encodeURIComponent(address);
                     return;
                 }
                 if (requestInProgress) return;
@@ -284,7 +284,7 @@
                             </div>
                         </c:forEach>
                         <c:if test="${reviewCount > 2}">
-                            <a href="${contextPath}/detail/reviewViewer.do?detailNo=${details.detailNo}" class="viewAllReviews">후기 ${reviewCount}개 전체보기</a>
+                            <a href="${contextPath}/detail/reviewViewer?detailNo=${details.detailNo}" class="viewAllReviews">후기 ${reviewCount}개 전체보기</a>
                         </c:if>
                     </c:when>
                 </c:choose>
@@ -311,7 +311,7 @@
                 단, 회사가 직접 판매하는 통합회원권 상품의 경우, 다짐이 통신판매 당사자의 지위를 갖게 됩니다.
             </p>
             <div id="fixedContainer">
-                <form action="${contextPath}/payform/payformForm.do" method="post">
+                <form action="${contextPath}/payform/payformForm" method="post">
                     <input type="hidden" name="memberNo" value="${member.memberNo}">
                     <input type="hidden" name="detailNo" value="${details.detailNo}">
                     <button type="submit" id="ticketChoice">회원권 선택</button>

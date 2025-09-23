@@ -19,7 +19,7 @@ public class HomeController {
 	@Autowired
 	private DetailServiceImpl detailService;
 	
-	@GetMapping("/main.do")  //127.0.0.1:8090 => 이렇게만 매핑 보내기
+	@GetMapping("/")  //127.0.0.1:8090 루트로 접속
 	public ModelAndView main(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		List<DetailDTO> healthList=detailService.findPopularHealth();
 		List<DetailDTO> boxingList=detailService.findPopularBoxing();

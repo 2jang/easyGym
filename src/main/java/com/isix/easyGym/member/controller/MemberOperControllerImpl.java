@@ -36,14 +36,14 @@ public class MemberOperControllerImpl implements MemberOperController {
 	private TurnstileService turnstileService;
 	
 	// 사업자 회원가입 페이지
-	@RequestMapping(value = "/member/operJoinForm.do")
+	@RequestMapping(value = "/member/operJoinForm")
 	public ModelAndView operJoinPage(@ModelAttribute("memberOperDTO") MemberOperDTO memberOperDTO, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("member/operJoin");
 		return mav;
 	}
 	// 사업자 회원가입 기능
-	@PostMapping(value = "/member/operJoin.do")
+	@PostMapping(value = "/member/operJoin")
 	public ModelAndView addOperator(@ModelAttribute("memberOperDTO") MemberOperDTO memberOperDTO, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		ModelAndView mav = new ModelAndView();
@@ -60,13 +60,13 @@ public class MemberOperControllerImpl implements MemberOperController {
 			return mav;
 		}
 		memberOperService.addOperator(memberOperDTO);
-		mav.setViewName("redirect:/member/afterEntJoin.do");
+		mav.setViewName("redirect:/member/afterEntJoin");
 		return mav;
 	}
 	
 	// 사업자 회원가입 완료 페이지
 	@Override
-	@RequestMapping(value="/member/afterEntJoin.do")
+	@RequestMapping(value="/member/afterEntJoin")
 	public ModelAndView afterEntJoin(MemberOperDTO memberOperDTO, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		ModelAndView mav = new ModelAndView();
@@ -76,7 +76,7 @@ public class MemberOperControllerImpl implements MemberOperController {
 	
 	// 사업자 로그인 페이지
 	@Override
-	@RequestMapping(value = "/member/operLoginForm.do")
+	@RequestMapping(value = "/member/operLoginForm")
 	public ModelAndView operLoginForm(MemberOperDTO operator, String action, String result, HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
 		ModelAndView mav = new ModelAndView();
@@ -84,7 +84,7 @@ public class MemberOperControllerImpl implements MemberOperController {
 		return mav;
 	}
 	@Override
-	@RequestMapping(value = "/member/operLogin.do", method = RequestMethod.POST)
+	@RequestMapping(value = "/member/operLogin", method = RequestMethod.POST)
 	public ModelAndView operLogin(@ModelAttribute("operator") MemberOperDTO operator,
 	                              RedirectAttributes rAttr,
 	                              HttpServletRequest request,
@@ -113,11 +113,11 @@ public class MemberOperControllerImpl implements MemberOperController {
 	        if (action != null) {
 	            mv.setViewName("redirect:" + action);
 	        } else {
-	            mv.setViewName("redirect:/main.do");
+	            mv.setViewName("redirect:/");
 	        }
 	    } else {
 	        rAttr.addFlashAttribute("loginFailed", true);  // RedirectAttributes 사용하여 로그인 실패 메시지 전달
-	        mv.setViewName("redirect:/member/operLoginForm.do");  // 로그인 실패 시 다시 로그인 폼으로 리디렉션
+	        mv.setViewName("redirect:/member/operLoginForm");  // 로그인 실패 시 다시 로그인 폼으로 리디렉션
 	    }
 	    
 	    return mv;
@@ -136,7 +136,7 @@ public class MemberOperControllerImpl implements MemberOperController {
 		return null;
 	}
 	// 아이디 중복체크
-		@PostMapping("/operator/checkId.do")
+		@PostMapping("/operator/checkId")
 		@ResponseBody
 		public ResponseEntity<Boolean> confirmOpId(@RequestParam("operatorId")String operatorId) {
 			
@@ -158,3 +158,4 @@ public class MemberOperControllerImpl implements MemberOperController {
 
 
 }
+

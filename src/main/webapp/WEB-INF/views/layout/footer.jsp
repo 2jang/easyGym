@@ -3,7 +3,7 @@
 <!-- Footer -->
 <footer id="footer">
 	<ul class="copyright">
-		<li>© EASYGYM</li><li>Design: <a href="/main.do">EASYGYM</a></li><li><a href="/admin/loginForm.do">ADMIN</a></li>
+		<li>© EASYGYM</li><li>Design: <a href="/">EASYGYM</a></li><li><a href="/admin/loginForm">ADMIN</a></li>
 	</ul>
 </footer>
 

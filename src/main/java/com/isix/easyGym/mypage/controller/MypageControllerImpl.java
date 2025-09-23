@@ -48,7 +48,7 @@ public class MypageControllerImpl implements MypageController {
 
 	//1.내 정보
 	//첫 페이지(이용중인 상품) 화면 불러오기
-	@RequestMapping(value = "/mypage/mypageMain.do")
+	@RequestMapping(value = "/mypage/mypageMain")
 	public ModelAndView mypageInfo(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ModelAndView mav=new ModelAndView();
 		mav.setViewName("/mypage/mypageMain");
@@ -58,7 +58,7 @@ public class MypageControllerImpl implements MypageController {
 	//이용중인 상품 목록 가져오기 / 찜 목록 가져오기
 	@Override
 	@ResponseBody
-	@RequestMapping(value = "/mypage/mypageMain.do", method = RequestMethod.POST)
+	@RequestMapping(value = "/mypage/mypageMain", method = RequestMethod.POST)
 	public Map<String, Object> mypageData(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		HttpSession session = request.getSession(false);
 		MemberDTO memberDTO = (MemberDTO) session.getAttribute("member");
@@ -78,7 +78,7 @@ public class MypageControllerImpl implements MypageController {
 	//찜 취소
 	@Override
 	@ResponseBody
-	@RequestMapping(value = "/mypage/removeDibs.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/mypage/removeDibs", method = RequestMethod.GET)
 	public ModelAndView removeDibs(@RequestParam("detailNo") int detailNo, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		String detailNoStr = request.getParameter("detailNo");
 	    System.out.println("Received detailNo: " + detailNoStr); // 디버깅용 로그
@@ -92,14 +92,14 @@ public class MypageControllerImpl implements MypageController {
 	    MemberDTO memberDTO = (MemberDTO) session.getAttribute("member");
 	    System.out.println("Member No: " + memberDTO.getMemberNo() + ", Detail No: " + detailNo); // 디버깅용 로그
 	    mypageService.removeDibs(memberDTO.getMemberNo(), detailNo);
-	    ModelAndView mav=new ModelAndView("redirect:/mypage/mypageMain.do");
+	    ModelAndView mav=new ModelAndView("redirect:/mypage/mypageMain");
 		return mav;
 	}
 
 	//2.내역조회(구매내역/신고내역/리뷰내역)
 	@Override
 	@ResponseBody
-	@RequestMapping(value = "/mypage/searchHistory.do", method = RequestMethod.POST)
+	@RequestMapping(value = "/mypage/searchHistory", method = RequestMethod.POST)
 	public Map<String, Object> searchHistory(HttpServletRequest request, HttpServletResponse response) throws Exception {
 	    HttpSession session = request.getSession(false);
 	    MemberDTO memberDTO = (MemberDTO) session.getAttribute("member");
@@ -126,7 +126,7 @@ public class MypageControllerImpl implements MypageController {
 	//비밀번호 체크
 	@Override
 	@ResponseBody
-	@RequestMapping(value = "/mypage/checkPassword.do", method = RequestMethod.POST)
+	@RequestMapping(value = "/mypage/checkPassword", method = RequestMethod.POST)
     public ResponseEntity<Boolean> checkPassword(
         @RequestParam("memberNo") int memberNo,
         @RequestParam("memberPwd") String memberPwd
@@ -141,7 +141,7 @@ public class MypageControllerImpl implements MypageController {
 
 	//회원정보 수정
 	@Override
-	@RequestMapping(value = "/mypage/memberUpdate.do", method = RequestMethod.POST)
+	@RequestMapping(value = "/mypage/memberUpdate", method = RequestMethod.POST)
 	public ModelAndView memberUpdate(
 	        @RequestParam("memberPwd") String memberPwd,
 	        @RequestParam("memberPhone") String memberPhone,
@@ -165,14 +165,14 @@ public class MypageControllerImpl implements MypageController {
 	    System.out.println(memberDTO.getMemberPhone() + " 변경");
 
 	    // 성공적으로 업데이트된 후 mypageMain.do로 리다이렉트
-	    ModelAndView mav = new ModelAndView("redirect:/mypage/mypageMain.do");
+	    ModelAndView mav = new ModelAndView("redirect:/mypage/mypageMain");
 	    return mav;
 	}
 
 	//회원탈퇴
 	@Override
     @ResponseBody
-    @RequestMapping(value = "/mypage/withdraw.do", method = {RequestMethod.POST})
+    @RequestMapping(value = "/mypage/withdraw", method = {RequestMethod.POST})
     public ModelAndView delMember(@RequestParam("memberNo") int memberNo, HttpServletRequest request, HttpServletResponse response) throws Exception {
 		 HttpSession session = request.getSession();
 	        MemberDTO memberDTO = (MemberDTO) session.getAttribute("member");
@@ -184,7 +184,7 @@ public class MypageControllerImpl implements MypageController {
 	        mypageService.delMember(memberNo);
 	        session.invalidate(); // 세션 무효화
 
-	        ModelAndView mav = new ModelAndView("redirect:/main.do");
+	        ModelAndView mav = new ModelAndView("redirect:/");
 	        mav.addObject("message", "회원탈퇴가 완료되었습니다.");
 	        return mav;
     }
@@ -228,3 +228,4 @@ public class MypageControllerImpl implements MypageController {
 
 
 }
+

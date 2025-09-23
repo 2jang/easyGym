@@ -44,7 +44,7 @@ public class FreeboardControllerImpl implements FreeBoardController {
 	@Autowired
 	private FreeDTO freeDTO;
 
-	@RequestMapping(value="/freeboard/fboardList.do")  // 페이징처리 required의 기본값 true  value에 값이 없으면 null을 반환 
+	@RequestMapping(value="/freeboard/fboardList")  // 페이징처리 required의 기본값 true  value에 값이 없으면 null을 반환 
 	public ModelAndView listFboard(@RequestParam(value ="section" , required = false) String _section, @RequestParam(value = "pageNum" ,  required = false) String _pageNum,  HttpServletRequest req, HttpServletResponse res) throws Exception {
 		int section = Integer.parseInt((_section == null) ? "1" : _section);
 		int pageNum = Integer.parseInt((_pageNum == null) ? "1" : _pageNum);
@@ -64,7 +64,7 @@ public class FreeboardControllerImpl implements FreeBoardController {
 	
 	
 	@Override
-	@GetMapping("/freeboard/fboardForm.do")
+	@GetMapping("/freeboard/fboardForm")
 	public ModelAndView fboardForm(HttpServletRequest req, HttpServletResponse res) throws Exception {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("freeboard/fboardForm");
@@ -75,7 +75,7 @@ public class FreeboardControllerImpl implements FreeBoardController {
 	
 	// 글쓰기에 여러 개의 이미지 추가 
 	
-	@PostMapping("/freeboard/addFreeboard.do")
+	@PostMapping("/freeboard/addFreeboard")
 	public ModelAndView addFboard(MultipartHttpServletRequest mulReq, HttpServletResponse res) throws Exception {
 	    String imageFileName = null;
 	    mulReq.setCharacterEncoding("utf-8");
@@ -127,7 +127,7 @@ public class FreeboardControllerImpl implements FreeBoardController {
 	            }
 	        }
 	    }
-	    ModelAndView mv = new ModelAndView("redirect:/freeboard/fboardList.do");
+	    ModelAndView mv = new ModelAndView("redirect:/freeboard/fboardList");
 	    return mv;
 	}
 	
@@ -138,7 +138,7 @@ public class FreeboardControllerImpl implements FreeBoardController {
 	
 	// 한개의 이미지 상세보기
 //	@Override
-//	@RequestMapping(value="/board/viewArticle.do")
+//	@RequestMapping(value="/board/viewArticle")
 //	public ModelAndView viewArticle(@RequestParam("articleNo") int articleNo, HttpServletRequest req, HttpServletResponse res) throws Exception {
 //		articleDTO = boardService.viewArticle(articleNo);
 //		ModelAndView mv = new ModelAndView();
@@ -148,7 +148,7 @@ public class FreeboardControllerImpl implements FreeBoardController {
 //	}
 
 	// 여러개의 이미지 상세보기
-	@RequestMapping(value="/freeboard/viewfboard.do")
+	@RequestMapping(value="/freeboard/viewfboard")
 	public ModelAndView viewFboard(@RequestParam("freeNo") int freeNo, HttpServletRequest req, HttpServletResponse res) throws Exception {
 		//articleDTO = boardService.viewArticle(articleNo);
 		Map fbmap = freeboardservice.viewFboard(freeNo); // 두개의 테이블을 거쳐야 하기 때문에 map으로 변경
@@ -170,7 +170,7 @@ public class FreeboardControllerImpl implements FreeBoardController {
 	
 	// 한개의 이미지 수정
 	/*@Override
-	@RequestMapping(value="/board/modArticle.do")
+	@RequestMapping(value="/board/modArticle")
 	public ModelAndView modArticle(MultipartHttpServletRequest mulReq, HttpServletResponse res) throws Exception {
 		mulReq.setCharacterEncoding("utf-8");
 		Map<String, Object> amap = new HashMap<String,Object>();
@@ -198,14 +198,14 @@ public class FreeboardControllerImpl implements FreeBoardController {
 			File oldFile = new File(ARTICLE_IMG_REPO + "\\" + articleNo + "\\" + originalFileName);
 			oldFile.delete();
 		}
-		ModelAndView mv = new ModelAndView("redirect:/board/viewArticle.do?articleNo=" + articleNo);
+		ModelAndView mv = new ModelAndView("redirect:/board/viewArticle?articleNo=" + articleNo);
 		
 		return mv;
 	}*/
 	
 	// 여러개의 이미지 수정
 	
-	@RequestMapping(value="/freeboard/modFboard.do")
+	@RequestMapping(value="/freeboard/modFboard")
 	public ModelAndView modFboard(MultipartHttpServletRequest mulReq, HttpServletResponse res) throws Exception {
 	    String imageFileName = null;
 	    mulReq.setCharacterEncoding("utf-8");
@@ -263,7 +263,7 @@ public class FreeboardControllerImpl implements FreeBoardController {
 	        e.printStackTrace();
 	    }
 
-	    ModelAndView mv = new ModelAndView("redirect:/freeboard/fboardList.do");
+	    ModelAndView mv = new ModelAndView("redirect:/freeboard/fboardList");
 	    return mv;
 	}
 
@@ -272,7 +272,7 @@ public class FreeboardControllerImpl implements FreeBoardController {
 	
 	
 	// 한개의 이미지 / 여러개 이미지 삭제 ( ON DELETE CASCADE 한다 )
-	@RequestMapping(value="/freeboard/removeFboard.do")
+	@RequestMapping(value="/freeboard/removeFboard")
 	public ModelAndView removeFboard(@RequestParam("freeNo") int freeNo, HttpServletRequest req, HttpServletResponse res) throws Exception {
 		System.out.println(freeNo + "번호");
 		freeboardservice.removeFboard(freeNo);
@@ -280,7 +280,7 @@ public class FreeboardControllerImpl implements FreeBoardController {
 		if(imgDir.exists()) { // 폴더가 있으면
 			FileUtils.deleteDirectory(imgDir); // 폴더삭제 메소드
 		}
-		ModelAndView mv = new ModelAndView("redirect:/freeboard/fboardList.do");
+		ModelAndView mv = new ModelAndView("redirect:/freeboard/fboardList");
 		return mv;
 	}
 
@@ -331,3 +331,4 @@ public class FreeboardControllerImpl implements FreeBoardController {
 		return imageFileName;
 	}
 }
+

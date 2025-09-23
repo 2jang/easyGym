@@ -44,9 +44,10 @@
 		<div class="card-body">
 			<h5 class="card-title">일반회원으로 가입해주셔서 감사합니다. </h5>
 			<p class="card-text">일반회원가입이 완료되었으니 로그인 후 주변 운동시설을 둘러보세요. </p>
-			<a href="/member/loginForm.do" class="btn btn-primary stretched-link">로그인하러가기</a>
+			<a href="/member/loginForm" class="btn btn-primary stretched-link">로그인하러가기</a>
 		</div>
 	</div>
 </div>
 
 <%@ include file="/WEB-INF/views/layout/footer.jsp"%>
+

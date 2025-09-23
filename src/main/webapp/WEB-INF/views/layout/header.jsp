@@ -47,7 +47,7 @@
 	<div id="page-wrapper">
 		<header id="header" class="alt">
 			<div id="logo" >
-				<a href="/main.do">EasyGym </a>
+				<a href="/">EasyGym </a>
 			</div>
 			
 			<nav id="nav">
@@ -55,20 +55,20 @@
 				<c:choose>
 				
                <c:when test="${sessionScope.isLogOn eq true and sessionScope.member ne null}">
-               	  <li class="current"><a href="/main.do">Home</a></li>
-					<li class="current"><a href="${contextPath }/freeboard/fboardList.do">Community</a></li>
-					<li class="current"><a href="${contextPath }/notice/noticeList.do">Notice</a></li>
+               	  <li class="current"><a href="/">Home</a></li>
+					<li class="current"><a href="${contextPath }/freeboard/fboardList">Community</a></li>
+					<li class="current"><a href="${contextPath }/notice/noticeList">Notice</a></li>
                   <li class="submenu">
                   
-					<a href="${contextPath}/detail/search.do?query="><span>▼</span>Find My Gym</a>
+					<a href="${contextPath}/detail/search?query="><span>▼</span>Find My Gym</a>
 						<ul>
-							<li><a href="${contextPath}/detail/search.do?query=&detailClassification=health">Fitness</a></li>
-							<li><a href="${contextPath}/detail/search.do?query=&detailClassification=pilates">Pilates</a></li>
-							<li><a href="${contextPath}/detail/search.do?query=&detailClassification=boxing">Boxing</a></li>
+							<li><a href="${contextPath}/detail/search?query=&detailClassification=health">Fitness</a></li>
+							<li><a href="${contextPath}/detail/search?query=&detailClassification=pilates">Pilates</a></li>
+							<li><a href="${contextPath}/detail/search?query=&detailClassification=boxing">Boxing</a></li>
 						</ul>
 					</li>
-                  <li class="current"><a href ="/mypage/mypageMain.do">My Page</a></li>
-                  <li class="current"><a href ="/member/logout.do">Sign out</a></li>
+                  <li class="current"><a href ="/mypage/mypageMain">My Page</a></li>
+                  <li class="current"><a href ="/member/logout">Sign out</a></li>
                   <li class="nav-item">
                      <div class="welcome-message">
                         환영합니다, <span>${sessionScope.member.memberName}님!</span>
@@ -76,11 +76,11 @@
                </c:when>
                
                <c:when test="${sessionScope.isLogOn eq true and sessionScope.operator ne null}">
-               	  <li class="current"><a href="/main.do">Home</a></li>
-					<li class="current"><a href="${contextPath }/freeboard/fboardList.do">Community</a></li>
-					<li class="current"><a href="${contextPath }/notice/noticeList.do">Notice</a></li>
-                  <li class="current"><a href="/detail/registration.do">업체 등록하기</a></li>
-                  <li class="current"><a href="/member/logout.do">로그아웃</a></li>
+               	  <li class="current"><a href="/">Home</a></li>
+					<li class="current"><a href="${contextPath }/freeboard/fboardList">Community</a></li>
+					<li class="current"><a href="${contextPath }/notice/noticeList">Notice</a></li>
+                  <li class="current"><a href="/detail/registration">업체 등록하기</a></li>
+                  <li class="current"><a href="/member/logout">로그아웃</a></li>
                   <li class="current">
                      <div class="welcome-message">
                         환영합니다, 사업자 <span>${sessionScope.operator.operatorName}님!</span>
@@ -88,19 +88,19 @@
                </c:when>
      
                <c:otherwise>
-                  <li class="current"><a href="/main.do">Home</a></li>
-					<li class="current"><a href="${contextPath }/freeboard/fboardList.do">Community</a></li>
-					<li class="current"><a href="${contextPath }/notice/noticeList.do">Notice</a></li>
+                  <li class="current"><a href="/">Home</a></li>
+					<li class="current"><a href="${contextPath }/freeboard/fboardList">Community</a></li>
+					<li class="current"><a href="${contextPath }/notice/noticeList">Notice</a></li>
                   <li class="submenu">
-					<a href="${contextPath}/detail/search.do?query="><span>▼</span>Find My Gym</a>
+					<a href="${contextPath}/detail/search?query="><span>▼</span>Find My Gym</a>
 						<ul>
-							<li><a href="${contextPath}/detail/search.do?query=&detailClassification=health">Fitness</a></li>
-							<li><a href="${contextPath}/detail/search.do?query=&detailClassification=pilates">Pilates</a></li>
-							<li><a href="${contextPath}/detail/search.do?query=&detailClassification=boxing">Boxing</a></li>
+							<li><a href="${contextPath}/detail/search?query=&detailClassification=health">Fitness</a></li>
+							<li><a href="${contextPath}/detail/search?query=&detailClassification=pilates">Pilates</a></li>
+							<li><a href="${contextPath}/detail/search?query=&detailClassification=boxing">Boxing</a></li>
 						</ul>
 					</li>
 					
-					<li><a href="/member/loginForm.do" class="button primary">Sign in</a></li>
+					<li><a href="/member/loginForm" class="button primary">Sign in</a></li>
                </c:otherwise>
             </c:choose>
             
@@ -111,3 +111,4 @@
 			</div>
 	</div>
 	</body>
+

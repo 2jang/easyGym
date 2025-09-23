@@ -17,7 +17,7 @@ import jakarta.servlet.http.HttpServletResponse;
 public class FreeFileDownloadController extends HttpServlet {
 	private static String ARTICLE_IMG_REPO= "src\\main\\resources\\static\\images\\freeboard";
 
-	@GetMapping("/frdownload.do")
+	@GetMapping("/frdownload")
 	public void fileDown(@RequestParam("freeNo") int freeNo, @RequestParam("imageFileName") String imageFileName,HttpServletRequest request, HttpServletResponse response) throws Exception {
 		request.setCharacterEncoding("utf-8");
 		response.setContentType("text/html;charset=utf-8");
@@ -44,3 +44,4 @@ public class FreeFileDownloadController extends HttpServlet {
 	        }
 	}
 }
+

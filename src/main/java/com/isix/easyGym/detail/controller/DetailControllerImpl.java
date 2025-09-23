@@ -62,7 +62,7 @@ public class DetailControllerImpl implements DetailController {
 	@Autowired private ObjectMapper objectMapper; // Jackson ObjectMapper 주입
 
 	@Override
-	@RequestMapping(value = "/detail/detail.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/detail/detail", method = RequestMethod.GET)
 	public ModelAndView detailForm(
 			@RequestParam("detailNo") int detailNo,
 			@RequestParam(value = "memberNo", required = false) String memberNo,
@@ -95,7 +95,7 @@ public class DetailControllerImpl implements DetailController {
 	}
 
 	@Override
-	@GetMapping("/detail/search.do")
+	@GetMapping("/detail/search")
 	public ModelAndView searchData(@RequestParam("query") String query,
 								   @RequestParam(value = "detailClassification",required = false) String detailClassification,
 								   HttpServletRequest request, HttpServletResponse response) throws Exception{
@@ -125,7 +125,7 @@ public class DetailControllerImpl implements DetailController {
 
 	@Override
 	@ResponseBody
-	@RequestMapping(value = "/detail/selectReport.do", method = RequestMethod.POST)
+	@RequestMapping(value = "/detail/selectReport", method = RequestMethod.POST)
 	public String selectReport(@RequestParam("memberNo") int memberNo,
 							   @RequestParam("detailNo") int detailNo,
 							   HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -152,7 +152,7 @@ public class DetailControllerImpl implements DetailController {
 	}
 
 	@ResponseBody
-	@RequestMapping(value = "/report.do", method = RequestMethod.POST)
+	@RequestMapping(value = "/report", method = RequestMethod.POST)
 	public String doReport(@RequestParam("memberNo") int memberNo, @RequestParam("detailNo") int detailNo,
 						   @RequestParam("reportContent") String reportContent, HttpServletRequest request,
 						   HttpServletResponse response) throws Exception {
@@ -179,7 +179,7 @@ public class DetailControllerImpl implements DetailController {
 			return "error"; // 에러 발생 시 반환할 값
 		}
 	}
-	@RequestMapping(value="/detail/reviewViewer.do" , method=RequestMethod.GET)
+	@RequestMapping(value="/detail/reviewViewer" , method=RequestMethod.GET)
 	@Override
 	public ModelAndView reviewViewer(@RequestParam(value = "section", required = false) String _section,
 									 @RequestParam(value = "pageNum", required = false) String _pageNum,
@@ -208,14 +208,14 @@ public class DetailControllerImpl implements DetailController {
 	}
 
 
-	@GetMapping("/detail/registration.do")  //127.0.0.1:8090 => 이렇게만 매핑 보내기
+	@GetMapping("/detail/registration")  //127.0.0.1:8090 => 이렇게만 매핑 보내기
 	public ModelAndView registration(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ModelAndView mav=new ModelAndView();
 		mav.setViewName("/detail/registration");
 		return mav;
 	}
 
-	@RequestMapping(value = "/detail/signUpForm.do", method = RequestMethod.POST)
+	@RequestMapping(value = "/detail/signUpForm", method = RequestMethod.POST)
 	public ModelAndView signUpForm(
 			@RequestParam("detailBusinessEng") String detailBusinessEng,
 			@RequestParam("operatorNo") int operatorNo,
@@ -284,7 +284,7 @@ public class DetailControllerImpl implements DetailController {
 
 	@Override
 	@ResponseBody
-	@RequestMapping(value = "/getReviews.do", method = {RequestMethod.POST, RequestMethod.GET})
+	@RequestMapping(value = "/getReviews", method = {RequestMethod.POST, RequestMethod.GET})
 	public List<DetailReviewDTO> getReviews(@RequestParam("detailNo") int detailNo, HttpServletRequest request,
 											HttpServletResponse response) throws Exception {
 		List<DetailReviewDTO> reviews = detailService.getReviews(detailNo);
@@ -339,7 +339,7 @@ public class DetailControllerImpl implements DetailController {
 
 	@Override
 	@ResponseBody
-	@RequestMapping(value="/writeReview.do", method = RequestMethod.POST)
+	@RequestMapping(value="/writeReview", method = RequestMethod.POST)
 	public String writeReview(
 			@RequestParam("detailNo") String detailNo,
 			@RequestParam(value="memberNo", required = false) int memberNo,
@@ -436,7 +436,7 @@ public class DetailControllerImpl implements DetailController {
 
 	@ResponseBody
 	@Override
-	@RequestMapping(value="/getReviewImages.do", method = RequestMethod.GET)
+	@RequestMapping(value="/getReviewImages", method = RequestMethod.GET)
 	public List<DetailReviewDTO> getReviewImages(@RequestParam("detailNo") int detailNo, HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
 		List<DetailReviewDTO> reviewImages = detailService.getReviewImages(detailNo);
@@ -452,7 +452,7 @@ public class DetailControllerImpl implements DetailController {
 
 	@Override
 	@ResponseBody
-	@RequestMapping(value = "/delete.do", method = RequestMethod.POST)
+	@RequestMapping(value = "/delete", method = RequestMethod.POST)
 	public String deleteReview(@RequestParam("detailNo") int detailNo,
 							   @RequestParam("reviewNo") int reviewNo,
 							   @RequestParam("memberNo") int memberNo,

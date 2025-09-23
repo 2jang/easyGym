@@ -27,7 +27,7 @@
                                 <div class="card shadow-lg border-0 rounded-lg mt-5">
                                     <div class="card-header"><h3 class="text-center font-weight-light my-4">Login</h3></div>
                                     <div class="card-body">
-                                        <form name="adminLogin" action="/admin/login.do" method="post" id="admin-login-form">
+                                        <form name="adminLogin" action="/admin/login" method="post" id="admin-login-form">
                                             <div class="form-floating mb-3">
                                                 <input class="form-control" id="inputId" name="adminId" type="text" placeholder="Id" />
                                                 <label for="inputId">Id</label>
@@ -46,7 +46,7 @@
                                                  style="margin: 20px 0;">
                                             </div>
                                             <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
-                                                <a class="small" href="/admin/joinForm.do">관리자 가입</a>
+                                                <a class="small" href="/admin/joinForm">관리자 가입</a>
                                                 <a class="btn btn-primary" > <input type="submit" value="로그인" class="loginBtn" id="admin-login-submit" disabled></a>
                                             </div>
                                         </form>
@@ -94,3 +94,4 @@
         <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
     </body>
 </html>
+

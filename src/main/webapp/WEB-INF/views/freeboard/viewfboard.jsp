@@ -43,7 +43,7 @@
 	                        <td colspan="4">
 	                            <div class="image-container">
 	                                <c:forEach var="imgList" items="${fbmap.imageFileList}" varStatus="status">
-	                                    <img id="preview${status.count}" src="<c:url value='/frdownload.do'/>?freeNo=${imgList.freeNo}&imageFileName=${imgList.imageFileName}">
+	                                    <img id="preview${status.count}" src="<c:url value='/frdownload'/>?freeNo=${imgList.freeNo}&imageFileName=${imgList.imageFileName}">
 	                                    <input type="file" class="id_imgFile" name="imageFileName${status.count}" onchange="readImage(this, ${status.count})" disabled>
 	                                </c:forEach>
 	                            </div>
@@ -67,10 +67,10 @@
             <c:choose>
                 <c:when test="${fbmap != null && sessionScope != null && sessionScope.member != null && fbmap.fboard.memberNo == sessionScope.member.memberNo}">
                     <input class="btn btn-outline-secondary" type="button" value="수정하기" onclick="fn_enable(frmArticle)">
-                    <input class="btn btn-outline-secondary" type="button" id="deleteButton" value="삭제하기" onclick="fn_remove_fboard('/freeboard/removeFboard.do','${fbmap.fboard.freeNo}')">
+                    <input class="btn btn-outline-secondary" type="button" id="deleteButton" value="삭제하기" onclick="fn_remove_fboard('/freeboard/removeFboard','${fbmap.fboard.freeNo}')">
                 </c:when>
             </c:choose>
-            <input class="btn btn-outline-secondary reBtn" type="button" value="돌아가기" onclick="location.href='/freeboard/fboardList.do'">
+            <input class="btn btn-outline-secondary reBtn" type="button" value="돌아가기" onclick="location.href='/freeboard/fboardList'">
         </div>
         <div class="button-group bg" id="div_button_modify" style="display: none;">
             <input class="btn btn-outline-secondary" value="수정 확인" onclick="fn_modify_fboard(frmArticle)">
@@ -124,7 +124,7 @@
 
         $.ajax({
             type: 'GET',
-            url: '/freeboard/getAnswerListAjax.do',
+            url: '/freeboard/getAnswerListAjax',
             data: { freeNo: freeNo },
             success: function(response) {
                 if (response.status === 'success') {
@@ -159,13 +159,13 @@
 
         if (!memberNo) {
             alert('로그인 후 작성해주세요');
-            window.location.href = '/member/loginForm.do'; // 로그인 페이지로 리디렉션
+            window.location.href = '/member/loginForm'; // 로그인 페이지로 리디렉션
             return; // 로그인하지 않은 상태에서는 추가 처리를 하지 않음
         }
 
         $.ajax({
             type: 'POST',
-            url: '/freeboard/addAnswerAjax.do',
+            url: '/freeboard/addAnswerAjax',
             data: {
                 freeNo: freeNo,
                 memberNo: memberNo,
@@ -183,7 +183,7 @@
             error: function(xhr, status, error) {
                 if (xhr.status === 401) { // 로그인하지 않은 경우
                     alert('로그인 후 작성해주세요');
-                    window.location.href = '/member/loginForm.do'; // 로그인 페이지로 리디렉션
+                    window.location.href = '/member/loginForm'; // 로그인 페이지로 리디렉션
                 } else {
                     alert("댓글 등록 중 오류 발생: " + error);
                 }
@@ -194,7 +194,7 @@
     function del(fbanswerNo) {
         $.ajax({
             type: 'POST',
-            url: '/freeboard/removeAnswerAjax.do',
+            url: '/freeboard/removeAnswerAjax',
             data: { fbanswerNo: fbanswerNo },
             success: function(response) {
                 if (response.status === 'success') {
@@ -211,3 +211,4 @@
 </script>
 
 <%@ include file="/WEB-INF/views/layout/footer.jsp"%>
+

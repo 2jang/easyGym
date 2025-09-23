@@ -16,7 +16,7 @@
 </section>
 <div class="form-container">
 	<form name="opJoin" id="form" class="form" method="post"
-		action="/member/operJoin.do" onsubmit="combineBizNum()">
+		action="/member/operJoin" onsubmit="combineBizNum()">
 		<img src="/images/member/fitness.png" class="img-fluid"
 			alt="Fitness Image" />
 

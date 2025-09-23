@@ -85,7 +85,7 @@
             if (!memberNo) {
                 showAlert("로그인이 필요합니다. 로그인 페이지로 이동합니다.");
                 let address = window.location.href;
-                window.location.href = '${contextPath}/member/loginForm.do?action=' + encodeURIComponent(address);
+                window.location.href = '${contextPath}/member/loginForm?action=' + encodeURIComponent(address);
                 return;
             }
             var button = this;
@@ -121,13 +121,13 @@
     });
 
     function goToDetail(detailNo) {
-        window.location.href = '${contextPath}/detail/detail.do?detailNo=' + detailNo;
+        window.location.href = '${contextPath}/detail/detail?detailNo=' + detailNo;
     }
 </script>
 <div id="alertContainer"></div>
 <section id="banner">
     <div class="search-container">
-        <form id="searchForm" class="search-form" action="${contextPath}/detail/search.do">
+        <form id="searchForm" class="search-form" action="${contextPath}/detail/search">
             <input type="text" name="query" placeholder="업체명을 입력하세요..." class="search-input" style="background-color:#fff; border-radius:5px 0 0 5px; color:#7c8081;">
             <button type="submit" class="search-button">검색</button>
         </form>
@@ -274,10 +274,10 @@
         const facilityType = document.getElementById('facilityType').value;
 
         if (selectedDistrict != "default") {
-            const url = '${contextPath}/detail/search.do?query=서울특별시 ' + selectedDistrict + '&detailClassification=' + facilityType;
+            const url = '${contextPath}/detail/search?query=서울특별시 ' + selectedDistrict + '&detailClassification=' + facilityType;
             window.location.href = url;
         } else {
-            const url = '${contextPath}/detail/search.do?query=&detailClassification=' + facilityType;
+            const url = '${contextPath}/detail/search?query=&detailClassification=' + facilityType;
             window.location.href = url;
         }
     }

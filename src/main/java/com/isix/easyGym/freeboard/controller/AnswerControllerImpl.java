@@ -32,7 +32,7 @@ public class AnswerControllerImpl implements AnswerController{
 	private FreeDAO freeDAO;
 	
 //	// 댓글 리스트
-//	@RequestMapping(value= "/freeboard/answerList.do", method =  RequestMethod.GET)
+//	@RequestMapping(value= "/freeboard/answerList", method =  RequestMethod.GET)
 //	public ModelAndView answerList(HttpServletRequest request, HttpServletResponse response) throws Exception {
 //		Map<String, Object> map = new HashMap<String, Object>();
 //		Map amap = answerService.answerList(map);
@@ -43,7 +43,7 @@ public class AnswerControllerImpl implements AnswerController{
 //	}
 //	
 //	// 댓글등록
-//	@PostMapping("/freeboard/addAnswer.do")
+//	@PostMapping("/freeboard/addAnswer")
 //    public ModelAndView addFboard(@RequestParam(value="freeNo", required = false) String freeNo,
 //                                  @RequestParam(value="memberNo", required = false) String memberNo,
 //                                  @RequestParam(value="fbanswerContent", required = false) String fbanswerContent,
@@ -90,7 +90,7 @@ public class AnswerControllerImpl implements AnswerController{
 //		 * fbimageDTO.getImageFileName(); File srcFile = new File(ARTICLE_IMG_REPO +
 //		 * "\\temp\\" + imageFileName); srcFile.delete(); } } }
 //		 */
-//        ModelAndView mv = new ModelAndView("redirect:/freeboard/viewfboard.do?freeNo=freeNo");
+//        ModelAndView mv = new ModelAndView("redirect:/freeboard/viewfboard?freeNo=freeNo");
 //        return mv;
 //    }
 //	
@@ -98,7 +98,7 @@ public class AnswerControllerImpl implements AnswerController{
 //	
 //	
 //	// 댓글 삭제
-//	@RequestMapping(value="/freeboard/removeAnswer.do")
+//	@RequestMapping(value="/freeboard/removeAnswer")
 //	public ModelAndView removeFboard(@RequestParam("fbanswerNo") int fbanswerNo, HttpServletRequest req, HttpServletResponse res) throws Exception {
 //		System.out.println(fbanswerNo + "번호");
 //		answerService.removeAnswer(fbanswerNo);
@@ -106,7 +106,7 @@ public class AnswerControllerImpl implements AnswerController{
 //		if(imgDir.exists()) { // 폴더가 있으면
 //			FileUtils.deleteDirectory(imgDir); // 폴더삭제 메소드
 //		}
-//		ModelAndView mv = new ModelAndView("redirect:/freeboard/answerList.do");
+//		ModelAndView mv = new ModelAndView("redirect:/freeboard/answerList");
 //		return mv;
 //	}
 //
@@ -139,7 +139,7 @@ public class AnswerControllerImpl implements AnswerController{
 	
 	
 	// 댓글 리스트
-	@RequestMapping(value = "/freeboard/getAnswerListAjax.do", method = RequestMethod.GET)
+	@RequestMapping(value = "/freeboard/getAnswerListAjax", method = RequestMethod.GET)
 	@ResponseBody
 	public Map<String, Object> getAnswerList(@RequestParam("freeNo") int freeNo) throws Exception {
 	    Map<String, Object> map = new HashMap<>();
@@ -153,7 +153,7 @@ public class AnswerControllerImpl implements AnswerController{
 	}
 
     // 댓글 등록
-    @PostMapping("/freeboard/addAnswerAjax.do")
+    @PostMapping("/freeboard/addAnswerAjax")
     @ResponseBody
     public Map<String, Object> addAnswerAjax(@RequestParam(value="freeNo", required = false) Integer freeNo,
                                              @RequestParam(value="memberNo", required = false) Integer memberNo,
@@ -183,7 +183,7 @@ public class AnswerControllerImpl implements AnswerController{
     }
 
     // 댓글 삭제
-    @RequestMapping(value = "/freeboard/removeAnswerAjax.do", method = RequestMethod.POST)
+    @RequestMapping(value = "/freeboard/removeAnswerAjax", method = RequestMethod.POST)
     @ResponseBody
     public Map<String, Object> removeAnswerAjax(@RequestParam("fbanswerNo") int fbanswerNo, HttpSession session) {
         Map<String, Object> result = new HashMap<>();
@@ -234,3 +234,4 @@ public class AnswerControllerImpl implements AnswerController{
 	
 
 }
+

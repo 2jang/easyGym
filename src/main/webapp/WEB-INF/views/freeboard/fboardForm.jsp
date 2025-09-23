@@ -51,7 +51,7 @@
         uploadButton.addEventListener('click', function() {
             console.log('업로드 버튼 클릭됨');
             var form = document.getElementById('formId');
-            form.action = '/freeboard/addFreeboard.do';
+            form.action = '/freeboard/addFreeboard';
             form.method = 'post';
             form.enctype = 'multipart/form-data';
             form.submit();
@@ -66,3 +66,4 @@
 </script>
 <link href="/css/freeboard/form.css" rel="stylesheet" />
 <%@ include file="/WEB-INF/views/layout/footer.jsp"%>
+

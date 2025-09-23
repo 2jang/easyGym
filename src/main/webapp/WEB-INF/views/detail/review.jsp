@@ -75,20 +75,20 @@
                     <c:forEach var="page" begin="1" end="${endValue}" step="1" varStatus="num">
                         <!-- 이전 페이지 링크 -->
                         <c:if test="${section > 1 && page == 1}">
-                            <a href="/detail/reviewViewer.do?section=${section - 1}&pageNum=${currentPage}&detailNo=${reviewMap.detailNo}">prev</a>
+                            <a href="/detail/reviewViewer?section=${section - 1}&pageNum=${currentPage}&detailNo=${reviewMap.detailNo}">prev</a>
                         </c:if>
                         <!-- 현재 페이지 링크 -->
                         <c:choose>
                             <c:when test="${pageNum==page}">
-                                <a class="selPage" href="${contextPath}/detail/reviewViewer.do?section=${section}&pageNum=${page}&detailNo=${reviewMap.detailNo}" >${(section-1)*10+page}</a>
+                                <a class="selPage" href="${contextPath}/detail/reviewViewer?section=${section}&pageNum=${page}&detailNo=${reviewMap.detailNo}" >${(section-1)*10+page}</a>
                                 <c:set var="currentPage" value="${pageNum}" scope="application"/>
                             </c:when>
                             <c:otherwise>
-                                <a class="noLine" href="${contextPath}/detail/reviewViewer.do?section=${section}&pageNum=${page}&detailNo=${reviewMap.detailNo}">${(section-1)*10+page}</a>
+                                <a class="noLine" href="${contextPath}/detail/reviewViewer?section=${section}&pageNum=${page}&detailNo=${reviewMap.detailNo}">${(section-1)*10+page}</a>
                             </c:otherwise>
                         </c:choose>
                         <c:if test="${page== 10 and tReview/50>section}">
-                            <a href="${contextPage}/detail/reviewViewer.do?section=${section + 1}&pageNum=1&detailNo=${reviewMap.detailNo}">next</a>
+                            <a href="${contextPage}/detail/reviewViewer?section=${section + 1}&pageNum=1&detailNo=${reviewMap.detailNo}">next</a>
                         </c:if>
                     </c:forEach>
                 </c:when>
@@ -100,11 +100,11 @@
                     <c:forEach var="page" begin="1" end="${tReview/10+1}" step="1">
                         <c:choose>
                             <c:when test="{page == pageNum}">
-                                <a class= "selPage" href="${contextPath}/detail/reviewViewer.do?section=${section}&pageNum=${page}&detailNo=${reviewMap.detailNo}">${page}</a>
+                                <a class= "selPage" href="${contextPath}/detail/reviewViewer?section=${section}&pageNum=${page}&detailNo=${reviewMap.detailNo}">${page}</a>
                                 <c:set var="currentPage" value="${page}"/>
                             </c:when>
                             <c:otherwise>
-                                <a class= "noLine" href="${contextPath}/detail/reviewViewer.do?section=${section}&pageNum=${page}&detailNo=${reviewMap.detailNo}">${page}</a>
+                                <a class= "noLine" href="${contextPath}/detail/reviewViewer?section=${section}&pageNum=${page}&detailNo=${reviewMap.detailNo}">${page}</a>
                             </c:otherwise>
                         </c:choose>
                     </c:forEach>
