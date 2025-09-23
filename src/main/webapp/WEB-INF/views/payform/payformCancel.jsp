@@ -10,7 +10,7 @@
 <head>
     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
     <title>이지짐 회원권 취소</title>
-    <script src="${contextPath}/JS/payform/payformCancel.js"></script>
+    <script src="${contextPath}/js/payform/payformCancel.js"></script>
     <script>
         let diffDays;
 
@@ -67,7 +67,7 @@
                         alert("환불 진행을 취소했습니다.");
                 } else {
                     alert("환불 가능 기간이 경과하여 환불이 불가능합니다.");
-                    window.location.replace("${contextPath}/main");
+                    window.location.replace("${contextPath}/");
                 }
             }
         }
@@ -139,7 +139,7 @@
                 fpElement.innerText = fp.toLocaleString();
             </script>
         </div>
-        <button type="button" id="cancelButton" onclick="CheckRefund(${payform.payformDate})">확인</button>
+        <button type="button" id="cancelButton" onclick="CheckRefund()">확인</button>
     </form>
 </div>
 

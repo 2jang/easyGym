@@ -10,7 +10,7 @@
 <head>
     <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
     <title>이지짐 회원권 구매</title>
-    <script src="${contextPath}/JS/payform/payformForm.js"></script>
+    <script src="${contextPath}/js/payform/payformForm.js"></script>
     <script>
         (function() {
             if (!sessionStorage.getItem('pageReloaded')) {

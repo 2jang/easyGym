@@ -3,6 +3,7 @@ package com.isix.easyGym.mypage.controller;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Collections;
 
 import com.isix.easyGym.payform.dto.PayformDTO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -56,24 +57,31 @@ public class MypageControllerImpl implements MypageController {
 	}
 
 	//이용중인 상품 목록 가져오기 / 찜 목록 가져오기
-	@Override
-	@ResponseBody
-	@RequestMapping(value = "/mypage/mypageMain", method = RequestMethod.POST)
-	public Map<String, Object> mypageData(HttpServletRequest request, HttpServletResponse response) throws Exception {
-		HttpSession session = request.getSession(false);
-		MemberDTO memberDTO = (MemberDTO) session.getAttribute("member");
-		Map<String, Object> result = new HashMap<>();
+    @Override
+    @ResponseBody
+    @RequestMapping(value = "/mypage/mypageMain", method = RequestMethod.POST)
+    public Map<String, Object> mypageData(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        HttpSession session = request.getSession(false);
+        MemberDTO memberDTO = (session != null) ? (MemberDTO) session.getAttribute("member") : null;
+        Map<String, Object> result = new HashMap<>();
 
-		//이용 중인 상품 목록 가져오기
-		List payformList = mypageService.getPayformNo(memberDTO.getMemberNo());
-		result.put("payformList", payformList);
-		
-		//찜 목록 가져오기
-		List<DetailDTO> dibsList = mypageService.detailDibsList(memberDTO.getMemberNo());
-		result.put("dibsList", dibsList);
+        // Not logged in: return empty lists as JSON to avoid HTML error pages and parsing issues on the client
+        if (session == null || memberDTO == null) {
+            result.put("payformList", Collections.emptyList());
+            result.put("dibsList", Collections.emptyList());
+            return result;
+        }
 
-		return result;
-	}
+        //이용 중인 상품 목록 가져오기
+        List payformList = mypageService.getPayformNo(memberDTO.getMemberNo());
+        result.put("payformList", payformList);
+        
+        //찜 목록 가져오기
+        List<DetailDTO> dibsList = mypageService.detailDibsList(memberDTO.getMemberNo());
+        result.put("dibsList", dibsList);
+
+        return result;
+    }
 
 	//찜 취소
 	@Override
