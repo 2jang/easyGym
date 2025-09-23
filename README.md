@@ -90,20 +90,20 @@ easyGym/
 
 ## 🔄 API 엔드포인트
 
--   `GET /main.do`: 메인 페이지
--   `GET /member/loginForm.do`: 일반 회원 로그인 폼
--   `POST /member/login.do`: 일반 회원 로그인 처리
--   `GET /member/operLoginForm.do`: 사업자 회원 로그인 폼
--   `POST /member/operLogin.do`: 사업자 회원 로그인 처리
--   `GET /detail/registration.do`: (사업자) 시설 등록 폼
--   `POST /detail/signUpForm.do`: (사업자) 시설 등록 처리
--   `GET /admin/memberList.do`: (관리자) 회원 목록 조회
--   `GET /detail/search.do`: 시설 검색 결과 페이지
--   `GET /detail/detail.do?detailNo={시설번호}`: 시설 상세 정보 페이지
--   `POST /payform/payformProcess.do`: 결제 처리
--   `GET /freeboard/fboardList.do`: 자유게시판 목록
--   `GET /mypage/mypageMain.do`: 마이페이지
--   `GET /notice/noticeList.do`: 공지사항 목록
+-   `GET /main`: 메인 페이지
+-   `GET /member/loginForm`: 일반 회원 로그인 폼
+-   `POST /member/login`: 일반 회원 로그인 처리
+-   `GET /member/operLoginForm`: 사업자 회원 로그인 폼
+-   `POST /member/operLogin`: 사업자 회원 로그인 처리
+-   `GET /detail/registration`: (사업자) 시설 등록 폼
+-   `POST /detail/signUpForm`: (사업자) 시설 등록 처리
+-   `GET /admin/memberList`: (관리자) 회원 목록 조회
+-   `GET /detail/search`: 시설 검색 결과 페이지
+-   `GET /detail/detail?detailNo={시설번호}`: 시설 상세 정보 페이지
+-   `POST /payform/payformProcess`: 결제 처리
+-   `GET /freeboard/fboardList`: 자유게시판 목록
+-   `GET /mypage/mypageMain`: 마이페이지
+-   `GET /notice/noticeList`: 공지사항 목록
 
 ## 📱 클라이언트 연동 (JSP 기반)
 

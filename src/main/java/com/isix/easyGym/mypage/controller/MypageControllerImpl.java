@@ -164,7 +164,7 @@ public class MypageControllerImpl implements MypageController {
 	    System.out.println(memberDTO.getMemberEmail() + " 변경");
 	    System.out.println(memberDTO.getMemberPhone() + " 변경");
 
-	    // 성공적으로 업데이트된 후 mypageMain.do로 리다이렉트
+	    // 성공적으로 업데이트된 후 mypageMain으로 리다이렉트
 	    ModelAndView mav = new ModelAndView("redirect:/mypage/mypageMain");
 	    return mav;
 	}
