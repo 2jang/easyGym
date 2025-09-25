@@ -42,6 +42,11 @@
 	margin-top: 5px;
 }
   </style>
+
+<!-- Cloudflare Web Analytics -->
+	  <script defer src='https://static.cloudflareinsights.com/beacon.min.js' 
+	  data-cf-beacon='{"token": "db79e5092ab04237b22f6965c7bae8a5"}'></script>
+<!-- End Cloudflare Web Analytics -->
 </head>
 <body class="index is-preload">
 	<div id="page-wrapper">
